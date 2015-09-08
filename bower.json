@@ -1,0 +1,24 @@
+{
+  "name": "game_set_match",
+  "version": "0.0.1",
+  "homepage": "https://github.com/lekova/game_set_match",
+  "authors": [
+    "lekova <lina.lekova@gmail.com>"
+  ],
+  "description": "personal tennis tracking app",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "handlebars": "~3.0.3",
+    "simpleStorage": "~0.1.3",
+    "angular": "1.4",
+    "angular-route": "~1.4.1"
+  }
+}
