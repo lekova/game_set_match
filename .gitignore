@@ -1,0 +1,9 @@
+node_modules/
+bower_components/
+.env
+.log
+.idea
+.DS_Store
+tmp
+!.gitkeep
+
