@@ -5,3 +5,10 @@ slimScroll is a small jQuery plugin that transforms any div into a scrollable ar
 
 [Fullcalendar] (http://fullcalendar.io/)
  A JavaScript event calendar. Customizable and open source.
+
+
+Similar Tennis App
+[Tennis-tracker] (http://tennis-tracker.net/register)
+
+Tennis tips
+[Learn to Play tennis] (http://www.tennistips.org/how-to-play-tennis.html)
