@@ -6,7 +6,7 @@
     <title>Game Set Match Calendar</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="icon" href="img/tennis-ball.ico">
+    <link rel="icon" href="app/image/tennis-ball.ico">
 
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -18,8 +18,8 @@
     <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.min.css">
     <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.print.css" media="print">
     <!-- Theme style -->
-    <link rel="stylesheet" href="assets/styles/AdminLTE.min.css">
-    <link rel="stylesheet" href="assets/styles/skin-green.min.css">
+    <link rel="stylesheet" href="app/styles/AdminLTE.min.css">
+    <link rel="stylesheet" href="app/styles/skin-green.min.css">
   </head>
   <body class="hold-transition skin-green sidebar-mini">
     <div class="wrapper">
@@ -60,7 +60,7 @@
                         <a href="#">
                           <div class="pull-left">
                             <!-- User Image -->
-                            <img src="img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            <img src="app/image/user2-160x160.jpg" class="img-circle" alt="User Image">
                           </div>
                           <!-- Message title and timestamp -->
                           <h4>
@@ -139,14 +139,14 @@
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <!-- The user image in the navbar-->
-                  <img src="img/no-image-user.png" class="user-image" alt="User Image">
+                  <img src="app/image/no-image-user.png" class="user-image" alt="User Image">
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
                   <span class="hidden-xs">Lina Lekova</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
-                    <img src="img/no-image-user.png" class="img-circle" alt="User Image">
+                    <img src="app/image/no-image-user.png" class="img-circle" alt="User Image">
                     <p>
                       Lina Lekova - Web Developer
                       <small>Member since Nov. 2012</small>
@@ -194,7 +194,7 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="img/no-image-user.png" class="img-circle" alt="User Image">
+              <img src="app/image/no-image-user.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
               <p>Lina Lekova</p>
@@ -322,10 +322,12 @@
       </div><!-- /.content-wrapper -->
 
       <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-          See you on court
-        </div>
-        <strong>Copyright &copy; 2015 <a href="http://linalekova.com">Lina Lekova</a>.</strong> All rights reserved.
+        <div class="container">
+          <div class="pull-right hidden-xs">
+            See you on court
+          </div>
+          <strong>Copyright &copy; 2015 <a class="app-link" href="http://linalekova.com">Game Set Match App</a>.</strong>
+        </div><!-- /.container -->
       </footer>
 
       <!-- Control Sidebar -->
@@ -496,7 +498,7 @@
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.4 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="app/scripts/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
@@ -505,7 +507,7 @@
     <script src="node_modules/jquery-slimscroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
     <script src="node_modules/fastclick/fastclick.min.js"></script>
-    <script src="assets/scripts/app.min.js"></script>
+    <script src="app/scripts/app.min.js"></script>
     <!-- fullCalendar 2.2.5 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
     <script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
