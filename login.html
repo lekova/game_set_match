@@ -16,21 +16,10 @@
     <link rel="stylesheet" href="app/styles/app.min.css">
     <link rel="stylesheet" href="app/styles/skin-green.min.css">
   </head>
-  <body class="hold-transition skin-green sidebar-mini">
+  <body class="hold-transition skin-green layout-top-nav">
     <div class="wrapper">
 
-      <!-- Main Header -->
       <header class="main-header">
-
-        <!-- Logo -->
-        <a href="starter.html" class="logo">
-          <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>G</b>SM</span>
-          <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg">GameSet<b>Match</b></span>
-        </a>
-
-        <!-- Header Navbar -->
         <nav class="navbar navbar-static-top" role="navigation">
           <div class="navbar-header">
             <!-- Logo -->
@@ -67,61 +56,8 @@
         </nav>
       </header>
 
-      <!-- Left side column. contains the logo and sidebar -->
-      <aside class="main-sidebar">
-
-        <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
-
-          <!-- Sidebar user panel (optional) -->
-          <div class="user-panel">
-            <div class="pull-left image">
-              <img src="app/image/no-image-user.png" class="img-circle" alt="User Image">
-            </div>
-            <div class="pull-left info">
-              <p>Lina Lekova</p>
-              <!-- Status -->
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-            </div>
-          </div>
-
-          <!-- search form (Optional) -->
-          <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-              <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
-              </span>
-            </div>
-          </form>
-          <!-- /.search form -->
-
-          <!-- Sidebar Menu -->
-          <ul class="sidebar-menu">
-            <li class="header">HEADER</li>
-            <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-            <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-            <li class="treeview">
-              <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a href="#">Link in level 2</a></li>
-                <li><a href="#">Link in level 2</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="calendar.html">
-                <i class="fa fa-calendar"></i> <span>Calendar</span>
-                <small class="label pull-right bg-orange">3</small>
-              </a>
-            </li>
-          </ul><!-- /.sidebar-menu -->
-        </section>
-        <!-- /.sidebar -->
-      </aside>
-
       <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
+      <div class="content-wrapper" style="margin-legt:0px;">
         <!-- Content Header (Page header) -->
         <!-- <section class="content-header">
           <h1>
@@ -137,8 +73,8 @@
         <!-- Main content -->
         <section class="content">
           <div class="row">
-            <!-- <div class="col-md-3"></div> -->
-            <div class="col-md-6">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
               <!-- Horizontal Form -->
               <div class="box box-success">
                 <div class="box-header with-border">
@@ -178,93 +114,25 @@
 
               <div class="alert alert-danger alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-ban"></i> Alert!</h4>
-                Danger alert preview. This alert is dismissable. A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
+                <h4><i class="icon fa fa-ban"></i> The email address or password is incorrect!</h4>
               </div>
               <div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4>  <i class="icon fa fa-check"></i> Alert!</h4>
-                Success alert preview. This alert is dismissable.
+                <h4>  <i class="icon fa fa-check"></i> Login Successful!</h4>
               </div>
             </div><!--/.col (right) -->
-            <!-- <div class="col-md-3"></div> -->
+            <div class="col-md-4"></div>
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
 
       <footer class="main-footer">
-        <div class="container">
           <div class="pull-right hidden-xs">
             See you on court
           </div>
           <strong>Copyright &copy; 2015 <a style="color:#00A65A" class="app-link" href="http://linalekova.com">Game Set Match App</a>.</strong>
-        </div><!-- /.container -->
       </footer>
-
-      <!-- Control Sidebar -->
-      <aside class="control-sidebar control-sidebar-dark">
-        <!-- Create the tabs -->
-        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-          <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-          <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <!-- Home tab content -->
-          <div class="tab-pane active" id="control-sidebar-home-tab">
-            <h3 class="control-sidebar-heading">Recent Activity</h3>
-            <ul class="control-sidebar-menu">
-              <li>
-                <a href="javascript::;">
-                  <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-                  <div class="menu-info">
-                    <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-                    <p>Will be 23 on April 24th</p>
-                  </div>
-                </a>
-              </li>
-            </ul><!-- /.control-sidebar-menu -->
-
-            <h3 class="control-sidebar-heading">Tasks Progress</h3>
-            <ul class="control-sidebar-menu">
-              <li>
-                <a href="javascript::;">
-                  <h4 class="control-sidebar-subheading">
-                    Custom Template Design
-                    <span class="label label-warning pull-right">70%</span>
-                  </h4>
-                  <div class="progress progress-xxs">
-                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                  </div>
-                </a>
-              </li>
-            </ul><!-- /.control-sidebar-menu -->
-
-          </div><!-- /.tab-pane -->
-          <!-- Stats tab content -->
-          <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
-          <!-- Settings tab content -->
-          <div class="tab-pane" id="control-sidebar-settings-tab">
-            <form method="post">
-              <h3 class="control-sidebar-heading">General Settings</h3>
-              <div class="form-group">
-                <label class="control-sidebar-subheading">
-                  Report panel usage
-                  <input type="checkbox" class="pull-right" checked>
-                </label>
-                <p>
-                  Some information about this general settings option
-                </p>
-              </div><!-- /.form-group -->
-            </form>
-          </div><!-- /.tab-pane -->
-        </div>
-      </aside><!-- /.control-sidebar -->
-      <!-- Add the sidebar's background. This div must be placed
-           immediately after the control sidebar -->
-      <div class="control-sidebar-bg"></div>
     </div><!-- ./wrapper -->
-
     <!-- REQUIRED JS SCRIPTS -->
     <script src="app/scripts/jQuery-2.1.4.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
