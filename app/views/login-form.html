@@ -1,0 +1,57 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" style="margin-legt:0px;">
+  <!-- Main content -->
+  <section class="content">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="box box-success">
+          <div class="box-header with-border">
+            <h3 class="box-title">Login</h3>
+          </div><!-- /.box-header -->
+          <!-- form start -->
+          <form class="form-horizontal">
+            <div class="box-body">
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="AuthCtrl.credentials.email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-model="AuthCtrl.credentials.password" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox"> Remember me
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+              <button type="submit" class="btn btn-default">Cancel</button>
+              <button type="submit" class="btn btn-success pull-right" ng-click="AuthCtrl.login(AuthCtrl.credentials)">Sign in</button>
+            </div><!-- /.box-footer -->
+          </form>
+        </div><!-- /.box -->
+
+        <div class="alert alert-danger alert-dismissible" ng-show="AuthCtrl.serverErrors">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true" ng-click="AuthCtrl.closeWarningMessage()">&times;</button>
+          <h4><i class="icon fa fa-ban"></i> The email address or password is incorrect!</h4>
+        </div>
+        <div class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h4><i class="icon fa fa-check"></i> Login Successful!</h4>
+        </div>
+      </div><!--/.col (right) -->
+      <div class="col-md-4"></div>
+    </div>   <!-- /.row -->
+  </section><!-- /.content -->
+</div><!-- /.content-wrapper -->
+<div class="control-sidebar-bg"></div>
