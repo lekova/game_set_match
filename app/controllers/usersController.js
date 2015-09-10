@@ -1,7 +1,8 @@
 'use strict';
 
 (function(){
-    angular.module('MainController').controller('UserCtrl', UserCtrl);
+
+    angular.module('gameSetMatch').controller('UserCtrl', UserCtrl);
 
     UserCtrl.$inject = ['$routeParams','UserFactory', 'AuthFactory'];
 
@@ -12,11 +13,15 @@
         vm.user = UserFactory.user;
         vm.search = UserFactory.search;
         vm.editMode = false;
+        vm.credentials = {};
+        vm.userProciencyType = {};
+        vm.currentUser = AuthFactory.currentUser;
 
 
-        vm.createUser = function(user) {
-            UserFactory.createUser(user).then(function() {
-                resetForm();
+        vm.createUser = function() {
+            UserFactory.createUser({credentials: vm.user, proficiency: vm.userProficiencyType}).then(function(response) {
+                vm.credentials = {};
+                $location.path('');
             }, function(response) {
                 vm.serverErrors = true;
             });
@@ -75,6 +80,10 @@
             UserFactory.removeUser(user);
         };
 
+        vm.findUsers = function() {
+            UserFactory.findUsers();
+        }
+
         function resetForm() {
             vm.user = {};
             vm.serverErrors = false;
@@ -84,7 +93,6 @@
         vm.cancel = function() {
             resetForm();
         };
-
     };
 
 })();
