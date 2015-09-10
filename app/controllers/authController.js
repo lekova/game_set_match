@@ -2,7 +2,8 @@
 
 (function(){
 
-  angular.module('MainController').controller('AuthCtrl', AuthCtrl);
+  angular.module('gameSetMatch').controller('AuthCtrl', AuthCtrl);
+
   AuthCtrl.$inject = ['$location', 'AuthFactory', '$scope'];
 
   function AuthCtrl($location, AuthFactory, $scope){
