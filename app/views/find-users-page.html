@@ -1,0 +1,28 @@
+
+<div>
+<h3 style="color:white;"> {{UserCtrl.currentUser.addresses}}</h3>
+  <button type="submit" class="btn btn-default" ng-click="UserCtrl.findUsers()">Show users</button>
+</div>
+
+<select id="car-model" ng-model="UserCtrl.currentUser.address" ng-options="obj.city as obj.city for obj in UserCtrl.currentUser.addresses" >
+  <option value="">Please choose a City</option>
+</select>
+<br/>
+<br/>
+<br/>
+
+<div style="color:white;">
+  {{UserCtrl.users}}
+</div>
+
+
+<div style="color:white;">
+  <tr >
+    <th>User id</th>
+    <th>User Name</th>
+  </tr>
+  <tr ng-repeat="user in UserCtrl.users">
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+  </tr>
+</div>
