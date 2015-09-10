@@ -25,7 +25,7 @@
         controllerAs: 'UserCtrl'
       })
       .when('/users/:userId', {
-        templateUrl: 'app/views/user-shows.html'
+        templateUrl: 'app/views/profile-page.html'
       })
       .when('/addresses', {
         templateUrl: 'app/views/addresses.html'
