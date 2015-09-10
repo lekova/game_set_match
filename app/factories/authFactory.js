@@ -2,9 +2,7 @@
 
 (function(){
 
-  angular
-  .module('gameSetMatch')
-  .factory('AuthFactory', AuthFactory);
+  angular.module('gameSetMatch').factory('AuthFactory', AuthFactory);
 
   AuthFactory.$inject = ['$http', '$location', '$window', 'appSettings'];
 
@@ -14,23 +12,23 @@
     function getProfile() {
       return $http.get(appSettings.apiUrl + '/refresh-navbar')
         .then(function(response) {
-          angular.copy(response.data.user, currentUser);
-
+          console.log("=======response data:", response);
+          angular.copy(response.data, currentUser);
       });
     };
 
     var login = function(credentials){
       return $http.post(appSettings.apiUrl + '/login', credentials).success(function(response){
-        angular.copy(response.user, currentUser);
         simpleStorage.set('gl-user-token', response.token);
         $http.defaults.headers.common.Authorization = 'Token token=' + response.token;
+        getProfile();
         $location.path('');
       });
     };
 
     var logOut = function(){
       simpleStorage.flush();
-      $location.path('/try-glitchly');
+      $location.path('/home');
     };
 
      var isLoggedIn = function(){
