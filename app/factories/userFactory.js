@@ -2,9 +2,7 @@
 
 (function(){
 
-  angular
-    .module('gameSetMatch')
-    .factory('UserFactory', UserFactory);
+  angular.module('gameSetMatch').factory('UserFactory', UserFactory);
 
   UserFactory.$inject = ['$http', '$window', '$location', 'appSettings'];
 
@@ -86,13 +84,20 @@
     };
 
     function createUser(user) {
-      var params = {
-          auth: user
-      };
-      return $http.post(appSettings.apiUrl + '/register', params).success(function(response) {
+      return $http.post(appSettings.apiUrl + '/signup', user).success(function(response) {
         simpleStorage.set('gl-user-token', response.token, {TTL: 86400});
         $http.defaults.headers.common.Authorization = 'Token token=' + response.token;
         $location.path('/');
+      });
+    };
+
+    function findUsers() {
+      return $http.get(appSettings.apiUrl + '/users').success(function(response) {
+        debugger;
+        simpleStorage.set('gl-user-token', response.token, {TTL: 86400});
+        console.log("====== find users response:", response);
+        $http.defaults.headers.common.Authorization = 'Token token=' + response.token;
+        angular.copy(response, users);
       });
     };
 
@@ -114,7 +119,8 @@
       followUser: followUser,
       unfollowUser: unfollowUser,
       updateUser: updateUser,
-      createUser: createUser
+      createUser: createUser,
+      findUsers: findUsers
     };
   };
 
