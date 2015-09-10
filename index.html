@@ -1,79 +1,74 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Game Set Match</title>
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="icon" href="img/tennis-ball.ico">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Game Set Match</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="icon" href="app/image/tennis-ball.ico">
 
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="app/styles/app.min.css">
-    <link rel="stylesheet" href="app/styles/skin-green.min.css">
-  </head>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="app/styles/app.min.css">
+  <link rel="stylesheet" href="app/styles/skin-green.min.css">
+</head>
 
-  <body class="hold-transition skin-green layout-top-nav">
+<body ng-app="gameSetMatch" class="hold-transition skin-green layout-top-nav">
 
-    <div class="wrapper">
-      <header class="main-header">
-        <nav class="navbar navbar-static-top" role="navigation">
-          <div class="navbar-header">
-            <!-- Logo -->
-            <a href="starter.html" class="logo">
-              <!-- mini logo for sidebar mini 50x50 pixels -->
-              <span class="logo-mini"><b>G</b>SM</span>
-              <!-- logo for regular state and mobile devices -->
-              <span class="logo-lg">GameSet<b>Match</b></span>
-            </a>
-          </div>
-          <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
-          </div>
-          <!-- Navbar Right Menu -->
-          <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-              <!-- Tasks Menu -->
-              <li class="dropdown tasks-menu">
-              </li>
-              <!-- User Account Menu -->
-              <li class="dropdown user user-menu">
-                <!-- Menu Toggle Button -->
-                <a class="dropdown-toggle" data-toggle="dropdown">
-                  <span class="hidden-xs">Login </span>
-                </a>
-              </li>
-              <li class="dropdown user user-menu">
-                <!-- Menu Toggle Button -->
-                <a class="dropdown-toggle" data-toggle="dropdown">
-                  <span class="hidden-xs">Register</span>
-                </a>
-              </li>
-            </ul>
-          </div><!-- /.navbar-custom-menu -->
-        </nav>
-      </header>
-      <!-- Full Width Column -->
-      <div class="content-wrapper" style="background-color: black;">
-        <div class="container">
-          <div><img src="app/image/zepp-swing.jpg"/></div>
-        </div>
-      </div>
+  <div class="wrapper">
+    <gl-nav-bar></gl-nav-bar>
+<!--     <gl-side-bar gn-if="SidebarCtrl.isLoggedIn()"></gl-side-bar>-->
+    <ng-view></ng-view>
+  </div><!-- ./wrapper -->
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      See you on court
+    </div>
+    <strong>Copyright &copy; 2015 <a style="color:#00A65A;" class="app-link" href="http://linalekova.com">Game Set Match App</a>.</strong>
+  </footer>
+  <!-- jQuery 2.1.4 -->
+  <script src="app/scripts/jQuery-2.1.4.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="app/scripts/app.min.js"></script>
 
-      <footer class="main-footer">
-          <div class="pull-right hidden-xs">
-            See you on court
-          </div>
-          <strong>Copyright &copy; 2015 <a style="color:#00A65A;" class="app-link" href="http://linalekova.com">Game Set Match App</a>.</strong>
-      </footer>
-    </div><!-- ./wrapper -->
+  <!-- bower components -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/simpleStorage/simpleStorage.js"></script>
 
-    <!-- jQuery 2.1.4 -->
-    <script src="app/scripts/jQuery-2.1.4.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="app/scripts/app.min.js"></script>
-  </body>
+  <!-- root js script -->
+  <script src="app/app.js"></script>
+  <script src="app/routes.js"></script>
+
+  <!-- services -->
+  <script src="app/services/four-oh-one-interceptor.js"></script>
+  <script src="app/services/appSettings.js"></script>
+
+  <!-- factories -->
+  <script src="app/factories/authFactory.js"></script>
+  <script src="app/factories/userFactory.js"></script>
+
+  <!--controllers -->
+  <script src="app/controllers/usersController.js"></script>
+  <script src="app/controllers/navbarController.js"></script>
+  <script src="app/controllers/authController.js"></script>
+  <script src="app/controllers/dashboardController.js"></script>
+
+
+  <!-- directives -->
+  <script src="app/directives/login-directive.js"></script>
+  <script src="app/directives/nav-bar-directive.js"></script>
+  <script src="app/directives/side-bar-directive.js"></script>
+  <script src="app/directives/dashboard-directive.js"></script>
+  <script src="app/directives/profile-directive.js"></script>
+  <script src="app/directives/signup-directive.js"></script>
+  <script src="app/directives/user-list-directive.js"></script>
+  <script src="app/directives/user-show-directive.js"></script>
+  <script src="app/directives/find-users-directive.js"></script>
+
+</body>
 </html>
