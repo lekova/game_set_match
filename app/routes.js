@@ -4,32 +4,40 @@
 
   angular.module('gameSetMatch').config(['$routeProvider', function($routeProvider){
     $routeProvider
+      .when('/home', {
+        templateUrl: 'app/views/home.html'
+      })
       .when('/', {
-        templateUrl: 'views/index.html'
+        templateUrl: 'app/views/dashboard-page.html'
       })
       .when('/login', {
-        templateUrl: 'views/login.html'
+        templateUrl: 'app/views/login-page.html'
       })
-      .when('/register', {
-        templateUrl: 'views/register.html'
+      .when('/signup', {
+        templateUrl: 'app/views/signup-page.html'
+      })
+      .when('/profile', {
+        templateUrl: 'app/views/profile-page.html'
       })
       .when('/users', {
-        templateUrl: 'views/users-list.html'
+        templateUrl: 'app/views/find-users-page.html',
+        controller: 'UserCtrl',
+        controllerAs: 'UserCtrl'
       })
       .when('/users/:userId', {
-        templateUrl: 'views/user-shows.html'
+        templateUrl: 'app/views/user-shows.html'
       })
       .when('/addresses', {
-        templateUrl: 'views/addresses.html'
+        templateUrl: 'app/views/addresses.html'
       })
       .when('/addresses/:id', {
-        templateUrl: 'views/address-view.html'
+        templateUrl: 'app/views/address-view.html'
       })
       .when('/games', {
-        templateUrl: 'views/games.html'
+        templateUrl: 'app/views/games.html'
       })
       .when('/games/:id', {
-        templateUrl: 'views/game-view.html'
+        templateUrl: 'app/views/game-view.html'
       })
       .otherwise({
         redirectTo: '/'
