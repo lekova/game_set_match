@@ -16,9 +16,6 @@
       .when('/signup', {
         templateUrl: 'app/views/signup-page.html'
       })
-      .when('/profile', {
-        templateUrl: 'app/views/profile-page.html'
-      })
       .when('/users', {
         templateUrl: 'app/views/find-users-page.html',
         controller: 'UserCtrl',
@@ -28,7 +25,9 @@
         templateUrl: 'app/views/profile-page.html'
       })
       .when('/addresses', {
-        templateUrl: 'app/views/addresses.html'
+        templateUrl: 'app/views/addresses-page.html',
+        controller: 'UserCtrl',
+        controllerAs: 'UserCtrl'
       })
       .when('/addresses/:id', {
         templateUrl: 'app/views/address-view.html'
