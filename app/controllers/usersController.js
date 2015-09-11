@@ -81,7 +81,7 @@
         };
 
         vm.findUsers = function() {
-            UserFactory.findUsers();
+            UserFactory.findUsers(vm.address);
         }
 
         function resetForm() {
