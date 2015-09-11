@@ -91,12 +91,8 @@
       });
     };
 
-    function findUsers() {
-      return $http.get(appSettings.apiUrl + '/users').success(function(response) {
-        debugger;
-        simpleStorage.set('gl-user-token', response.token, {TTL: 86400});
-        console.log("====== find users response:", response);
-        $http.defaults.headers.common.Authorization = 'Token token=' + response.token;
+    function findUsers(city) {
+      return $http.get(appSettings.apiUrl + '/users?city=' + city).success(function(response) {
         angular.copy(response, users);
       });
     };
