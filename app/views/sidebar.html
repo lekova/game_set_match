@@ -16,12 +16,10 @@
       </div>
     </div>
     <!-- Sidebar Menu -->
-    <ul class="sidebar-menu">
+    <ul class="sidebar-menu" ng-model="UserCtrl.currentUser">
       <li class="header">Options</li>
-      <!-- Optionally, you can add icons to the links -->
-      <li><a href="#/users"><i class="fa fa-search"></i> <span>Find a player</span></a></li>
-
-      <li class="active"><a href="#/profile"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+      <li><a href="#/users/"><i class="fa fa-search"></i> <span>Find a player</span></a></li>
+      <li class="active"><a href="#/users/{{UserCtrl.currentUser.id}}"><i class="fa fa-user"></i> <span>Profile</span></a></li>
       <li><a href="#/addresses"><i class="fa fa-home"></i> <span>Addresses</span></a></li>
       <li><a href="#/games"><i class="fa fa-gamepad"></i> <span>Games</span></a></li>
       <li>
