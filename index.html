@@ -21,15 +21,12 @@
 
   <div class="wrapper">
     <gl-nav-bar></gl-nav-bar>
-<!--     <gl-side-bar gn-if="SidebarCtrl.isLoggedIn()"></gl-side-bar>-->
-    <ng-view></ng-view>
-  </div><!-- ./wrapper -->
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      See you on court
+    <div ng-if="NavbarCtrl.isLoggedIn()">
+      <gl-side-bar></gl-side-bar>
     </div>
-    <strong>Copyright &copy; 2015 <a style="color:#00A65A;" class="app-link" href="http://linalekova.com">Game Set Match App</a>.</strong>
-  </footer>
+    <ng-view></ng-view>
+    <ng-footer></ng-footer>
+  </div><!-- ./wrapper -->
   <!-- jQuery 2.1.4 -->
   <script src="app/scripts/jQuery-2.1.4.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -39,6 +36,9 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/simpleStorage/simpleStorage.js"></script>
+  <script src="bower_components/ngmap/build/scripts/ng-map.min.js"></script>
+
+  <script src="//maps.google.com/maps/api/js"></script>
 
   <!-- root js script -->
   <script src="app/app.js"></script>
@@ -58,8 +58,8 @@
   <script src="app/controllers/authController.js"></script>
   <script src="app/controllers/dashboardController.js"></script>
 
-
   <!-- directives -->
+  <script src="app/directives/footer-directive.js"></script>
   <script src="app/directives/login-directive.js"></script>
   <script src="app/directives/nav-bar-directive.js"></script>
   <script src="app/directives/side-bar-directive.js"></script>
