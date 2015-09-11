@@ -4,7 +4,7 @@ angular.module('gameSetMatch', ['ngRoute', 'ngMap'])
   // .config(function ($httpProvider) {
   //   $httpProvider.interceptors.push('fourOhOneInterceptor');
   // })
-  .run(function($rootScope, $http, $window, $location, $routeParams, AuthFactory, UserFactory) {
+  .run(function($rootScope, $http, $window, $location, $routeParams, AuthFactory, UserFactory, GameFactory) {
 
     if(AuthFactory.isLoggedIn()){
       var data = simpleStorage.get('gl-user-token');
