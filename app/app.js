@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('gameSetMatch', ['ngRoute'])
+angular.module('gameSetMatch', ['ngRoute', 'ngMap'])
   // .config(function ($httpProvider) {
   //   $httpProvider.interceptors.push('fourOhOneInterceptor');
   // })
