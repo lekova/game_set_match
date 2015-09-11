@@ -1,28 +1,67 @@
+<div style="margin-left: 230px;">
+  <div class="content-wrapper" style="height: 100vh;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Find a player
+        <small>Find players in a city</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#/dashboard.html"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li class="active">Find a player</li>
+      </ol>
+    </section>
 
-<div>
-<h3 style="color:white;"> {{UserCtrl.currentUser.addresses}}</h3>
-  <button type="submit" class="btn btn-default" ng-click="UserCtrl.findUsers()">Show users</button>
-</div>
+    <section class="content">
+      <div class="col-sm-6">
+        <div class="box box-default">
+          <div class="box-header with-border">
+            <h3 class="box-title">You can find players in your city</h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+            </div>
+          </div><!-- /.box-header -->
+          <div class="box-body">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Your cities</label>
+                  <select class="form-control select2" style="width: 100%;" id="city-model" ng-model="UserCtrl.address" ng-options="obj.city as obj.city for obj in UserCtrl.currentUser.addresses">
+                    <option value="">Choose a City</option>
+                  </select>
+                </div>
 
-<select id="car-model" ng-model="UserCtrl.currentUser.address" ng-options="obj.city as obj.city for obj in UserCtrl.currentUser.addresses" >
-  <option value="">Please choose a City</option>
-</select>
-<br/>
-<br/>
-<br/>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-default" ng-click="UserCtrl.findUsers()">Show Players</button>
+                </div>
 
-<div style="color:white;">
-  {{UserCtrl.users}}
-</div>
-
-
-<div style="color:white;">
-  <tr >
-    <th>User id</th>
-    <th>User Name</th>
-  </tr>
-  <tr ng-repeat="user in UserCtrl.users">
-    <td>{{ user.id }}</td>
-    <td>{{ user.name }}</td>
-  </tr>
+                <div class="form-group">
+                  <div class="box">
+                    <div class="box-header">
+                      <h3 class="box-title">Players in your area</h3>
+                    </div><!-- /.box-header -->
+                    <div class="box-body no-padding">
+                      <table class="table table-striped">
+                        <tr>
+                          <th>Player Name</th>
+                          <th>Level</th>
+                          <th style="width:40px">Message</th>
+                        </tr>
+                        <tr ng-repeat="user in UserCtrl.users">
+                          <td>{{user.name}}</td>
+                          <td>{{user.current_proficiency_type}}</td>
+                          <td><i class="fa fa-envelope-o"></i></td>
+                        </tr>
+                      </table>
+                    </div><!-- /.box-body -->
+                  </div>
+                </div>
+              </div><!-- /.col -->
+            </div><!-- /.row -->
+            </div><!-- /.box-body -->
+          </div><!-- /.box -->
+      </div>
+    </section>
+  </div>
 </div>
