@@ -9,6 +9,8 @@
     return {
       restrict: 'E',
       templateUrl: 'app/views/sidebar.html',
+      controller: 'UserCtrl',
+      controllerAs: 'UserCtrl',
       bindToController: true
     };
   };
