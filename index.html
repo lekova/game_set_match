@@ -15,6 +15,9 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="app/styles/app.min.css">
   <link rel="stylesheet" href="app/styles/skin-green.min.css">
+
+  <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.min.css">
+  <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.print.css" media="print">
 </head>
 
 <body ng-app="gameSetMatch" class="hold-transition skin-green layout-top-nav">
@@ -51,12 +54,16 @@
   <!-- factories -->
   <script src="app/factories/authFactory.js"></script>
   <script src="app/factories/userFactory.js"></script>
+  <script src="app/factories/gameFactory.js"></script>
+
 
   <!--controllers -->
   <script src="app/controllers/usersController.js"></script>
   <script src="app/controllers/navbarController.js"></script>
   <script src="app/controllers/authController.js"></script>
   <script src="app/controllers/dashboardController.js"></script>
+  <script src="app/controllers/gamesController.js"></script>
+
 
   <!-- directives -->
   <script src="app/directives/footer-directive.js"></script>
