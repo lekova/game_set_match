@@ -58,8 +58,6 @@
             reader.readAsDataURL($('#profile-preview')[0].files[0]);
         };
 
-
-
         vm.isCurrentUser = function(id){
             return (AuthFactory.currentUser.id === id);
         };
