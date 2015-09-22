@@ -84,7 +84,10 @@
 							</div>
 						</div>
 						<div class="box-body">
-							<div id="line-chart" style="height: 300px;"></div>
+							<canvas id="line" class="chart chart-line" chart-data="ChartsCtrl.data"
+								chart-labels="ChartsCtrl.labels" chart-legend="true" chart-series="ChartsCtrl.series"
+								chart-click="onClick" colours="ChartsCtrl.colours">
+							</canvas>
 						</div>
 						<!-- /.box-body-->
 					</div>
