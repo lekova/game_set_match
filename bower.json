@@ -17,7 +17,9 @@
   ],
   "dependencies": {
     "angular": "1.4",
+    "angular-chart.js": "~0.8.4",
     "angular-route": "~1.4.1",
+    "Chart.js": "~1.0.2",
     "fullcalendar": "~2.4.0",
     "handlebars": "~3.0.3",
     "ngmap": "~1.13.4",
