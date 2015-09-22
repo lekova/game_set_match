@@ -1,10 +1,10 @@
 'use strict';
 
-(function(){
+(function() {
 
-    angular.module('gameSetMatch').controller('UserCtrl', UserCtrl);
+		angular.module('gameSetMatch').controller('UserCtrl', UserCtrl);
 
-    UserCtrl.$inject = ['$routeParams','UserFactory', 'AuthFactory'];
+		UserCtrl.$inject = ['$routeParams','UserFactory', 'AuthFactory'];
 
     function UserCtrl($routeParams, UserFactory, AuthFactory) {
         var vm = this;
@@ -17,7 +17,6 @@
         vm.userProciencyType = {};
         vm.currentUser = AuthFactory.currentUser;
 
-
         vm.createUser = function() {
             UserFactory.createUser({credentials: vm.user, proficiency: vm.userProficiencyType}).then(function(response) {
                 vm.credentials = {};
@@ -27,7 +26,7 @@
             });
         };
 
-        vm.closeWarningMessage = function(){
+        vm.closeWarningMessage = function() {
             vm.serverErrors = !vm.serverErrors;
         };
 
@@ -35,46 +34,46 @@
             UserFactory.updateUser(user);
         };
 
-        vm.toggleEditMode = function(){
+        vm.toggleEditMode = function() {
             vm.user.avatar = '';
             vm.editMode = !vm.editMode;
         };
 
-        vm.showProfile = function(){
+        vm.showProfile = function() {
           UserFactory.getProfile();
         };
 
-        vm.followUser = function(id){
+        vm.followUser = function(id) {
             UserFactory.followUser(id);
         };
 
-        vm.renderPreview = function(){
+        vm.renderPreview = function() {
             var reader = new FileReader();
 
-            reader.onload = function (e) {
+            reader.onload = function(e) {
                 $('#profile').attr('src', e.target.result);
             };
 
             reader.readAsDataURL($('#profile-preview')[0].files[0]);
         };
 
-        vm.isCurrentUser = function(id){
+        vm.isCurrentUser = function(id) {
             return (AuthFactory.currentUser.id === id);
         };
 
-        vm.unfollowUser = function(id){
+        vm.unfollowUser = function(id) {
             UserFactory.unfollowUser(id);
         };
 
-        vm.showUser = function(){
+        vm.showUser = function() {
           UserFactory.getUser(userId);
         };
 
-        vm.searchUsers = function(){
+        vm.searchUsers = function() {
             UserFactory.getUsers(search);
         };
 
-        vm.removeUser = function(user){
+        vm.removeUser = function(user) {
             UserFactory.removeUser(user);
         };
 
@@ -86,7 +85,6 @@
             vm.user = {};
             vm.serverErrors = false;
         };
-
 
         vm.cancel = function() {
             resetForm();

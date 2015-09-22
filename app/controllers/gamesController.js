@@ -1,12 +1,12 @@
 'use strict';
 
-(function(){
+(function() {
 
   angular.module('gameSetMatch').controller('GamesCtrl', GamesCtrl);
 
   GamesCtrl.$inject = ['$location', 'GameFactory', 'AuthFactory', '$scope'];
 
-  function GamesCtrl($location, GameFactory, AuthFactory, $scope){
+  function GamesCtrl($location, GameFactory, AuthFactory, $scope) {
     var vm = this;
     vm.currentUser = AuthFactory.currentUser;
     vm.wonGames = GameFactory.wonGames;
