@@ -1,106 +1,120 @@
 <div style="margin-left: 230px;">
-  <div class="content-wrapper" style="height: 100vh;">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        My games
-        <small>View of past an upcoming games</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#/dashboard.html"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li class="active">My games</li>
-      </ol>
-    </section>
+	<div class="content-wrapper" style="height: 100vh;">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<h1>
+				My games
+				<small>View of past an upcoming games</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a href="#/dashboard.html"><i class="fa fa-dashboard"></i>Home</a></li>
+				<li class="active">My games</li>
+			</ol>
+		</section>
 
-    <section class="content">
+		<section class="content">
 
-      <div class="col-sm-6">
-        <div class="box box-default">
-          <div class="box-header with-border">
-            <h3 class="box-title">List of games I won</h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-            </div>
-          </div><!-- /.box-header -->
-          <div class="box-body">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <div class="box">
-                    <div class="box-header">
-                      <h3 class="box-title">Games info</h3>
-                    </div><!-- /.box-header -->
-                    <div class="box-body no-padding">
-                      <table class="table table-striped">
-                        <tr>
-                          <th style="width:100px">Date</th>
-                          <th>Place</th>
-                          <th>Against</th>
-                          <th>Score</th>
-                        <!--   <th>Comment</th> -->
-                        </tr>
-                        <tr ng-repeat="game in GamesCtrl.wonGames">
-                          <td>{{game.date}}</td>
-                          <td>{{game.place}}</td>
-                          <td>{{game.loser_name}}</td>
-                          <td>{{game.score}}</td>
-                        <!--  <td>{{game.comment}}</td> -->
-                        </tr>
-                      </table>
-                    </div><!-- /.box-body -->
-                  </div>
-                </div>
-              </div><!-- /.col -->
-            </div><!-- /.row -->
-            </div><!-- /.box-body -->
-          </div><!-- /.box -->
-      </div>
+			<div class="col-sm-6">
+				<div class="box box-default">
+					<div class="box-header with-border">
+						<h3 class="box-title">Won Games</h3>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+						</div>
+					</div>
+					<!-- /.box-header -->
+					<div class="box-body">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<div class="box">
+										<div class="box-header">
+											<h3 class="box-title">Games info</h3>
+										</div>
+										<!-- /.box-header -->
+										<div class="box-body no-padding">
+											<table class="table table-striped">
+												<tr>
+													<th style="width:100px">Date</th>
+													<th>Place</th>
+													<th>Against</th>
+													<th>Score</th>
+													<!--   <th>Comment</th> -->
+												</tr>
+												<tr ng-repeat="game in GamesCtrl.wonGames">
+													<td>{{game.date}}</td>
+													<td>{{game.place}}</td>
+													<td>{{game.loser_name}}</td>
+													<td>{{game.score}}</td>
+													<!--  <td>{{game.comment}}</td> -->
+												</tr>
+											</table>
+										</div>
+										<!-- /.box-body -->
+									</div>
+								</div>
+							</div>
+							<!-- /.col -->
+						</div>
+						<!-- /.row -->
+					</div>
+					<!-- /.box-body -->
+				</div>
+				<!-- /.box -->
+			</div>
 
-      <div class="col-sm-6">
-        <div class="box box-default">
-          <div class="box-header with-border">
-            <h3 class="box-title">List of games I lost</h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-            </div>
-          </div><!-- /.box-header -->
-          <div class="box-body">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <div class="box">
-                    <div class="box-header">
-                      <h3 class="box-title">Games info</h3>
-                    </div><!-- /.box-header -->
-                    <div class="box-body no-padding">
-                      <table class="table table-striped">
-                        <tr>
-                          <th style="width:100px">Date</th>
-                          <th>Place</th>
-                          <th>Against</th>
-                          <th>Score</th>
-                          <!-- <th>Comment</th> -->
-                        </tr>
-                        <tr ng-repeat="game in GamesCtrl.lostGames">
-                          <td>{{game.date}}</td>
-                          <td>{{game.place}}</td>
-                          <td>{{game.winner_name}}</td>
-                          <td>{{game.score}}</td>
-                          <!-- <td>{{game.comment}}</td> -->
-                        </tr>
-                      </table>
-                    </div><!-- /.box-body -->
-                  </div>
-                </div>
-              </div><!-- /.col -->
-            </div><!-- /.row -->
-            </div><!-- /.box-body -->
-          </div><!-- /.box -->
-      </div>
+			<div class="col-sm-6">
+				<div class="box box-default">
+					<div class="box-header with-border">
+						<h3 class="box-title">Lost Games</h3>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+						</div>
+					</div>
+					<!-- /.box-header -->
+					<div class="box-body">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<div class="box">
+										<div class="box-header">
+											<h3 class="box-title">Games info</h3>
+										</div>
+										<!-- /.box-header -->
+										<div class="box-body no-padding">
+											<table class="table table-striped">
+												<tr>
+													<th style="width:100px">Date</th>
+													<th>Place</th>
+													<th>Against</th>
+													<th>Score</th>
+													<!-- <th>Comment</th> -->
+												</tr>
+												<tr ng-repeat="game in GamesCtrl.lostGames">
+													<td>{{game.date}}</td>
+													<td>{{game.place}}</td>
+													<td>{{game.winner_name}}</td>
+													<td>{{game.score}}</td>
+													<!-- <td>{{game.comment}}</td> -->
+												</tr>
+											</table>
+										</div>
+										<!-- /.box-body -->
+									</div>
+								</div>
+							</div>
+							<!-- /.col -->
+						</div>
+						<!-- /.row -->
+					</div>
+					<!-- /.box-body -->
+				</div>
+				<!-- /.box -->
+			</div>
 
-    </section>
-<!--     <ng-footer></ng-footer> -->
-  </div>
+		</section>
+		<!--     <ng-footer></ng-footer> -->
+	</div>
 </div>
