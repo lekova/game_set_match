@@ -16,8 +16,10 @@
   <link rel="stylesheet" href="app/styles/app.min.css">
   <link rel="stylesheet" href="app/styles/skin-green.min.css">
 
+  <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
   <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.min.css">
   <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.print.css" media="print">
+  <link src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker.min.css">
 </head>
 
 <body ng-app="gameSetMatch" class="hold-transition skin-green layout-top-nav">
@@ -38,6 +40,8 @@
   <!-- bower components -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/Chart.js/Chart.js"></script>
+  <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
   <script src="bower_components/simpleStorage/simpleStorage.js"></script>
   <script src="bower_components/ngmap/build/scripts/ng-map.min.js"></script>
 
@@ -56,14 +60,13 @@
   <script src="app/factories/userFactory.js"></script>
   <script src="app/factories/gameFactory.js"></script>
 
-
   <!--controllers -->
   <script src="app/controllers/usersController.js"></script>
   <script src="app/controllers/navbarController.js"></script>
   <script src="app/controllers/authController.js"></script>
   <script src="app/controllers/dashboardController.js"></script>
   <script src="app/controllers/gamesController.js"></script>
-
+  <script src="app/controllers/chartsController.js"></script>
 
   <!-- directives -->
   <script src="app/directives/footer-directive.js"></script>
@@ -74,6 +77,6 @@
   <script src="app/directives/profile-directive.js"></script>
   <script src="app/directives/signup-directive.js"></script>
   <script src="app/directives/find-users-directive.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 </body>
 </html>
