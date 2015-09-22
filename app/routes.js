@@ -1,8 +1,8 @@
 'use strict';
 
-(function(){
+(function() {
 
-  angular.module('gameSetMatch').config(['$routeProvider', function($routeProvider){
+  angular.module('gameSetMatch').config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/home', {
         templateUrl: 'app/views/home.html'
