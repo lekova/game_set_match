@@ -9,8 +9,8 @@
     return {
       restrict: 'E',
       templateUrl: 'app/views/dashboard.html',
-      controller: 'DashboardCtrl',
-      controllerAs: 'DashboardCtrl',
+      controller: 'GamesCtrl',
+      controllerAs: 'GamesCtrl',
       bindToController: true
     };
   };
