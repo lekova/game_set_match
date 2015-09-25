@@ -16,6 +16,7 @@
         vm.credentials = {};
         vm.userProciencyType = {};
         vm.currentUser = AuthFactory.currentUser;
+		vm.opponents = UserFactory.opponents;
 
         vm.createUser = function() {
             UserFactory.createUser({credentials: vm.user, proficiency: vm.userProficiencyType}).then(function(response) {
@@ -25,6 +26,10 @@
                 vm.serverErrors = true;
             });
         };
+
+		vm.getOpponents = function() {
+			UserFactory.getOpponents();
+		};
 
         vm.closeWarningMessage = function() {
             vm.serverErrors = !vm.serverErrors;
@@ -89,6 +94,12 @@
         vm.cancel = function() {
             resetForm();
         };
+
+		function init() {
+			vm.getOpponents();
+		}
+
+		init();
     };
 
 })();
