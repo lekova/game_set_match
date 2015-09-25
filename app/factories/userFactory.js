@@ -1,14 +1,14 @@
 'use strict';
 
-(function(){
+(function() {
 
   angular.module('gameSetMatch').factory('UserFactory', UserFactory);
-
   UserFactory.$inject = ['$http', '$window', '$location', 'appSettings'];
 
   function UserFactory($http, $window, $location, appSettings) {
     var users = [];
     var user = {};
+	var opponents = [];
     var search;
 
     function setUser(newUser) {
@@ -41,6 +41,13 @@
         });
     };
 
+	function getOpponents() {
+		return $http.get(appSettings.apiUrl + '/opponents')
+		.then(function(response) {
+			angular.copy(response.data, opponents);
+		});
+	}
+
     function getFollowers() {
       return $http.get(appSettings.apiUrl + '/followers')
         .then(function(response) {
@@ -55,29 +62,29 @@
         });
     };
 
-    function followUser(id){
+    function followUser(id) {
       return $http.get(appSettings.apiUrl + '/users/' + id + '/follow')
         .then(function(response) {
           angular.copy(response.data.user, user);
-          if (users.length > 0 ){
+          if (users.length > 0) {
             users[findUserIndexById(id)] = response.data.user;
           }
         });
     };
 
-    function unfollowUser(id){
+    function unfollowUser(id) {
       return $http.get(appSettings.apiUrl + '/users/' + id + '/unfollow')
         .then(function(response) {
           angular.copy(response.data.user, user);
-          if (users.length > 0 ){
+          if (users.length > 0) {
             users[findUserIndexById(id)] = response.data.user;
           }
         });
     };
 
-    function updateUser(user){
+    function updateUser(user) {
       var params = { user: user };
-      return $http.patch(appSettings.apiUrl + '/users', params).then(function(response){
+      return $http.patch(appSettings.apiUrl + '/users', params).then(function(response) {
         angular.copy(response.data.user, user);
         location.reload();
       });
@@ -105,9 +112,11 @@
       search: search,
       users: users,
       user: user,
+	  opponents: opponents,
       removeUser: removeUser,
       getUser: getUser,
       setUser: setUser,
+	  getOpponents: getOpponents,
       getFollowing: getFollowing,
       getFollowers: getFollowers,
       getUsers: getUsers,
