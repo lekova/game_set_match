@@ -14,13 +14,27 @@
 		vm.upcomingGames = GameFactory.upcomingGames;
 		vm.game = {};
 
-		vm.createGame = function() {
+		vm.createUpcomingGame = function() {
 			GameFactory.createGame({
 				datetime: vm.datetime,
 				duration: vm.duration,
 				place: vm.place,
 				comment: vm.comment,
 				status: 0
+			}).then(function(response) {
+				// TODO
+			}, function(response) {
+				vm.serverErrors = true;
+			});
+		};
+
+		vm.createPastGame = function() {
+			GameFactory.createGame({
+				datetime: vm.datetime,
+				duration: vm.duration,
+				place: vm.place,
+				comment: vm.comment,
+				status: 1
 			}).then(function(response) {
 				// TODO
 			}, function(response) {
