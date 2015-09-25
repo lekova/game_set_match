@@ -1,6 +1,6 @@
 'use strict';
 
-(function(){
+(function() {
 
   GameFactory.$inject = ['$http', '$window', '$location', 'appSettings'];
 
@@ -15,27 +15,25 @@
     function getWonPastGames() {
       return $http.get(appSettings.apiUrl + '/games/?won=true&status=1').then(function(response) {
           angular.copy(response.data, wonGames);
-          console.log("===== Won Past Games response.data:", response.data);
         });
     }
 
     function getLostPastGames() {
       return $http.get(appSettings.apiUrl + '/games/?lost=true&status=1').then(function(response) {
           angular.copy(response.data, lostGames);
-          console.log("===== Won Lost Games response.data:", response.data);
         });
     };
 
     function getUpcomingGames() {
       return $http.get(appSettings.apiUrl + '/games/?status=0').then(function(response) {
           angular.copy(response.data, upcomingGames);
-          console.log("===== Won Upcoming Games response.data:", response.data);
+          console.log('===== Upcoming Games response.data:', response.data);
         });
     };
 
     function updateGame(game) {
       var params = { game: game };
-      return $http.patch(appSettings.apiUrl + '/games', params).then(function(response){
+      return $http.patch(appSettings.apiUrl + '/games', params).then(function(response) {
         angular.copy(response.data.game, game);
         location.reload();
       });
