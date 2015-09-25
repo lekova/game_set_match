@@ -13,21 +13,87 @@
 		</section>
 
 		<section class="content">
-			<button type="submit" class="btn btn-success" ng-click="">Add Game</button>
-
 			<div class="row">
 				<div class="col-sm-6">
-					<p>SOME TEXT HERE</p>
-					<!-- Date and time range -->
-                  <div class="form-group">
-                    <label>Date and time range:</label>
-                    <div class="input-group">
-                      <div class="input-group-addon">
-                        <i class="fa fa-clock-o"></i>
-                      </div>
-                      <input type="text" class="form-control pull-right" id="reservationtime">
-                    </div><!-- /.input group -->
-                  </div><!-- /.form group -->
+					<div class="box box-default">
+						<div class="box-header with-border">
+							<h3 class="box-title">Add an upcoming game</h3>
+							<div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+							</div>
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<div class="box">
+											<div class="box-header">
+												<h3 class="box-title">Games info</h3>
+											</div>
+											<!-- /.box-header -->
+											<div class="box-body no-padding">
+												<table class="table table-striped">
+													<tr>
+														<th style="width:100px">Date</th>
+														<th>Place</th>
+														<th>Against</th>
+														<th>Score</th>
+														<!--   <th>Comment</th> -->
+													</tr>
+													<tr ng-repeat="game in GamesCtrl.wonGames">
+														<td>{{game.date}}</td>
+														<td>{{game.place}}</td>
+														<td>{{game.loser_name}}</td>
+														<td>{{game.score}}</td>
+														<!--  <td>{{game.comment}}</td> -->
+													</tr>
+												</table>
+											</div>
+											<!-- /.box-body -->
+										</div>
+									</div>
+								</div>
+								<!-- /.col -->
+							</div>
+							<!-- /.row -->
+						</div>
+						<!-- /.box-body -->
+					</div>
+					<!-- /.box -->
+				</div>
+
+				<div class="col-sm-6">
+					<div class="box box-default">
+						<div class="box-header with-border">
+							<h3 class="box-title">Add a upcoming game</h3>
+							<div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+							</div>
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<!-- Date and time range -->
+										<div class="form-group">
+											<label>Select date and time:</label>
+											<div class="input-group">
+												<div class="input-group-addon">
+													<i class="fa fa-clock-o"></i>
+												</div>
+												<input type="text" class="form-control pull-right" id="reservationtime">
+											</div>
+											<!-- /.input group -->
+										</div>
+										<!-- /.form group -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /.box -->
 				</div>
 			</div>
 
