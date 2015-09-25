@@ -2,69 +2,49 @@
 
 (function() {
 
-	ChartFactory.$inject = ['$http', '$window', '$location', 'appSettings'];
+	var ChartFactory = function($http, $window, $location, appSettings) {
+		var statistics = {};
+		var totals = {};
+		var labels = [];
+		var data = [[]];
 
-	function ChartFactory($http, $window, $location, appSettings) {
-		var games = [];
-		var game = {};
+		var dataFilter = function(response) {
+			console.log('dataFilter response:', response);
+			labels.length = 0;
+			// data.won_games = [];
+			// data.lost_games = [];
 
-		var wonGames = [];
-		var lostGames = [];
-		var upcomingGames = [];
+			Array.prototype.push.apply(totals, response.totals);
+			console.log('totals: ', totals);
+			Array.prototype.push.apply(labels, response.labels);
 
-		function getWonPastGames() {
-			return $http.get(appSettings.apiUrl + '/games/?won=true&status=1').then(function(response) {
-				angular.copy(response.data, wonGames);
-				console.log('===== Won Past Games response.data:', response.data);
-			});
-		}
+			// Array.prototype.push.apply(data.won_games, response.data.won_games_count);
+			// Array.prototype.push.apply(data.lost_games, response.data.lost_games_count);
+			//data.won_games = response.data.won_games_count;
+			//data.lost_games = response.data.lost_games_count;
+			// console.log('data.won_games in dataFilter function: ', data.won_games);
 
-		function getLostPastGames() {
-			return $http.get(appSettings.apiUrl + '/games/?lost=true&status=1').then(function(response) {
-				angular.copy(response.data, lostGames);
-				console.log('===== Won Lost Games response.data:', response.data);
-			});
 		};
 
-		function getUpcomingGames() {
-			return $http.get(appSettings.apiUrl + '/games/?status=0').then(function(response) {
-				angular.copy(response.data, upcomingGames);
-				console.log('===== Won Upcoming Games response.data:', response.data);
+		var getStatistics = function() {
+			return $http.get(appSettings.apiUrl + '/dashboard/statistics').then(function(response) {
+				console.log('response data for statistics:', response.data);
+				angular.copy(response.data, statistics);
+				angular.copy(statistics.totals, totals);
+				angular.copy(statistics.labels, labels);
+				angular.copy(statistics.data, data);
 			});
-		};
-
-		function updateGame(game) {
-			var params = { game: game };
-			return $http.patch(appSettings.apiUrl + '/games', params).then(function(response) {
-				angular.copy(response.data.game, game);
-				location.reload();
-			});
-		};
-
-		function createGame(game) {
-			return $http.post(appSettings.apiUrl + '/games', game).success(function(response) {
-				angular.copy(response.data);
-			});
-		};
-
-		function deleteGame(id) {
-			return $http.delete(appSettings.apiUrl + '/games/' + id);
 		};
 
 		return {
-			games: games,
-			game: game,
-			wonGames: wonGames,
-			lostGames: lostGames,
-			upcomingGames: upcomingGames,
-			getWonPastGames: getWonPastGames,
-			getLostPastGames: getLostPastGames,
-			getUpcomingGames: getUpcomingGames,
-			updateGame: updateGame,
-			createGame: createGame,
-			deleteGame: deleteGame
+			labels: labels,
+			totals: totals,
+			data: data,
+			getStatistics: getStatistics,
+			dataFilter: dataFilter
 		};
-	}
+	};
 
+	ChartFactory.$inject = ['$http', '$window', '$location', 'appSettings'];
 	angular.module('gameSetMatch').factory('ChartFactory', ChartFactory);
 })();
