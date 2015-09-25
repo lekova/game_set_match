@@ -2,19 +2,14 @@
 
 (function() {
 
-	angular.module('gameSetMatch').controller('ChartsCtrl', ChartsCtrl);
-	ChartsCtrl.$inject = ['$location', 'GameFactory', '$scope'];
-
-	function ChartsCtrl($location, GameFactory, $scope) {
+	function ChartsCtrl($location, ChartFactory, $scope) {
 		var vm = this;
+		vm.statistics = ChartFactory.statistics;
+		vm.totals = ChartFactory.totals;
+		vm.labels = ChartFactory.labels;
+		vm.data = ChartFactory.data;
 
-		vm.labels = [ 'April', 'May', 'June', 'July', 'August', 'September'];
 		vm.series = ['Wins', 'Losses'];
-		vm.data = [
-			[65, 59, 80, 81, 56, 55, 40],
-			[28, 48, 40, 19, 86, 27, 90]
-		];
-
 		vm.colours = [{
 			'fillColor': 'rgba(0,166,90,0.4)',
 			'strokeColor': 'rgba(0,140,80,1)',
@@ -32,18 +27,17 @@
 			'pointHighlightStroke': 'rgba(0,110,190,0.8)'
 		}];
 
+		vm.getStatistics = function() {
+			ChartFactory.getStatistics();
+		}
+
 		vm.onClick = function(points, evt) {
 			console.log(points, evt);
 		};
 
-		vm.wonGamesLine = GameFactory.getWonPastGames();
-
-		vm.lostGamesLine = [];
-
-		vm.showChart = function() {
-			GameFactory.getWonPastGames();
-			GameFactory.getLostGames();
-		}
+		vm.getStatistics();
 	};
+	ChartsCtrl.$inject = ['$location', 'ChartFactory', '$scope'];
+	angular.module('gameSetMatch').controller('ChartsCtrl', ChartsCtrl);
 
 })();
