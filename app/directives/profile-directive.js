@@ -11,10 +11,7 @@
       templateUrl: 'app/views/profile.html',
       controller: 'UserCtrl',
       controllerAs: 'UserCtrl',
-      bindToController: true,
-      link: function(scope){
-        scope.UserCtrl.showUser();
-      }
+      bindToController: true
     };
   };
 
