@@ -1,10 +1,10 @@
 'use strict';
 
-(function(){
+(function() {
 
   angular.module('gameSetMatch').directive('glSideBar', glSideBar);
 
-  function glSideBar(){
+  function glSideBar() {
 
     return {
       restrict: 'E',
