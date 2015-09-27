@@ -55,47 +55,12 @@
 					</div><!-- /.box-body -->
 				</div><!-- /.box -->
 
-				<!-- Add a Game Box -->
-				<div class="box box-success">
-					<div class="box-header with-border">
-						<h3 class="box-title">Add New Game</h3>
-						<div class="box-tools pull-right">
-							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-						</div>
-		          </div>
-		          <!-- form start -->
-		          <form class="form-horizontal">
-		            <div class="box-body">
-		              <div class="form-group">
-		                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-		                <div class="col-sm-8">
-		                    <input type="email" class="form-control" id="inputEmail3" placeholder="{{UserCtrl.currentUser.email}}" ng-model="UserCtrl.user.email">
-		                </div>
-		              </div>
-		              <div class="form-group">
-		                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-		                <div class="col-sm-8">
-		                  <input type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-model="UserCtrl.user.password">
-		                </div>
-		              </div>
-		              <div class="form-group">
-		                <label for="inputPassword3" class="col-sm-2 control-label">Confirm</label>
-		                <div class="col-sm-8">
-		                  <input type="password" class="form-control" id="inputPassword3" placeholder="Confirm Password" ng-model="UserCtrl.user.password_confirmation">
-		                </div>
-		              </div>
-		            </div><!-- /.box-body -->
-		            <div class="box-footer">
-		              <button type="submit" class="btn btn-default">Cancel</button>
-		              <button type="submit" class="btn btn-success pull-right" ng-click="UserCtrl.updateUser(AuthCtrl.credentials)">Update</button>
-		            </div><!-- /.box-footer -->
-		          </form>
-			  </div><!-- /Add a Gmae Box -->
-
-
 				<div class="box box-success">
 					<div class="box-header with-border">
 						<h3 class="box-title">Add a Game</h3>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+						</div>
 					</div><!-- /.box-header -->
 					<div class="box-body">
 						<!-- Date and time range -->
@@ -120,13 +85,17 @@
 						</strong>
 						<hr>
 					</div><!-- /.box-body -->
+					<div class="box-footer">
+		              <button type="submit" class="btn btn-default" ng-click="GamesCtrl.clearNewGame()">Cancel</button>
+		              <button type="submit" class="btn btn-success pull-right" ng-click="GamesCtrl.createGame()">Create Game</button>
+		            </div><!-- /.box-footer -->
 				</div><!-- /.box -->
 			</div>
 
 			<div class="col-md-6">
 				<div class="box box-success">
 					<div class="box-header with-border">
-						<h3 class="box-title">Add an upcoming game</h3>
+						<h3 class="box-title">Upcoming Games</h3>
 						<div class="box-tools pull-right">
 							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
 						</div>
@@ -168,36 +137,6 @@
 						<!-- /.row -->
 					</div>
 					<!-- /.box-body -->
-				</div>
-				<!-- /.box -->
-				<div class="box box-success">
-					<div class="box-header with-border">
-						<h3 class="box-title">Add a upcoming game</h3>
-						<div class="box-tools pull-right">
-							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-						</div>
-					</div>
-					<!-- /.box-header -->
-					<div class="box-body">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="form-group">
-									<!-- Date and time range -->
-									<div class="form-group">
-										<label>Select date and time:</label>
-										<div class="input-group">
-											<div class="input-group-addon">
-												<i class="fa fa-clock-o"></i>
-											</div>
-											<input type="text" class="form-control pull-right" id="reservationtime">
-										</div>
-										<!-- /.input group -->
-									</div>
-									<!-- /.form group -->
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 				<!-- /.box -->
 				<div class="box box-success">
