@@ -1,10 +1,10 @@
 'use strict';
 
-(function(){
+(function() {
 
   angular.module('gameSetMatch').directive('glProfile', glProfile);
 
-  function glProfile(){
+  function glProfile() {
 
     return {
       restrict: 'E',

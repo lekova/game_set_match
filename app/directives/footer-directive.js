@@ -1,10 +1,10 @@
 'use strict';
 
-(function(){
+(function() {
 
   angular.module('gameSetMatch').directive('glFooter', glFooter);
 
-  function glFooter(){
+  function glFooter() {
 
     return {
       restrict: 'E',

@@ -1,9 +1,8 @@
 'use strict';
 
-(function(){
+(function() {
 
   angular.module('gameSetMatch').directive('glSignUpForm', glSignUpForm);
-
 
   function glSignUpForm() {
     return {

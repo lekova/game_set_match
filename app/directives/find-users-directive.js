@@ -1,10 +1,10 @@
 'use strict';
 
-(function(){
+(function() {
 
   angular.module('gameSetMatch').directive('glFindUsers', glFindUsers);
 
-  function glFindUsers(){
+  function glFindUsers() {
 
     return {
       restrict: 'E',
@@ -12,7 +12,7 @@
       controller: 'UserCtrl',
       controllerAs: 'UserCtrl',
       bindToController: true,
-      link: function(scope){
+      link: function(scope) {
         scope.UserCtrl.findUsers();
       }
     };
