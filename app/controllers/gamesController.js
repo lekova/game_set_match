@@ -4,7 +4,8 @@
 
 	angular.module('gameSetMatch').controller('GamesCtrl', GamesCtrl);
 
-	GamesCtrl.$inject = ['$location', 'GameFactory', 'AuthFactory', 'UserFactory', '$scope', '$filter'];
+	GamesCtrl.$inject = ['$location', 'GameFactory', 'AuthFactory',
+						'UserFactory', '$scope', '$filter'];
 
 	function GamesCtrl($location, GameFactory, AuthFactory, UserFactory, $scope, $filter) {
 		var vm = this;
@@ -17,6 +18,7 @@
 		vm.game = {};
 		vm.datetime;
 		vm.duration;
+		vm.city;
 		vm.scoreOneLeft;
 		vm.scoreOneRight;
 		vm.scoreTwoLeft;
@@ -29,6 +31,7 @@
 		// for sorting
 		vm.sortBy = 'datetime';
 		vm.reverse = false;
+		vm.label;
 
 		vm.createGame = function() {
 			GameFactory.createGame({
@@ -44,6 +47,8 @@
 				}
 			}).then(function(response) {
 				console.log('create game response: ', response);
+				vm.label = true;
+				angular.copy(response.data, vm.game);
 			}, function(response) {
 				vm.serverErrors = true;
 			});
@@ -65,7 +70,6 @@
 			var score = vm.scoreOneLeft + ':' + vm.scoreOneRight + ', ' +
 						vm.scoreTwoLeft + ':' + vm.scoreTwoRight + ', ' +
 						vm.scoreThreeLeft + ':' + vm.scoreThreeRight;
-			console.log('score is ', score);
 			return score;
 		}
 
@@ -76,6 +80,23 @@
 		vm.sortBy = function(propName) {
 			vm.sortBy = propName;
 			vm.reverse = !vm.reverse;
+		};
+
+		vm.resetForm = function() {
+			console.log('resetForm button clicked');
+			vm.label = false;
+			vm.datetime = null;
+			vm.duration = null;
+			vm.city = null;
+			vm.scoreOneLeft = null;
+			vm.scoreOneRight = null;
+			vm.scoreTwoLeft = null;
+			vm.scoreTwoRight = null;
+			vm.scoreThreeLeft = null;
+			vm.scoreThreeRight = null;
+			vm.winnerId = null;
+			vm.opponent = {};
+			vm.comment = null;
 		};
 
 		vm.getWonPastGames();
