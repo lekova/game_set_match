@@ -41,8 +41,7 @@
 
     function createGame(game) {
       return $http.post(appSettings.apiUrl + '/games', game).success(function(response) {
-        angular.copy(response.data);
-        console.log('create game response data: ', response.data);
+        angular.copy(response, game);
       });
     };
 
