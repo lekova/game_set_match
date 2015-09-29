@@ -39,10 +39,9 @@
             UserFactory.updateUser(user);
         };
 
-        vm.toggleEditMode = function() {
-            vm.user.avatar = '';
-            vm.editMode = !vm.editMode;
-        };
+        vm.showAllUsers = function() {
+            UserFactory.getUsers();
+        }
 
         vm.showProfile = function() {
           UserFactory.getProfile();
@@ -97,6 +96,7 @@
 
 		function init() {
 			vm.getOpponents();
+            vm.showAllUsers();
 		}
 
 		init();
