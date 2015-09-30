@@ -3,10 +3,9 @@
 (function(){
 
   angular.module("gameSetMatch").value('appSettings', {
-    apiUrl: "http://localhost:3000",
+    apiUrl: "http://gamesetmatchapi.herokuapp.com'",
     title: "Game Set Match",
     version: "1.0"
   });
 
 })();
-
