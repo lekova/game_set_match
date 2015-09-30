@@ -37,8 +37,8 @@
 		function getUsers() {
 			return $http.get(appSettings.apiUrl + '/users')
 				.then(function(response) {
-					console.log('get all users: ', response);
-					// angular.copy(response.data, users);
+					console.log('get all users: ', response.data);
+					angular.copy(response.data, users);
 				});
 		};
 
