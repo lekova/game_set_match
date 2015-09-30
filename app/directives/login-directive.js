@@ -1,10 +1,10 @@
 'use strict';
 
-(function(){
+(function() {
 
   angular.module('gameSetMatch').directive('glLoginForm', glLoginForm);
 
-  function glLoginForm(){
+  function glLoginForm() {
 
     return {
       restrict: 'E',

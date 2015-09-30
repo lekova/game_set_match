@@ -24,7 +24,7 @@
             <img class="profile-user-img img-responsive img-circle" src="app/image/no-image-user.png" alt="User profile picture">
             <h3 class="profile-username text-center">{{UserCtrl.currentUser.name}}</h3>
             <p class="text-muted text-center">{{UserCtrl.currentUser.current_proficiency_type}}</p>
-            <a class="btn btn-success btn-block"><b>Edit</b></a>
+            <a class="btn btn-success btn-block"><b>Change Picture</b></a>
           </div><!-- /.box-body -->
         </div><!-- /.box -->
 
@@ -136,7 +136,6 @@
                 <div class="col-sm-2"></div>
                 <div class="col-sm-10">
                   <div>
-                    <h1>{{UserCtrl.userProficiencyType.proficiency_type_id}}</h1>
                     <div class="radio">
                       <label>
                         <input ng-model="UserCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="1" value="1" checked>
@@ -207,7 +206,6 @@
               <h3>You are on level {{UserCtrl.currentUser.current_proficiency_type}} out of 9 categories</h3>
             </div><!-- /.box-body -->
             <div class="box-footer">
-              <button type="submit" class="btn btn-default">Cancel</button>
               <button type="submit" class="btn btn-success pull-right" ng-click="UserCtrl.createUser()">Update</button>
             </div><!-- /.box-footer -->
           </form>
@@ -282,4 +280,3 @@
   </section>
 </div>
 </div>
-

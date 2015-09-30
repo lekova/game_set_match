@@ -1,10 +1,10 @@
 'use strict';
 
-(function(){
+(function() {
 
   angular.module('gameSetMatch').directive('glNavBar', glNavBar);
 
-  function glNavBar(){
+  function glNavBar() {
 
     return {
       restrict: 'E',

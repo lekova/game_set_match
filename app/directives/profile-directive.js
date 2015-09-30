@@ -1,20 +1,17 @@
 'use strict';
 
-(function(){
+(function() {
 
   angular.module('gameSetMatch').directive('glProfile', glProfile);
 
-  function glProfile(){
+  function glProfile() {
 
     return {
       restrict: 'E',
       templateUrl: 'app/views/profile.html',
       controller: 'UserCtrl',
       controllerAs: 'UserCtrl',
-      bindToController: true,
-      link: function(scope){
-        scope.UserCtrl.showUser();
-      }
+      bindToController: true
     };
   };
 

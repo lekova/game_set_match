@@ -1,8 +1,8 @@
 'use strict';
 
-(function(){
+(function() {
 
-  angular.module('gameSetMatch').config(['$routeProvider', function($routeProvider){
+  angular.module('gameSetMatch').config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/home', {
         templateUrl: 'app/views/home.html'
@@ -33,9 +33,7 @@
         templateUrl: 'app/views/address-view.html'
       })
       .when('/games', {
-        templateUrl: 'app/views/games.html',
-        controller: 'GamesCtrl',
-        controllerAs: 'GamesCtrl'
+        templateUrl: 'app/views/games.html'
       })
       .when('/games/:id', {
         templateUrl: 'app/views/game-view.html',

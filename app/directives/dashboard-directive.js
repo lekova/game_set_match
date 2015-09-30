@@ -1,16 +1,16 @@
 'use strict';
 
-(function(){
+(function() {
 
   angular.module('gameSetMatch').directive('glDashboard', glDashboard);
 
-  function glDashboard(){
+  function glDashboard() {
 
     return {
       restrict: 'E',
       templateUrl: 'app/views/dashboard.html',
-      controller: 'DashboardCtrl',
-      controllerAs: 'DashboardCtrl',
+      controller: 'ChartsCtrl',
+      controllerAs: 'ChartsCtrl',
       bindToController: true
     };
   };

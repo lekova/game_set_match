@@ -1,12 +1,12 @@
 'use strict';
 
-(function(){
+(function() {
 
   angular.module('gameSetMatch').controller('DashboardCtrl', DashboardCtrl);
 
   // FeedCtrl.$inject = ['PictureFactory', 'LikeFactory'];
 
-  function DashboardCtrl(){
+  function DashboardCtrl() {
     var vm = this;
     // vm.feed = PictureFactory.feed;
 
@@ -24,7 +24,7 @@
     //   });
     // };
 
-    function init(){
+    function init() {
         // PictureFactory.getFeed();
     };
 
