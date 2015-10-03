@@ -1,7 +1,11 @@
 .ng-invalid.ng-dirty {
-	border-color: #FA787E;
+	border-color: red;
 }
 
 .ng-valid.ng-dirty {
 	border-color: #00a65a;
+}
+
+.sigunp-alert {
+	color: red;
 }
