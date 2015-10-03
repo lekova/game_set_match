@@ -9,33 +9,39 @@
 		var vm = this;
 
 		vm.user = {};
+		vm.user.message = '';
 		vm.userProficiencyType = {};
+		vm.userProficiencyType.proficiency_type_id = 1;
 
-		vm.createUser = function() {
-			console.log('create user function inside Signup controller');
-			if(vm.passwordMacth()) {
-				console.log('inside create user');
-				UserFactory.createUser({
-					credentials: vm.user,
-					proficiency: vm.userProficiencyType
-				}).then(function(response) {
-					vm.credentials = {};
-					$location.path('/users/' + response.data.id);
-				}, function(response) {
-					vm.serverErrors = true;
-				});
+		vm.createUser = function(isValid) {
+			if (!isValid) {
+				vm.user.message = 'There are still invalid fields';
+				return;
 			}
+
+			if(isDuplicateEmail) {
+				return;
+			}
+
+			UserFactory.createUser({
+				credentials: vm.user,
+				proficiency: vm.userProficiencyType
+			}).then(function(response) {
+				vm.credentials = {};
+				$location.path('/users/' + response.data.id);
+			}, function(response) {
+				vm.serverErrors = true;
+			});
 		}
 
-		vm.clearForm = function() {
-			console.log('clear form');
-			console.log('vm.user');
+		vm.resetForm = function() {
 			vm.user = {};
+			vm.userProficiencyType = {};
+			vm.userProficiencyType.proficiency_type_id = 1;
 		}
 
-		vm.passwordMacth = function() {
-			console.log('password match burron clicked!');
-			return vm.password === vm.passwordConfirmation;
+		vm.isDuplicateEmail = function() {
+			//TODO;
 		}
 	};
 })();
