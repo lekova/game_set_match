@@ -286,5 +286,3 @@ $.GameSetMatch = {}, $.GameSetMatch.options = {
 			})
 		}
 	}(jQuery);
-
-console.log('===== $.GameSetMatch: ', $.GameSetMatch);
