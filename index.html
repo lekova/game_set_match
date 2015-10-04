@@ -32,7 +32,7 @@
   <div class="wrapper">
     <gl-nav-bar></gl-nav-bar>
     <div ng-if="NavbarCtrl.isLoggedIn()">
-      <gl-side-bar></gl-side-bar>
+      <gsm-side-bar></gsm-side-bar>
     </div>
     <ng-view></ng-view>
 <!--     <ng-footer></ng-footer> -->
@@ -71,6 +71,7 @@
   <!--controllers -->
   <script src="app/controllers/usersController.js"></script>
   <script src="app/controllers/navbarController.js"></script>
+  <script src="app/controllers/sidebarController.js"></script>
   <script src="app/controllers/authController.js"></script>
   <script src="app/controllers/dashboardController.js"></script>
   <script src="app/controllers/gamesController.js"></script>
