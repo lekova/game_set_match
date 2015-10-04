@@ -3,9 +3,9 @@
 (function() {
 
 	angular.module('gameSetMatch').factory('UserFactory', UserFactory);
-	UserFactory.$inject = ['$http', '$window', '$location', 'appSettings'];
+	UserFactory.$inject = ['$http', '$location', 'appSettings'];
 
-	function UserFactory($http, $window, $location, appSettings) {
+	function UserFactory($http, $location, appSettings) {
 		var users = [];
 		var user = {};
 		var opponents = [];
@@ -45,6 +45,14 @@
 		function findUsers(city) {
 			return $http.get(appSettings.apiUrl + '/users/?city=' + city)
 				.success(function(response) {
+					angular.copy(response, users);
+			});
+		};
+
+		function checkEmail(email) {
+			return $http.get(appSettings.apiUrl + '/users/?email=' + email)
+				.success(function(response) {
+					console.log('check email response: ', response);
 					angular.copy(response, users);
 			});
 		};
@@ -92,18 +100,21 @@
 
 		function updateUser(user) {
 			var params = { user: user };
-			return $http.patch(appSettings.apiUrl + '/users', params).then(function(response) {
-				angular.copy(response.data.user, user);
-				location.reload();
-			});
+			return $http.patch(appSettings.apiUrl + '/users', params)
+				.then(function(response) {
+					angular.copy(response.data.user, user);
+					location.reload();
+				});
 		};
 
 		function createUser(user) {
-			return $http.post(appSettings.apiUrl + '/signup', user).success(function(response) {
-				simpleStorage.set('gl-user-token', response.token, {TTL: 86400});
-				$http.defaults.headers.common.Authorization = 'Token token=' + response.token;
-				$location.path('/');
-			});
+			return $http.post(appSettings.apiUrl + '/signup', user)
+				.success(function(response) {
+					simpleStorage.set('gl-user-token', response.token, {TTL: 86400});
+					$http.defaults.headers.common.Authorization = 'Token token=' + response.token;
+					$location.path('/users/' + response.id);
+					location.reload();
+				});
 		};
 
 		function deleteUser(user) {
@@ -118,6 +129,7 @@
 			removeUser: removeUser,
 			getUser: getUser,
 			setUser: setUser,
+			checkEmail: checkEmail,
 			getOpponents: getOpponents,
 			getFollowing: getFollowing,
 			getFollowers: getFollowers,

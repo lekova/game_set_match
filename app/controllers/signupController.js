@@ -19,7 +19,8 @@
 				return;
 			}
 
-			if(isDuplicateEmail) {
+			if(vm.isDuplicateEmail(vm.user.email)) {
+				vm.user.message = 'Email already exists';
 				return;
 			}
 
@@ -28,7 +29,6 @@
 				proficiency: vm.userProficiencyType
 			}).then(function(response) {
 				vm.credentials = {};
-				$location.path('/users/' + response.data.id);
 			}, function(response) {
 				vm.serverErrors = true;
 			});
@@ -40,8 +40,8 @@
 			vm.userProficiencyType.proficiency_type_id = 1;
 		}
 
-		vm.isDuplicateEmail = function() {
-			//TODO;
+		vm.isDuplicateEmail = function(email) {
+			UserFactory.checkEmail(email);
 		}
 	};
 })();
