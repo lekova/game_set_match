@@ -2,15 +2,15 @@
 
 (function() {
 
-  angular.module('gameSetMatch').directive('glSideBar', glSideBar);
+  angular.module('gameSetMatch').directive('gsmSideBar', gsmSideBar);
 
-  function glSideBar() {
+  function gsmSideBar() {
 
     return {
       restrict: 'E',
       templateUrl: 'app/views/sidebar.html',
-      controller: 'UserCtrl',
-      controllerAs: 'UserCtrl',
+      controller: 'SidebarController',
+      controllerAs: 'SidebarCtrl',
       bindToController: true
     };
   };
