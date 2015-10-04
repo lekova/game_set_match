@@ -8,7 +8,9 @@
         templateUrl: 'app/views/home.html'
       })
       .when('/', {
-        templateUrl: 'app/views/dashboard-page.html'
+        templateUrl: 'app/views/dashboard.html',
+        controller: 'DashboardCtrl', 
+        controllerAs: 'DashCtrl'
       })
       .when('/login', {
         templateUrl: 'app/views/login-page.html'
