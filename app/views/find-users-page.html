@@ -26,13 +26,13 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label>Your cities</label>
-                  <select class="form-control select2" style="width: 100%;" id="city-model" ng-model="UserCtrl.address" ng-options="obj.city as obj.city for obj in UserCtrl.currentUser.addresses">
+                  <select class="form-control select2" style="width: 100%;" id="city-model" ng-model="UsersCtrl.address" ng-options="obj.city as obj.city for obj in UsersCtrl.currentUser.addresses">
                     <option value="">Choose a City</option>
                   </select>
                 </div>
 
                 <div class="form-group">
-                  <button type="submit" class="btn btn-success" ng-click="UserCtrl.findUsers()">Find Players</button>
+                  <button type="submit" class="btn btn-success" ng-click="UsersCtrl.findUsers()">Find Players</button>
                 </div>
 
                 <div class="form-group">
@@ -47,7 +47,7 @@
                           <th>Level</th>
                           <th style="width:40px">Message</th>
                         </tr>
-                        <tr ng-repeat="user in UserCtrl.users">
+                        <tr ng-repeat="user in UsersCtrl.users">
                           <td>{{user.name}}</td>
                           <td>{{user.current_proficiency_type}}</td>
                           <td><i class="fa fa-envelope-o"></i></td>

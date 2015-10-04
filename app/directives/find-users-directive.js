@@ -10,7 +10,7 @@
       restrict: 'E',
       templateUrl: 'app/views/find-users-page.html',
       link: function(scope) {
-        scope.UserCtrl.findUsers();
+        scope.UsersCtrl.findUsers();
       }
     };
   };

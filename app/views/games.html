@@ -109,10 +109,10 @@
 							<label>Select city where you played:</label>
 							<input type="text" class="form-control" placeholder="Enter city..." ng-model="GamesCtrl.city">
 						</div>
-						<div class="form-group" ng-controller="UserCtrl as UserCtrl">
+						<div class="form-group" ng-controller="UsersCtrl as UsersCtrl">
 							<label>Select opponent: </label>
 							<select class="form-control select2" ng-model="GamesCtrl.opponent"
-									ng-options="obj.name for obj in UserCtrl.users">
+									ng-options="obj.name for obj in UsersCtrl.users">
 								<option value="">Select one</option>
 								<option ng-value="{{obj.id}}"></option>
 							</select>
