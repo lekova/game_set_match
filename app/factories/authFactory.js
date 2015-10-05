@@ -18,7 +18,7 @@
 
     var login = function(credentials) {
       return $http.post(appSettings.apiUrl + '/login', credentials).success(function(response) {
-        simpleStorage.set('gl-user-token', response.token);
+        simpleStorage.set('gsm-user-token', response.token);
         $http.defaults.headers.common.Authorization = 'Token token=' + response.token;
         getProfile();
         $location.path('');
@@ -31,7 +31,7 @@
     };
 
      var isLoggedIn = function() {
-      return simpleStorage.get('gl-user-token');
+      return simpleStorage.get('gsm-user-token');
     };
 
     return {

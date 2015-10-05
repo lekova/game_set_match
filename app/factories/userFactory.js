@@ -110,7 +110,7 @@
 		function createUser(user) {
 			return $http.post(appSettings.apiUrl + '/signup', user)
 				.success(function(response) {
-					simpleStorage.set('gl-user-token', response.token, {TTL: 86400});
+					simpleStorage.set('gsm-user-token', response.token, {TTL: 86400});
 					$http.defaults.headers.common.Authorization = 'Token token=' + response.token;
 					$location.path('/users/' + response.id);
 					location.reload();
