@@ -2,9 +2,9 @@
 
 (function() {
 
-  angular.module('gameSetMatch').directive('glLoginForm', glLoginForm);
+  angular.module('gameSetMatch').directive('gsmLoginForm', gsmLoginForm);
 
-  function glLoginForm() {
+  function gsmLoginForm() {
 
     return {
       restrict: 'E',

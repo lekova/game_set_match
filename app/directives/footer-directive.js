@@ -2,9 +2,9 @@
 
 (function() {
 
-  angular.module('gameSetMatch').directive('glFooter', glFooter);
+  angular.module('gameSetMatch').directive('gsmFooter', gsmFooter);
 
-  function glFooter() {
+  function gsmFooter() {
 
     return {
       restrict: 'E',

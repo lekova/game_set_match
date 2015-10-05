@@ -2,9 +2,9 @@
 
 (function() {
 
-  angular.module('gameSetMatch').directive('glProfile', glProfile);
+  angular.module('gameSetMatch').directive('gsmProfile', gsmProfile);
 
-  function glProfile() {
+  function gsmProfile() {
 
     return {
       restrict: 'E',
