@@ -5,9 +5,9 @@
 	angular.module('gameSetMatch').controller('GamesCtrl', GamesCtrl);
 
 	GamesCtrl.$inject = ['$location', 'GameFactory', 'AuthFactory',
-						'UserFactory', '$scope', '$filter'];
+						'UserFactory', '$filter'];
 
-	function GamesCtrl($location, GameFactory, AuthFactory, UserFactory, $scope, $filter) {
+	function GamesCtrl($location, GameFactory, AuthFactory, UserFactory, $filter) {
 		var vm = this;
 		vm.currentUser = AuthFactory.currentUser;
 		vm.wonGames = GameFactory.wonGames;
@@ -16,39 +16,37 @@
 		vm.users = UserFactory.users;
 		// for creating new game
 		vm.game = {};
-		vm.datetime;
-		vm.duration;
-		vm.city;
-		vm.scoreOneLeft;
-		vm.scoreOneRight;
-		vm.scoreTwoLeft;
-		vm.scoreTwoRight;
-		vm.scoreThreeLeft;
-		vm.scoreThreeRight;
-		vm.winnerId;
-		vm.opponent = {};
-		vm.comment;
+		vm.score = {};
+
 		// for sorting
-		vm.sortBy = 'datetime';
-		vm.reverse = false;
+		vm.sortWinsBy = 'datetime';
+		vm.sortLossesBy = 'datetime';
+		vm.reverseWins = false;
+		vm.reverseLosses = false;
 		vm.label;
 
 		vm.createGame = function() {
-			GameFactory.createGame({
-				game: {
-					datetime: vm.datetime,
-					duration: vm.duration,
-					place: vm.city,
-					winner_id: vm.winnerId,
-					loser_id: vm.getLoser(),
-					score: vm.getScore(),
-					comment: vm.comment,
-					status: 1
-				}
-			}).then(function(response) {
+			vm.game.loser_id = vm.getLoser();
+			vm.game.score = vm.getScore();
+			vm.game.status = 1;
+
+			var obj = {
+				datetime: vm.game.datetime,
+				durations: vm.game.duration,
+				place: vm.game.city,
+				winner_id: vm.game.winner_id,
+				loser_id: vm.getLoser(),
+				score: vm.getScore(),
+				comment: vm.game.comment,
+				status: 1
+			}
+			GameFactory.createGame(obj).then(function(response) {
 				console.log('create game response: ', response);
 				vm.label = true;
 				angular.copy(response.data, vm.game);
+				vm.resetForm();
+				vm.getWonPastGames();
+				vm.getLostPastGames();
 			}, function(response) {
 				vm.serverErrors = true;
 			});
@@ -67,36 +65,30 @@
 		};
 
 		vm.getScore = function() {
-			var score = vm.scoreOneLeft + ':' + vm.scoreOneRight + ', ' +
-						vm.scoreTwoLeft + ':' + vm.scoreTwoRight + ', ' +
-						vm.scoreThreeLeft + ':' + vm.scoreThreeRight;
+			var score = vm.score.scoreOneLeft + ':' + vm.score.scoreOneRight + ', ' +
+						vm.score.scoreTwoLeft + ':' + vm.score.scoreTwoRight + ', ' +
+						vm.score.scoreThreeLeft + ':' + vm.score.scoreThreeRight;
 			return score;
 		}
 
 		vm.getLoser = function() {
-			return vm.winnerId == vm.currentUser.id ? vm.opponent.id : vm.currentUser.id;
+			return vm.game.winnerId == vm.currentUser.id ? vm.opponent.id : vm.currentUser.id;
 		}
 
-		vm.sortBy = function(propName) {
-			vm.sortBy = propName;
-			vm.reverse = !vm.reverse;
+		vm.sortWinsBy = function(propName) {
+			vm.sortWinsBy = propName;
+			vm.reverseWins = !vm.reverseWins;
+		};
+
+		vm.sortLossesBy = function(propName) {
+			vm.sortLossesBy = propName;
+			vm.reverseLosses = !vm.reverseLosses;
 		};
 
 		vm.resetForm = function() {
-			console.log('resetForm button clicked');
+			vm.game = {};
+			vm.score = {};
 			vm.label = false;
-			vm.datetime = null;
-			vm.duration = null;
-			vm.city = null;
-			vm.scoreOneLeft = null;
-			vm.scoreOneRight = null;
-			vm.scoreTwoLeft = null;
-			vm.scoreTwoRight = null;
-			vm.scoreThreeLeft = null;
-			vm.scoreThreeRight = null;
-			vm.winnerId = null;
-			vm.opponent = {};
-			vm.comment = null;
 		};
 
 		vm.getWonPastGames();
