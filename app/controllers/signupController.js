@@ -3,9 +3,9 @@
 (function() {
 
 	angular.module('gameSetMatch').controller('SignupController', SignupController);
-	SignupController.$inject = ['$location', 'UserFactory'];
+	SignupController.$inject = ['UserFactory'];
 
-	function SignupController($location, UserFactory) {
+	function SignupController(UserFactory) {
 		var vm = this;
 
 		vm.user = {};

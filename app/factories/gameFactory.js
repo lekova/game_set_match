@@ -2,9 +2,10 @@
 
 (function() {
 
-  GameFactory.$inject = ['$http', '$window', '$location', 'appSettings'];
+  angular.module('gameSetMatch').factory('GameFactory', GameFactory);
+  GameFactory.$inject = ['$http', '$location', 'appSettings'];
 
-  function GameFactory($http, $window, $location, appSettings) {
+  function GameFactory($http, $location, appSettings) {
     var games = [];
     var game = {};
 
@@ -64,5 +65,4 @@
     };
   }
 
-  angular.module('gameSetMatch').factory('GameFactory', GameFactory);
 })();
