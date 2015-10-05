@@ -2,16 +2,16 @@
 
 (function() {
 
-  angular.module('gameSetMatch').directive('glFindUsers', glFindUsers);
+  angular.module('gameSetMatch').directive('gsmFindUsers', gsmFindUsers);
 
-  function glFindUsers() {
+  function gsmFindUsers() {
 
     return {
       restrict: 'E',
-      templateUrl: 'app/views/find-users-page.html',
-      link: function(scope) {
-        scope.UserCtrl.findUsers();
-      }
+      templateUrl: 'app/views/find-users-page.html'
+      // link: function(scope) {
+      //   scope.UsersCtrl.findUsers();
+      // }
     };
   };
 

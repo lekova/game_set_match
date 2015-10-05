@@ -2,196 +2,133 @@
 <div class="content-wrapper" style="margin-legt:0px;">
   <!-- Main content -->
   <section class="content">
-    <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
 
-        <!-- credentials form -->
-        <div class="box box-success">
-          <div class="box-header with-border">
-            <h3 class="box-title">Credentials</h3>
-          </div><!-- /.box-header -->
-          <!-- form start -->
-          <form class="form-horizontal">
-            <div class="box-body">
-              <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                <div class="col-sm-8">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="UserCtrl.user.email">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                <div class="col-sm-8">
-                  <input type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-model="UserCtrl.user.password">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Confirm</label>
-                <div class="col-sm-8">
-                  <input type="password" class="form-control" id="inputPassword3" placeholder="Confirm Password" ng-model="UserCtrl.user.password_confirmation">
-                </div>
-              </div>
-            </div><!-- /.box-body -->
-          </form>
-        </div><!-- /credentials form -->
+		<!-- credentials form -->
+		<div class="box box-success">
+			<div class="box-header with-border">
+				<h3 class="box-title">Credentials</h3>
+			</div>
+			<form name="credentialsForm" class="form-horizontal" role="form"
+				ng-submit="SignupCtrl.createUser(credentialsForm.$valid)" novalidate>
+				<div class="box-body">
+					<div class="form-group">
+						<label for="name" class="col-sm-2 control-label">Name</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="name" placeholder="Name" ng-model="SignupCtrl.user.name" required ng-minlength="3" ng-maxlength="25">
+							<span class="sigunp-alert" ng-show="credentialsForm.name.$error.required"> * Name is required.</span>
+							<span class="sigunp-alert" ng-show="credentialsForm.name.$error.minlength"> * Name is too short.</span>
+							<span class="sigunp-alert" ng-show="credentialsForm.name.$error.maxlength"> * Name is too long.</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="email" class="col-sm-2 control-label">Email</label>
+						<div class="col-sm-8">
+							<input type="email" class="form-control" name="email" placeholder="Email" ng-model="SignupCtrl.user.email" required>
+							<span class="sigunp-alert" ng-show="credentialsForm.email.$error.required"> * Email is required.</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="password" class="col-sm-2 control-label">Password</label>
+						<div class="col-sm-8">
+							<input type="password" class="form-control" name="password" placeholder="Password" ng-model="SignupCtrl.user.password" required ng-minlength="3">
+							<span class="sigunp-alert" ng-show="credentialsForm.password.$error.required"> * Password is required.</span>
+							<span class="sigunp-alert" ng-show="credentialsForm.password.$error.minlength"> * Password is too short.</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="validation" class="col-sm-2 control-label">Confirm</label>
+						<div class="col-sm-8">
+							<input type="password" name="validation" class="form-control" placeholder="Confirm Password"
+								ng-model="SignupCtrl.user.password_confirmation" required>
+								<span class="sigunp-alert" ng-show="credentialsForm.validation.$error.required"> * Confirmations is required.</span>
+								<span class="sigunp-alert" ng-show="SignupCtrl.user.password_confirmation &&
+									SignupCtrl.user.password !== SignupCtrl.user.password_confirmation">
+									<i class="fa fa-times-circle-o"></i> Passwords do not match.</span>
+						</div>
+					</div>
+					<!-- TODO: check if email exists
+					<div class="form-group" ng-show="">
+						<label for="error" class="col-sm-2 control-label"></label>
+						<div class="col-sm-8">
+							<div class="alert alert-danger alert-dismissible">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+								<i class="icon fa fa-ban"></i>Your password and confirmation password do not match.
+							</div>
+						</div>
+					</div> -->
 
-        <!-- personal info form -->
-        <div class="box box-success">
-          <div class="box-header with-border">
-            <h3 class="box-title">Personal Info</h3>
-          </div><!-- /.box-header -->
-          <!-- form start -->
-          <form class="form-horizontal">
-            <div class="box-body">
-              <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="inputEmail3" placeholder="Name" ng-model="UserCtrl.user.name">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputAge" class="col-sm-2 control-label">Age</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="inputAge" placeholder="Age" ng-model="UserCtrl.user.age">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputGender" class="col-sm-2 control-label">Gender</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="inputGender" placeholder="Gender" ng-model="UserCtrl.user.gender">
-                </div>
-              </div>
-              <!-- textarea -->
-              <div class="form-group">
-                <label for="inputAboutMe" class="col-sm-2 control-label">About Me</label>
-                <div class="col-sm-8">
-                <textarea class="form-control" rows="3" id="inputAboutMe" placeholder="Short description about you" ng-model="UserCtrl.user.about_me"></textarea>
-                </div>
-              </div>
-            </div><!-- /.box-body -->
-          </form>
-        </div><!-- /personal info form -->
-
-        <!-- proficiency form -->
-        <div class="box box-success">
-          <div class="box-header with-border">
-            <h3 class="box-title">Proficiency Level</h3>
-          </div><!-- /.box-header -->
-          <!-- form start -->
-          <form class="form-horizontal">
-            <div class="box-body">
-
-              <!-- radio -->
-              <div class="form-group">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-10">
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input ng-model="UserCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="1" value="1" checked>
-                        <b>Newbie</b>&mdash;What's a tennis racquet?
-                      </label>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input ng-model="UserCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="2" value="2">
-                        <b>Rookie</b>&mdash;There is always hope!
-                      </label>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input ng-model="UserCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="3" value="3">
-                        <b>Beginner</b>&mdash;Enjoy when you can, endure when you must</label>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input ng-model="UserCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="4" value="4">
-                        <b>Talented</b>&mdash;I'm getting there, all I need is practice, practice, practice</label>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input ng-model="UserCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="5" value="5">
-                        <b>Intermediate</b>&mdash;The more I play the better I become</label>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input ng-model="UserCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="6" value="6">
-                        <b>Seasoned</b>&mdash;I may not always win, but when I do, I do it with style</label>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input ng-model="UserCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="7" value="7">
-                        <b>Advanced</b>&mdash;I have my own style</label>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input ng-model="UserCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="8" value="8">
-                        <b>Proficient</b>&mdash;I'm just good at this!</label>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input ng-model="UserCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="9" value="9">
-                        <b>Expert</b>&mdash;I'm Roger Federer's cousin</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- /.box-body -->
-          </form>
-        </div><!-- /proficiency form -->
-
-        <!-- addresses form -->
-        <div class="box box-success">
-          <div class="box-header with-border">
-            <h3 class="box-title">Addresses</h3>
-            <div class="box-title-sm">Your addresses will not be visible to other users</div>
-          </div><!-- /.box-header -->
-          <!-- form start -->
-          <form class="form-horizontal">
-            <div class="box-body">
-              <div class="row">
-                <label class="col-sm-2 control-label">Address 1</label>
-                <br/>
-              </div>
-              <gsm-addaddress></gsm-addaddress>
-            </div><!-- /.box-body -->
-            <div class="box-footer">
-                <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
-                <button type="submit" class="btn btn-success pull-right" ng-click="UserCtrl.createUser()">Register</button>
-            </div><!-- /.box-footer -->
-          </form>
-          <br/>
-
-        </div><!-- /addresses form -->
-
-       <!--  <div class="alert alert-danger alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <h4><i class="icon fa fa-ban"></i> The email address or password is incorrect!</h4>
-        </div>
-        <div class="alert alert-success alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <h4><i class="icon fa fa-check"></i> Login Successful!</h4>
-        </div>
-      </div> -->
-      <div class="col-md-3"></div>
-    </div>   <!-- /.row -->
+				<!-- radio -->
+				<div class="form-group">
+					<label for="name" class="col-sm-2 control-label">Proficiency</label>
+					<div class="col-sm-8">
+						<div class="radio">
+							<label>
+								<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="1" value="1">
+								<b>Newbie</b>&mdash;What's a tennis racquet?
+							</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="2" value="2">
+								<b>Rookie</b>&mdash;There is always hope!
+							</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="3" value="3">
+								<b>Beginner</b>&mdash;Enjoy when you can, endure when you must
+							</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="4" value="4">
+								<b>Talented</b>&mdash;I'm getting there, all I need is practice, practice, practice
+							</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="5" value="5">
+								<b>Intermediate</b>&mdash;The more I play the better I become
+							</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="6" value="6">
+								<b>Seasoned</b>&mdash;I may not always win, but when I do, I do it with style</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="7" value="7">
+								<b>Advanced</b>&mdash;I have my own style
+							</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="8" value="8">
+								<b>Proficient</b>&mdash;I'm just good at this!
+							</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="9" value="9">
+								<b>Expert</b>&mdash;I'm Roger Federer's cousin
+							</label>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.box-body -->
+			<div class="box-footer">
+				<button type="submit" class="btn btn-default" ng-click="SignupCtrl.resetForm()">Cancel</button>
+				<button type="submit" class="btn btn-success pull-right">Register</button>
+			</div>
+		  </form>
+		</div><!-- /credentials form -->
+		</div>
+	<div class="col-md-3"></div>
+	</div>   <!-- /.row -->
   </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
 <div class="control-sidebar-bg"></div>

@@ -2,9 +2,9 @@
 
 (function() {
 
-  angular.module('gameSetMatch').directive('glNavBar', glNavBar);
+  angular.module('gameSetMatch').directive('gsmNavBar', gsmNavBar);
 
-  function glNavBar() {
+  function gsmNavBar() {
 
     return {
       restrict: 'E',

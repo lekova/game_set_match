@@ -74,7 +74,7 @@
 								<div class="input-group-addon">
 									<i class="fa fa-calendar"></i>
 								</div>
-								<input type="text" class="form-control pull-right" id="reservationtime" ng-model="GamesCtrl.datetime" placeholder="yyyy-MM-dd">
+								<input type="text" class="form-control pull-right" id="reservationtime" ng-model="GamesCtrl.game.datetime" placeholder="yyyy-MM-dd">
 							</div>
 						</div>
 
@@ -101,25 +101,25 @@
 								<div class="input-group-addon">
 									<i class="fa fa-clock-o"></i>
 								</div>
-								<input type="text" class="form-control pull-right" placeholder="in minutes ..." ng-model="GamesCtrl.duration">
+								<input type="text" class="form-control pull-right" placeholder="in minutes ..." ng-model="GamesCtrl.game.duration">
 								<span ng-show="GamesCtrl.duration.$error.required">Durations is required.</span>
 							</div>
 						</div>
 						<div class="form-group">
 							<label>Select city where you played:</label>
-							<input type="text" class="form-control" placeholder="Enter city..." ng-model="GamesCtrl.city">
+							<input type="text" class="form-control" placeholder="Enter city..." ng-model="GamesCtrl.game.city">
 						</div>
-						<div class="form-group" ng-controller="UserCtrl as UserCtrl">
+						<div class="form-group" ng-controller="UsersCtrl as UsersCtrl">
 							<label>Select opponent: </label>
 							<select class="form-control select2" ng-model="GamesCtrl.opponent"
-									ng-options="obj.name for obj in UserCtrl.users">
+									ng-options="obj.name for obj in UsersCtrl.users">
 								<option value="">Select one</option>
 								<option ng-value="{{obj.id}}"></option>
 							</select>
 						</div>
 						<div class="form-group">
 							<label>Select a winner: </label>
-							<select class="form-control select2" ng-model="GamesCtrl.winnerId">
+							<select class="form-control select2" ng-model="GamesCtrl.game.winner_id">
 								<option value="">Select one</option>
 								<option value="{{GamesCtrl.currentUser.id}}">You</option>
 								<option value="{{GamesCtrl.opponent.id}}">Opponent</option>
@@ -128,69 +128,63 @@
 						<div class="form-group">
 							<label>Fill up score (your points come first):</label>
 							<div class="row">
-								<div class="col-sm-12">
-									<div class="col-sm-4">
-										<div class="input-group">
-											<span class="input-group-addon"><i class="fa fa-user"></i></span>
-											<input type="text" class="form-control" ng-model="GamesCtrl.scoreOneLeft">
-										</div>
+								<div class="col-sm-4">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-user"></i></span>
+										<input type="text" class="form-control" ng-model="GamesCtrl.score.scoreOneLeft">
 									</div>
-									<div class="col-sm-4">
-										<div class="input-group">
-											<span class="input-group-addon"><i class="fa fa-user"></i></span>
-											<input type="text" class="form-control" ng-model="GamesCtrl.scoreOneRight">
-										</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-user"></i></span>
+										<input type="text" class="form-control" ng-model="GamesCtrl.score.scoreOneRight">
 									</div>
-									<div class="col-sm-4">
-									</div>
+								</div>
+								<div class="col-sm-4">
 								</div>
 							</div>
 							</br>
 							<div class="row">
-								<div class="col-sm-12">
-									<div class="col-sm-4">
-										<div class="input-group">
-											<span class="input-group-addon"><i class="fa fa-user"></i></span>
-											<input type="text" class="form-control" ng-model="GamesCtrl.scoreTwoLeft">
-										</div>
+								<div class="col-sm-4">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-user"></i></span>
+										<input type="text" class="form-control" ng-model="GamesCtrl.score.scoreTwoLeft">
 									</div>
-									<div class="col-sm-4">
-										<div class="input-group">
-											<span class="input-group-addon"><i class="fa fa-user"></i></span>
-											<input type="text" class="form-control" ng-model="GamesCtrl.scoreTwoRight">
-										</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-user"></i></span>
+										<input type="text" class="form-control" ng-model="GamesCtrl.score.scoreTwoRight">
 									</div>
-									<div class="col-sm-4">
-									</div>
+								</div>
+								<div class="col-sm-4">
 								</div>
 							</div>
 							</br>
 							<div class="row">
-								<div class="col-sm-12">
-									<div class="col-sm-4">
-										<div class="input-group">
-											<span class="input-group-addon"><i class="fa fa-user"></i></span>
-											<input type="text" class="form-control" ng-model="GamesCtrl.scoreThreeLeft">
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="input-group">
-											<span class="input-group-addon"><i class="fa fa-user"></i></span>
-											<input type="text" class="form-control" ng-model="GamesCtrl.scoreThreeRight">
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<!-- <button type="submit" class="btn btn-success" ng-click="GamesCtrl.clearNewGame()">
-											<i class="fa fa-plus-square"></i>
-										</button> -->
+								<div class="col-sm-4">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-user"></i></span>
+										<input type="text" class="form-control" ng-model="GamesCtrl.score.scoreThreeLeft">
 									</div>
 								</div>
+								<div class="col-sm-4">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-user"></i></span>
+										<input type="text" class="form-control" ng-model="GamesCtrl.score.scoreThreeRight">
+									</div>
+								</div>
+								<!-- <div class="col-sm-4">
+									<button type="submit" class="btn btn-success" ng-click="GamesCtrl.score.clearNewGame()">
+										<i class="fa fa-plus-square"></i>
+									</button>
+								</div> -->
 							</div>
 						</div>
 
 						<div class="form-group" >
 							<label>Write your thoughts about the game:</label>
-							<textarea class="form-control" rows="3" placeholder="Enter ..." ng-model="GamesCtrl.comment"></textarea>
+							<textarea class="form-control" rows="3" placeholder="Enter ..." ng-model="GamesCtrl.game.comment"></textarea>
 						</div>
 						<div ng-show="GamesCtrl.label">
 							</br>
@@ -236,13 +230,13 @@
 										<div class="box-body no-padding">
 											<table class="table table-striped">
 												<tr>
-													<th ng-click="sortBy='datetime';reverse=!reverse">Date</th>
-													<th ng-click="sortBy='city';reverse=!reverse">Place</th>
-													<th ng-click="sortBy='player';reverse=!reverse">Against</th>
-													<th ng-click="sortBy='score';reverse=!reverse">Score</th>
+													<th ng-click="sortWinsBy='datetime';reverseWins=!reverseWins">Date</th>
+													<th ng-click="sortWinsBy='city';reverseWins=!reverseWins">Place</th>
+													<th ng-click="sortWinsBy='player';reverseWins=!reverseWins">Against</th>
+													<th ng-click="sortWinsBy='score';reverseWins=!reverseWins">Score</th>
 													<!--   <th>Comment</th> -->
 												</tr>
-												<tr ng-repeat="game in GamesCtrl.wonGames | orderBy:sortBy:reverse">
+												<tr ng-repeat="game in GamesCtrl.wonGames | orderBy:sortWinsBy:reverseWins">
 													<td>{{game.date}}</td>
 													<td>{{game.place}}</td>
 													<td>{{game.loser_name}}</td>
@@ -282,13 +276,13 @@
 										<div class="box-body no-padding">
 											<table class="table table-striped" id="table-lost-games">
 												<tr>
-													<th ng-click="sortBy='datetime';reverse=!reverse">Date</th>
-													<th ng-click="sortBy='city';reverse=!reverse">Place</th>
-													<th ng-click="sortBy='player';reverse=!reverse">Against</th>
-													<th ng-click="sortBy='score';reverse=!reverse">Score</th>
+													<th ng-click="sortLossesBy='datetime';reverseLosses=!reverseLosses">Date</th>
+													<th ng-click="sortLossesBy='city';reverseLosses=!reverseLosses">Place</th>
+													<th ng-click="sortLossesBy='player';reverseLosses=!reverseLosses">Against</th>
+													<th ng-click="sortLossesBy='score';reverseLosses=!reverseLosses">Score</th>
 													<!-- <th>Comment</th> -->
 												</tr>
-												<tr ng-repeat="game in GamesCtrl.lostGames | orderBy:sortBy:reverse">
+												<tr ng-repeat="game in GamesCtrl.lostGames | orderBy:sortLossesBy:reverseLosses">
 													<td>{{game.date}}</td>
 													<td>{{game.place}}</td>
 													<td>{{game.winner_name}}</td>

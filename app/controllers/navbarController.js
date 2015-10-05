@@ -32,7 +32,7 @@
     };
 
     $scope.$watch(function() { return self.currentUser; }, function(user) {
-      if (!user && simpleStorage.get('gl-user-token')) {
+      if (!user && simpleStorage.get('gsm-user-token')) {
         getProfile();
       }
     });

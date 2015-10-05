@@ -2,14 +2,14 @@
 
 (function() {
 
-  angular.module('gameSetMatch').directive('glSignUpForm', glSignUpForm);
+  angular.module('gameSetMatch').directive('gsmSignUpForm', gsmSignUpForm);
 
-  function glSignUpForm() {
+  function gsmSignUpForm() {
     return {
       restrict: 'E',
       templateUrl: 'app/views/signup-form.html',
-      controller: 'UserCtrl',
-      controllerAs: 'UserCtrl',
+      controller: 'SignupController',
+      controllerAs: 'SignupCtrl',
       bindToController: true
     };
   };

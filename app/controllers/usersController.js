@@ -2,11 +2,11 @@
 
 (function() {
 
-	angular.module('gameSetMatch').controller('UserCtrl', UserCtrl);
+	angular.module('gameSetMatch').controller('UsersCtrl', UsersCtrl);
 
-	UserCtrl.$inject = ['$routeParams','UserFactory', 'AuthFactory'];
+	UsersCtrl.$inject = ['$routeParams','UserFactory', 'AuthFactory'];
 
-	function UserCtrl($routeParams, UserFactory, AuthFactory) {
+	function UsersCtrl($routeParams, UserFactory, AuthFactory) {
 		var vm = this;
 		var userId = $routeParams.userId;
 		vm.users = UserFactory.users;

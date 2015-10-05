@@ -7,7 +7,7 @@ angular.module('gameSetMatch', ['ngRoute', 'ngMap', 'chart.js'])
   .run(function($rootScope, $http, $window, $location, $routeParams, AuthFactory, UserFactory, GameFactory) {
 
     if(AuthFactory.isLoggedIn()) {
-      var data = simpleStorage.get('gl-user-token');
+      var data = simpleStorage.get('gsm-user-token');
       $http.defaults.headers.common.Authorization = 'Token token=' + data;
     }
 

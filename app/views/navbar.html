@@ -1,22 +1,27 @@
 <header class="main-header">
   <nav class="navbar navbar-static-top" role="navigation">
-    <div class="navbar-header">
-      <!-- Logo -->
-      <a href="#/profile" class="logo">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>G</b>SM</span>
-        <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg">GameSet<b>Match</b></span>
-      </a>
-    </div>
+    <!-- Logo -->
+    <a href="#/profile" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>G</b>SM</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg">GameSet<b>Match</b></span>
+    </a>
+    <!-- Sidebar toggle button-->
+    <a href="" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </a>
+    <!-- <div class="navbar-header">
+
+    </div> -->
     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
     </div>
     <!-- Navbar Not Logged In Menu -->
     <div ng-if="!NavbarCtrl.isLoggedIn()" class="navbar-custom-menu">
       <ul class="nav navbar-nav">
-        <!-- Tasks Menu -->
-        <li class="dropdown tasks-menu">
-        </li>
         <!-- User Account Menu -->
         <li class="dropdown user user-menu">
           <a href="#/login">

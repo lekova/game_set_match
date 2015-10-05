@@ -2,15 +2,15 @@
 
 (function() {
 
-  angular.module('gameSetMatch').directive('glProfile', glProfile);
+  angular.module('gameSetMatch').directive('gsmProfile', gsmProfile);
 
-  function glProfile() {
+  function gsmProfile() {
 
     return {
       restrict: 'E',
       templateUrl: 'app/views/profile.html',
-      controller: 'UserCtrl',
-      controllerAs: 'UserCtrl',
+      controller: 'UsersCtrl',
+      controllerAs: 'UsersCtrl',
       bindToController: true
     };
   };

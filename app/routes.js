@@ -8,7 +8,9 @@
         templateUrl: 'app/views/home.html'
       })
       .when('/', {
-        templateUrl: 'app/views/dashboard-page.html'
+        templateUrl: 'app/views/dashboard.html',
+        controller: 'DashboardCtrl', 
+        controllerAs: 'DashCtrl'
       })
       .when('/login', {
         templateUrl: 'app/views/login-page.html'
@@ -18,16 +20,16 @@
       })
       .when('/users', {
         templateUrl: 'app/views/find-users-page.html',
-        controller: 'UserCtrl',
-        controllerAs: 'UserCtrl'
+        controller: 'UsersCtrl',
+        controllerAs: 'UsersCtrl'
       })
       .when('/users/:userId', {
         templateUrl: 'app/views/profile-page.html'
       })
       .when('/addresses', {
         templateUrl: 'app/views/addresses-page.html',
-        controller: 'UserCtrl',
-        controllerAs: 'UserCtrl'
+        controller: 'UsersCtrl',
+        controllerAs: 'UsersCtrl'
       })
       .when('/addresses/:id', {
         templateUrl: 'app/views/address-view.html'
