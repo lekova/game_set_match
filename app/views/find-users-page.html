@@ -1,5 +1,5 @@
 <div style="margin-left: 230px;">
-  <div class="content-wrapper" style="height: 100vh;">
+  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -12,9 +12,9 @@
       </ol>
     </section>
 
-    <section class="content">
+    <section class="content" ng-controller="FindPlayersCtrl as FindPlayersCtrl">
       <div class="col-sm-6">
-        <div class="box box-default">
+        <div class="box box-success">
           <div class="box-header with-border">
             <h3 class="box-title">You can find players in your city</h3>
             <div class="box-tools pull-right">
@@ -25,17 +25,27 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
+					<h4>{{FindPlayersCtrl.city}}</h4>
                   <label>Your cities</label>
-                  <select class="form-control select2" style="width: 100%;" id="city-model" ng-model="UsersCtrl.address" ng-options="obj.city as obj.city for obj in UsersCtrl.currentUser.addresses">
+                  <select class="form-control select2" style="width: 100%;" id="city-model" ng-model="FindPlayersCtrl.city"
+                    ng-options="obj.city as obj.city for obj in FindPlayersCtrl.currentUser.addresses">
                     <option value="">Choose a City</option>
+                    <option value="All">All cities</option>
                   </select>
                 </div>
-
+                <!-- <div class="form-group">
+					<h4>{{proficiency_id}}</h4>
+                  <label>Proficiency Level</label>
+                  <select class="form-control select2" style="width: 100%;" ng-model="proficiency_id"
+                    ng-options="obj.id as (obj.id + ' - ' + obj.name) for obj in FindPlayersCtrl.proficiencyTypes track by obj.id">
+                    <option value="">Choose a Proficiency Level</option>
+                  </select>
+                </div> -->
                 <div class="form-group">
-                  <button type="submit" class="btn btn-success" ng-click="UsersCtrl.findUsers()">Find Players</button>
+                  <button type="submit" class="btn btn-success" ng-click="FindPlayersCtrl.findPlayers()">Find Players</button>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" ng-show="FindPlayersCtrl.showPlayers">
                   <div class="box">
                     <div class="box-header">
                       <h3 class="box-title">Players in your area</h3>
@@ -47,7 +57,7 @@
                           <th>Level</th>
                           <th style="width:40px">Message</th>
                         </tr>
-                        <tr ng-repeat="user in UsersCtrl.users">
+                        <tr ng-repeat="user in FindPlayersCtrl.players">
                           <td>{{user.name}}</td>
                           <td>{{user.current_proficiency_type}}</td>
                           <td><i class="fa fa-envelope-o"></i></td>
