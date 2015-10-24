@@ -9,18 +9,18 @@
 		var vm = this;
 
 		vm.user = {};
-		vm.user.message = '';
+		vm.message = '';
 		vm.userProficiencyType = {};
 		vm.userProficiencyType.proficiency_type_id = 1;
 
 		vm.createUser = function(isValid) {
 			if (!isValid) {
-				vm.user.message = 'There are still invalid fields';
+				vm.message = 'There are still invalid fields';
 				return;
 			}
 
 			if(vm.isDuplicateEmail(vm.user.email)) {
-				vm.user.message = 'Email already exists';
+				vm.message = 'Email already exists';
 				return;
 			}
 
