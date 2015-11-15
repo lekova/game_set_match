@@ -34,12 +34,13 @@
 				datetime: vm.game.datetime,
 				durations: vm.game.duration,
 				place: vm.game.city,
-				winner_id: vm.game.winner_id,
+				winner_id: Number(vm.game.winner_id),
 				loser_id: vm.getLoser(),
 				score: vm.getScore(),
 				comment: vm.game.comment,
 				status: 1
-			}
+			};
+
 			GameFactory.createGame(obj).then(function(response) {
 				console.log('create game response: ', response);
 				vm.label = true;
@@ -54,11 +55,11 @@
 
 		vm.getWonPastGames = function() {
 			GameFactory.getWonPastGames();
-		}
+		};
 
 		vm.getLostPastGames = function() {
 			GameFactory.getLostPastGames();
-		}
+		};
 
 		vm.getUpcomingGames = function() {
 			GameFactory.getUpcomingGames();
@@ -69,11 +70,11 @@
 						vm.score.scoreTwoLeft + ':' + vm.score.scoreTwoRight + ', ' +
 						vm.score.scoreThreeLeft + ':' + vm.score.scoreThreeRight;
 			return score;
-		}
+		};
 
 		vm.getLoser = function() {
-			return vm.game.winnerId == vm.currentUser.id ? vm.opponent.id : vm.currentUser.id;
-		}
+			return Number(vm.game.winner_id) === Number(vm.currentUser.id) ? vm.opponent.id : vm.currentUser.id;
+		};
 
 		vm.sortWinsBy = function(propName) {
 			vm.sortWinsBy = propName;
@@ -94,6 +95,6 @@
 		vm.getWonPastGames();
 		vm.getLostPastGames();
 		vm.getUpcomingGames();
-	};
+	}
 
 })();
