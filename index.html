@@ -30,12 +30,12 @@
 <body ng-app="gameSetMatch" class="hold-transition skin-green layout-top-nav">
 
 	<div class="wrapper">
-	<gsm-nav-bar></gsm-nav-bar>
-	<div ng-if="NavbarCtrl.isLoggedIn()">
-		<gsm-side-bar></gsm-side-bar>
-	</div>
-	<ng-view></ng-view>
-<!--     <ng-footer></ng-footer> -->
+		<gsm-nav-bar></gsm-nav-bar>
+		<div ng-if="NavbarCtrl.isLoggedIn()">
+			<gsm-side-bar></gsm-side-bar>
+		</div>
+		<ng-view></ng-view>
+	<!--     <ng-footer></ng-footer> -->
 	</div><!-- ./wrapper -->
 	<!-- jQuery 2.1.4 -->
 	<script src="bower_components/jquery/dist/jquery.js"></script>
