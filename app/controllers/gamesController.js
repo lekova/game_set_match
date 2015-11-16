@@ -4,10 +4,10 @@
 
 	angular.module('gameSetMatch').controller('GamesCtrl', GamesCtrl);
 
-	GamesCtrl.$inject = ['$location', 'GameFactory', 'AuthFactory',
+	GamesCtrl.$inject = ['$scope', '$location', 'GameFactory', 'AuthFactory',
 						'UserFactory', '$filter'];
 
-	function GamesCtrl($location, GameFactory, AuthFactory, UserFactory, $filter) {
+	function GamesCtrl($scope, $location, GameFactory, AuthFactory, UserFactory, $filter) {
 		var vm = this;
 		vm.currentUser = AuthFactory.currentUser;
 		vm.wonGames = GameFactory.wonGames;
@@ -23,9 +23,15 @@
 		vm.sortLossesBy = 'datetime';
 		vm.reverseWins = false;
 		vm.reverseLosses = false;
-		vm.label;
+		vm.label; // TODO check if this is needed considering "vm.submitted"
+		vm.submitted = false;
+
+		vm.interacted = function(field) {
+			return vm.submitted || field.$dirty;
+		};
 
 		vm.createGame = function() {
+			vm.submitted = true;
 			vm.game.loser_id = vm.getLoser();
 			vm.game.score = vm.getScore();
 			vm.game.status = 1;
@@ -87,6 +93,7 @@
 		};
 
 		vm.resetForm = function() {
+			$scope.addGameForm.$setPristine();
 			vm.game = {};
 			vm.score = {};
 			vm.label = false;
