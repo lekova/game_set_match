@@ -13,12 +13,12 @@
 
 		vm.getProficiencyTypes = function() {
 			ProficiencyFactory.getProficiencyLevels();
-		}
+		};
 
 		vm.findPlayers = function() {
 			UserFactory.findUsers(vm.city);
 			vm.showPlayers = true;
-		}
+		};
 
 		vm.getProficiencyTypes();
 	}
