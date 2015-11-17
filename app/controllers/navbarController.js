@@ -1,41 +1,39 @@
 'use strict';
 
 (function() {
+	angular.module('gameSetMatch').controller('NavbarCtrl', NavbarCtrl);
 
-  angular.module('gameSetMatch').controller('NavbarCtrl', NavbarCtrl);
+	NavbarCtrl.$inject = ['$location', 'UserFactory', 'AuthFactory', '$scope'];
 
-  NavbarCtrl.$inject = ['$location', 'UserFactory', 'AuthFactory', '$scope'];
+	function NavbarCtrl($location, UserFactory, AuthFactory, $scope) {
+		let vm = this;
+		vm.searchString = '';
+		vm.currentUser = AuthFactory.currentUser;
 
-  function NavbarCtrl($location, UserFactory, AuthFactory, $scope) {
-    var vm = this;
-    vm.searchString = '';
-    vm.currentUser = AuthFactory.currentUser;
+		vm.isLoggedIn = function() {
+			return AuthFactory.isLoggedIn();
+		};
 
-    vm.isLoggedIn = function() {
-      return AuthFactory.isLoggedIn();
-    };
+		vm.logOut = function() {
+			AuthFactory.logOut();
+		};
 
-    vm.logOut = function() {
-      AuthFactory.logOut();
-    };
+		vm.searchUsers = function(searchString) {
+			UserFactory.getUsers(searchString).then(function(response) {
+				$location.path('/users');
+				$location.search('username', searchString);
+				vm.searchString = '';
+			});
+		};
 
-    vm.searchUsers = function(searchString) {
-      UserFactory.getUsers(searchString).then(function(response) {
-        $location.path('/users');
-        $location.search('username', searchString);
-        vm.searchString = '';
-      });
-    };
+		let getProfile = function() {
+			AuthFactory.getProfile();
+		};
 
-    var getProfile = function() {
-      AuthFactory.getProfile();
-    };
-
-    $scope.$watch(function() { return self.currentUser; }, function(user) {
-      if (!user && simpleStorage.get('gsm-user-token')) {
-        getProfile();
-      }
-    });
-  };
-
+		$scope.$watch(function() { return self.currentUser; }, function(user) {
+			if (!user && simpleStorage.get('gsm-user-token')) {
+				getProfile();
+			}
+		});
+	};
 })();

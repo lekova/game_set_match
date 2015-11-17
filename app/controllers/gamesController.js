@@ -1,14 +1,13 @@
 'use strict';
 
 (function() {
-
 	angular.module('gameSetMatch').controller('GamesCtrl', GamesCtrl);
 
 	GamesCtrl.$inject = ['$scope', '$location', 'GameFactory', 'AuthFactory',
 						'UserFactory', '$filter'];
 
-	function GamesCtrl($scope, $location, GameFactory, AuthFactory, UserFactory, $filter) {
-		var vm = this;
+	function GamesCtrl($scope, $location, GameFactory, AuthFactory, UserFactory) {
+		let vm = this;
 		vm.currentUser = AuthFactory.currentUser;
 		vm.wonGames = GameFactory.wonGames;
 		vm.lostGames = GameFactory.lostGames;
@@ -23,7 +22,7 @@
 		vm.sortLossesBy = 'datetime';
 		vm.reverseWins = false;
 		vm.reverseLosses = false;
-		vm.label; // TODO check if this is needed considering "vm.submitted"
+		vm.label = false; // TODO check if this is needed considering "vm.submitted"
 		vm.submitted = false;
 
 		vm.interacted = function(field) {
@@ -36,7 +35,7 @@
 			vm.game.score = vm.getScore();
 			vm.game.status = 1;
 
-			var obj = {
+			let obj = {
 				datetime: vm.game.datetime,
 				durations: vm.game.duration,
 				place: vm.game.city,
@@ -55,7 +54,7 @@
 				vm.getWonPastGames();
 				vm.getLostPastGames();
 			}, function(response) {
-				vm.serverErrors = true;
+					vm.serverErrors = true;
 			});
 		};
 
@@ -72,7 +71,7 @@
 		};
 
 		vm.getScore = function() {
-			var score = vm.score.scoreOneLeft + ':' + vm.score.scoreOneRight + ', ' +
+			let score = vm.score.scoreOneLeft + ':' + vm.score.scoreOneRight + ', ' +
 						vm.score.scoreTwoLeft + ':' + vm.score.scoreTwoRight + ', ' +
 						vm.score.scoreThreeLeft + ':' + vm.score.scoreThreeRight;
 			return score;
@@ -103,5 +102,4 @@
 		vm.getLostPastGames();
 		vm.getUpcomingGames();
 	}
-
 })();

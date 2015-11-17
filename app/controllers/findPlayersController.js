@@ -1,10 +1,11 @@
 'use strict';
 (function() {
 	angular.module('gameSetMatch').controller('FindPlayersCtrl', FindPlayersCtrl);
+
 	FindPlayersCtrl.$inject = ['AuthFactory', 'UserFactory', 'ProficiencyFactory'];
 
 	function FindPlayersCtrl(AuthFactory, UserFactory, ProficiencyFactory) {
-		var vm = this;
+		let vm = this;
 
 		vm.currentUser = AuthFactory.currentUser;
 		vm.proficiencyTypes = ProficiencyFactory.proficiencyTypes;

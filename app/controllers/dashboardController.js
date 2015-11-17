@@ -1,14 +1,14 @@
 'use strict';
 
 (function() {
+	angular.module('gameSetMatch').controller('DashboardCtrl', DashboardCtrl);
 
-  angular.module('gameSetMatch').controller('DashboardCtrl', DashboardCtrl);
-  DashboardCtrl.$inject = ['ChartFactory'];
+	DashboardCtrl.$inject = ['ChartFactory'];
 
-  function DashboardCtrl(ChartFactory) {
-    var vm = this;
+	function DashboardCtrl(ChartFactory) {
+		let vm = this;
 
-    vm.statistics = ChartFactory.statistics;
+		vm.statistics = ChartFactory.statistics;
 		vm.totals = ChartFactory.totals;
 		vm.labels = ChartFactory.labels;
 		vm.data = ChartFactory.data;
@@ -33,13 +33,12 @@
 
 		vm.getStatistics = function() {
 			ChartFactory.getStatistics();
-		}
+		};
 
 		vm.onClick = function(points, evt) {
 			console.log(points, evt);
 		};
 
 		vm.getStatistics();
-  }
-
+	}
 })();
