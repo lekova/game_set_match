@@ -24,6 +24,7 @@
     "fullcalendar": "~2.4.0",
     "handlebars": "~3.0.3",
     "ngmap": "~1.13.4",
-    "simpleStorage": "~0.1.3"
+    "simpleStorage": "~0.1.3",
+    "angular-messages": "~1.4.8"
   }
 }
