@@ -5,7 +5,7 @@
 	FindPlayersCtrl.$inject = ['AuthFactory', 'UserFactory', 'ProficiencyFactory'];
 
 	function FindPlayersCtrl(AuthFactory, UserFactory, ProficiencyFactory) {
-		let vm = this;
+		var vm = this;
 
 		vm.currentUser = AuthFactory.currentUser;
 		vm.proficiencyTypes = ProficiencyFactory.proficiencyTypes;

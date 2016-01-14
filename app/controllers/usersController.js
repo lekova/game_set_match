@@ -6,8 +6,8 @@
 	UsersCtrl.$inject = ['$routeParams', '$location', 'UserFactory', 'AuthFactory'];
 
 	function UsersCtrl($routeParams, $location, UserFactory, AuthFactory) {
-		let vm = this;
-		let userId = $routeParams.userId;
+		var vm = this;
+		var userId = $routeParams.userId;
 		vm.users = UserFactory.users;
 		vm.user = UserFactory.user;
 		vm.search = UserFactory.search;
@@ -59,7 +59,7 @@
 		};
 
 		vm.renderPreview = function() {
-			let reader = new FileReader();
+			var reader = new FileReader();
 
 			reader.onload = function(e) {
 				$('#profile').attr('src', e.target.result);

@@ -6,7 +6,7 @@
 	DashboardCtrl.$inject = ['ChartFactory'];
 
 	function DashboardCtrl(ChartFactory) {
-		let vm = this;
+		var vm = this;
 
 		vm.statistics = ChartFactory.statistics;
 		vm.totals = ChartFactory.totals;

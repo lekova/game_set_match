@@ -6,7 +6,7 @@
 	SidebarController.$inject = ['AuthFactory'];
 
 	function SidebarController(AuthFactory) {
-		let vm = this;
+		var vm = this;
 		vm.user = AuthFactory.currentUser;
 
 		vm.getCurrentUser = function() {

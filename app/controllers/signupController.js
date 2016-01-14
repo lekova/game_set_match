@@ -6,7 +6,7 @@
 	SignupController.$inject = ['UserFactory'];
 
 	function SignupController(UserFactory) {
-		let vm = this;
+		var vm = this;
 
 		vm.user = {};
 		vm.message = '';

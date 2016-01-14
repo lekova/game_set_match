@@ -1,12 +1,13 @@
 'use strict';
 
 (function() {
+
 	angular.module('gameSetMatch').controller('NavbarCtrl', NavbarCtrl);
 
 	NavbarCtrl.$inject = ['$location', 'UserFactory', 'AuthFactory', '$scope'];
 
 	function NavbarCtrl($location, UserFactory, AuthFactory, $scope) {
-		let vm = this;
+		var vm = this;
 		vm.searchString = '';
 		vm.currentUser = AuthFactory.currentUser;
 
@@ -26,7 +27,7 @@
 			});
 		};
 
-		let getProfile = function() {
+		var getProfile = function() {
 			AuthFactory.getProfile();
 		};
 

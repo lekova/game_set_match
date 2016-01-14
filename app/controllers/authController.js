@@ -6,7 +6,7 @@
 	AuthCtrl.$inject = ['$location', 'AuthFactory'];
 
 	function AuthCtrl($location, AuthFactory) {
-		let vm = this;
+		var vm = this;
 		vm.currentUser = AuthFactory.currentUser;
 		vm.credentials = {};
 		vm.serverErrors = false;
