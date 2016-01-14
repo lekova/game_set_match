@@ -1,6 +1,7 @@
 'use strict';
 (function() {
 	angular.module('gameSetMatch').controller('FindPlayersCtrl', FindPlayersCtrl);
+
 	FindPlayersCtrl.$inject = ['AuthFactory', 'UserFactory', 'ProficiencyFactory'];
 
 	function FindPlayersCtrl(AuthFactory, UserFactory, ProficiencyFactory) {
@@ -13,12 +14,12 @@
 
 		vm.getProficiencyTypes = function() {
 			ProficiencyFactory.getProficiencyLevels();
-		}
+		};
 
 		vm.findPlayers = function() {
 			UserFactory.findUsers(vm.city);
 			vm.showPlayers = true;
-		}
+		};
 
 		vm.getProficiencyTypes();
 	}

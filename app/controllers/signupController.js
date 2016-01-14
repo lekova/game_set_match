@@ -1,8 +1,8 @@
 'use strict';
 
 (function() {
-
 	angular.module('gameSetMatch').controller('SignupController', SignupController);
+
 	SignupController.$inject = ['UserFactory'];
 
 	function SignupController(UserFactory) {
@@ -19,7 +19,7 @@
 				return;
 			}
 
-			if(vm.isDuplicateEmail(vm.user.email)) {
+			if (vm.isDuplicateEmail(vm.user.email)) {
 				vm.message = 'Email already exists';
 				return;
 			}
@@ -32,16 +32,16 @@
 			}, function(response) {
 				vm.serverErrors = true;
 			});
-		}
+		};
 
 		vm.resetForm = function() {
 			vm.user = {};
 			vm.userProficiencyType = {};
 			vm.userProficiencyType.proficiency_type_id = 1;
-		}
+		};
 
 		vm.isDuplicateEmail = function(email) {
 			UserFactory.checkEmail(email);
-		}
+		};
 	};
 })();

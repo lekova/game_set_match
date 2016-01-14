@@ -1,7 +1,7 @@
-<div style="margin-left: 230px;">
+<div style="margin-left: 230px; min-heigth: 100%;">
 	<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
-		<section class="content-header">
+		<section class="content-header" style="min-heigth: 100%;">
 			<h1>
 				My games
 				<small>View of past an upcoming games</small>
@@ -12,298 +12,350 @@
 			</ol>
 		</section>
 
-		<section class="content" ng-controller="GamesCtrl as GamesCtrl">
-		<div class="row">
-			<div class="col-md-3">
-				<!-- Games Box -->
-				<div class="box box-success">
-					<div class="box-header with-border">
-						<h3 class="box-title">Your Games</h3>
-						<div class="box-tools pull-right">
-							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-						</div>
-					</div><!-- /.box-header -->
-					<div class="box-body">
-						<div class="row">
-							<div class="col-sm-8">
-								<strong><i class="fa fa-info margin-r-5"></i>Total Games:</strong>
+		<section class="content" ng-controller="GamesCtrl as GamesCtrl" style="min-heigth: 100%;">
+			<div class="row">
+				<div class="col-md-6">
+					<!-- Games Box -->
+					<div class="box box-success">
+						<div class="box-header with-border">
+							<h3 class="box-title">Your Games</h3>
+							<div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
 							</div>
-							<div class="col-sm-3">
-								<strong>
-									<span class="text">{{GamesCtrl.wonGames.length + GamesCtrl.lostGames.length}}</span>
-								</strong>
-							</div>
-						</div>
-						<hr>
-						<div class="row">
-							<div class="col-sm-8">
-								<strong><i class="fa fa-thumbs-o-up margin-r-5"></i>Won Games:</strong>
-							</div>
-							<div class="col-sm-3">
-								<strong>
-									<span class="text">{{GamesCtrl.wonGames.length}}</span>
-								</strong>
-							</div>
-						</div>
-						<hr>
-						<div class="row">
-							<div class="col-sm-8">
-								<strong><i class="fa fa-thumbs-o-down margin-r-5"></i>Lost Games:</strong>
-							</div>
-							<div class="col-sm-3">
-								<strong><span class="text">{{GamesCtrl.lostGames.length}}</span></strong>
-							</div>
-						</div>
-						<hr>
-					</div><!-- /.box-body -->
-				</div><!-- /.box -->
-
-				<!-- Add New Game Box -->
-				<div class="box box-success">
-					<div class="box-header with-border">
-						<h3 class="box-title">Add a Game</h3>
-						<div class="box-tools pull-right">
-							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-						</div>
-					</div>
-					<div class="box-body">
-						<!-- Date and time range -->
-						<div class="form-group">
-							<label>Select date and time:</label>
-							<div class="input-group">
-								<div class="input-group-addon">
-									<i class="fa fa-calendar"></i>
-								</div>
-								<input type="text" class="form-control pull-right" id="reservationtime" ng-model="GamesCtrl.game.datetime" placeholder="yyyy-MM-dd">
-							</div>
-						</div>
-
-						<!-- <div class="form-group" >
-							<label>Selected time of the day:</label>
-							<h2>{{TimeCtrl.time}}</h2>
-						</div>
-
-						<div class="bootstrap-timepicker">
-							<div class="form-group" >
-								<label>Time picker:</label>
-								<div class="input-group">
-									<input type="text" gsm-timepicker class="form-control timepicker" ng-model="TimeCtrl.mytime">
-									<div class="input-group-addon">
-										<i class="fa fa-clock-o"></i>
-									</div>
-								</div>
-							 </div>
-						</div> -->
-
-						<div class="form-group">
-							<label>How much time did you play:</label>
-							<div class="input-group">
-								<div class="input-group-addon">
-									<i class="fa fa-clock-o"></i>
-								</div>
-								<input type="text" class="form-control pull-right" placeholder="in minutes ..." ng-model="GamesCtrl.game.duration">
-								<span ng-show="GamesCtrl.duration.$error.required">Durations is required.</span>
-							</div>
-						</div>
-						<div class="form-group">
-							<label>Select city where you played:</label>
-							<input type="text" class="form-control" placeholder="Enter city..." ng-model="GamesCtrl.game.city">
-						</div>
-						<div class="form-group" ng-controller="UsersCtrl as UsersCtrl">
-							<label>Select opponent: </label>
-							<select class="form-control select2" ng-model="GamesCtrl.opponent"
-									ng-options="obj.name for obj in UsersCtrl.users">
-								<option value="">Select one</option>
-								<option ng-value="{{obj.id}}"></option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label>Select a winner: </label>
-							<select class="form-control select2" ng-model="GamesCtrl.game.winner_id">
-								<option value="">Select one</option>
-								<option value="{{GamesCtrl.currentUser.id}}">You</option>
-								<option value="{{GamesCtrl.opponent.id}}">Opponent</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label>Fill up score (your points come first):</label>
+						</div><!-- /.box-header -->
+						<div class="box-body">
 							<div class="row">
-								<div class="col-sm-4">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-user"></i></span>
-										<input type="text" class="form-control" ng-model="GamesCtrl.score.scoreOneLeft">
-									</div>
+								<div class="col-sm-8">
+									<strong><i class="fa fa-info margin-r-5"></i>Total Games:</strong>
 								</div>
-								<div class="col-sm-4">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-user"></i></span>
-										<input type="text" class="form-control" ng-model="GamesCtrl.score.scoreOneRight">
-									</div>
-								</div>
-								<div class="col-sm-4">
+								<div class="col-sm-3">
+									<strong>
+										<span class="text">{{GamesCtrl.wonGames.length + GamesCtrl.lostGames.length}}</span>
+									</strong>
 								</div>
 							</div>
-							</br>
+							<hr>
 							<div class="row">
-								<div class="col-sm-4">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-user"></i></span>
-										<input type="text" class="form-control" ng-model="GamesCtrl.score.scoreTwoLeft">
-									</div>
+								<div class="col-sm-8">
+									<strong><i class="fa fa-thumbs-o-up margin-r-5"></i>Won Games:</strong>
 								</div>
-								<div class="col-sm-4">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-user"></i></span>
-										<input type="text" class="form-control" ng-model="GamesCtrl.score.scoreTwoRight">
-									</div>
-								</div>
-								<div class="col-sm-4">
+								<div class="col-sm-3">
+									<strong>
+										<span class="text">{{GamesCtrl.wonGames.length}}</span>
+									</strong>
 								</div>
 							</div>
-							</br>
+							<hr>
 							<div class="row">
-								<div class="col-sm-4">
+								<div class="col-sm-8">
+									<strong><i class="fa fa-thumbs-o-down margin-r-5"></i>Lost Games:</strong>
+								</div>
+								<div class="col-sm-3">
+									<strong><span class="text">{{GamesCtrl.lostGames.length}}</span></strong>
+								</div>
+							</div>
+							<hr>
+						</div><!-- /.box-body -->
+					</div><!-- /.box -->
+
+					<!-- Add New Game Box -->
+					<div class="box box-success">
+						<form name="addGameForm" ng-submit="GamesCtrl.createGame()" novalidate>
+							<div class="box-header with-border">
+								<h3 class="box-title">Add a Game</h3>
+								<div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+								</div>
+							</div>
+							<div class="box-body">
+								<div class="form-group">
+									<label>Select date and time:</label>
 									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-user"></i></span>
-										<input type="text" class="form-control" ng-model="GamesCtrl.score.scoreThreeLeft">
+										<div class="input-group-addon">
+											<i class="fa fa-calendar"></i>
+										</div>
+										<input type="date" name="datetime" class="form-control pull-right" id="reservationtime"
+											ng-model="GamesCtrl.game.datetime" placeholder="yyyy-MM-dd" minlength="0" maxlength="11" required>
+									</div>
+									<div class="sigunp-alert" ng-if="GamesCtrl.interacted(addGameForm.datetime)"
+										ng-messages="addGameForm.datetime.$error" ng-messages-multiple>
+										<div class="sigunp-alert" ng-message="required"> * Date field is required</div>
+										<div class="sigunp-alert" ng-message="minlength"> * The date you have entered is too short</div>
+										<div class="sigunp-alert" ng-message="maxlength"> * The date that you have entered is too long</div>
 									</div>
 								</div>
-								<div class="col-sm-4">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-user"></i></span>
-										<input type="text" class="form-control" ng-model="GamesCtrl.score.scoreThreeRight">
-									</div>
+
+								<!-- <div class="form-group" >
+									<label>Selected time of the day:</label>
+									<h2>{{TimeCtrl.time}}</h2>
 								</div>
-								<!-- <div class="col-sm-4">
-									<button type="submit" class="btn btn-success" ng-click="GamesCtrl.score.clearNewGame()">
-										<i class="fa fa-plus-square"></i>
-									</button>
+
+								<div class="bootstrap-timepicker">
+									<div class="form-group" >
+										<label>Time picker:</label>
+										<div class="input-group">
+											<input type="text" gsm-timepicker class="form-control timepicker" ng-model="TimeCtrl.mytime">
+											<div class="input-group-addon">
+												<i class="fa fa-clock-o"></i>
+											</div>
+										</div>
+									 </div>
 								</div> -->
-							</div>
-						</div>
 
-						<div class="form-group" >
-							<label>Write your thoughts about the game:</label>
-							<textarea class="form-control" rows="3" placeholder="Enter ..." ng-model="GamesCtrl.game.comment"></textarea>
-						</div>
-						<div ng-show="GamesCtrl.label">
-							</br>
-							<div class="alert alert-success alert-dismissible" >
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true"
-									ng-click="GamesCtrl.resetForm()">&times;</button>
-								<i class="icon fa fa-check"></i> Game created successfully!
-							</div>
-						</div>
-					</div><!-- /.box-body -->
-					<div class="box-footer">
-						<button type="submit" class="btn btn-default" ng-click="GamesCtrl.resetForm()">Cancel</button>
-						<button type="submit" class="btn btn-success pull-right" ng-click="GamesCtrl.createGame()">Create Game</button>
-						<!-- In future add error alert
-						<div class="alert alert-danger alert-dismissible" ng-show="GamesCtrl.serverErrors">
-							<button type="button" class="close" data-dismiss="alert" aria-hidden="true" ng-click="AuthCtrl.resetForm()">&times;</button>
-							<h4><i class="icon fa fa-ban"></i> Information you entered is not correct!</h4>
-						</div> -->
-					</div><!-- /.box-footer -->
-				</div><!-- /.box -->
-
-			</div>
-
-			<div class="col-md-6">
-
-				<div class="box box-success">
-					<div class="box-header with-border">
-						<h3 class="box-title">Won Games</h3>
-						<div class="box-tools pull-right">
-							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-						</div>
-					</div>
-					<!-- /.box-header -->
-					<div class="box-body">
-						<div class="row">
-							<div class="col-md-12">
 								<div class="form-group">
-									<div class="box">
-										<div class="box-header">
-											<h3 class="box-title">{{GamesCtrl.wonGames.length}} Total Won Games</h3>
+									<label>How much time did you play:</label>
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-clock-o"></i>
 										</div>
-										<!-- /.box-header -->
-										<div class="box-body no-padding">
-											<table class="table table-striped">
-												<tr>
-													<th ng-click="sortWinsBy='datetime';reverseWins=!reverseWins">Date</th>
-													<th ng-click="sortWinsBy='city';reverseWins=!reverseWins">Place</th>
-													<th ng-click="sortWinsBy='player';reverseWins=!reverseWins">Against</th>
-													<th ng-click="sortWinsBy='score';reverseWins=!reverseWins">Score</th>
-													<!--   <th>Comment</th> -->
-												</tr>
-												<tr ng-repeat="game in GamesCtrl.wonGames | orderBy:sortWinsBy:reverseWins">
-													<td>{{game.date}}</td>
-													<td>{{game.place}}</td>
-													<td>{{game.loser_name}}</td>
-													<td>{{game.score}}</td>
-													<!--  <td>{{game.comment}}</td> -->
-												</tr>
-											</table>
-										</div>
-										<!-- /.box-body -->
+										<input type="number" name="duration" class="form-control pull-right" placeholder="in minutes ..."
+											ng-model="GamesCtrl.game.duration" min="0" max="300" required>
+									</div>
+									<div class="sigunp-alert" ng-if="GamesCtrl.interacted(addGameForm.duration)"
+										ng-messages="addGameForm.duration.$error" ng-messages-multiple>
+										<div class="sigunp-alert" ng-message="required"> * Date field is required</div>
+										<div class="sigunp-alert" ng-message="min"> * Duration has to be positive number, representing minutes</div>
+										<div class="sigunp-alert" ng-message="max"> * Duration can not be more than 300 min (5 hours). Who are you kidding?</div>
 									</div>
 								</div>
-							</div>
-							<!-- /.col -->
-						</div>
-						<!-- /.row -->
-					</div>
-					<!-- /.box-body -->
-				</div>
-				<!-- /.box -->
-				<div class="box box-success">
-					<div class="box-header with-border">
-						<h3 class="box-title">Lost Games</h3>
-						<div class="box-tools pull-right">
-							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-						</div>
-					</div>
-					<!-- /.box-header -->
-					<div class="box-body">
-						<div class="row">
-							<div class="col-md-12">
 								<div class="form-group">
-									<div class="box">
-										<div class="box-header">
-											<h3 class="box-title">{{GamesCtrl.lostGames.length}} Total Lost Games</h3>
-										</div>
-										<!-- /.box-header -->
-										<div class="box-body no-padding">
-											<table class="table table-striped" id="table-lost-games">
-												<tr>
-													<th ng-click="sortLossesBy='datetime';reverseLosses=!reverseLosses">Date</th>
-													<th ng-click="sortLossesBy='city';reverseLosses=!reverseLosses">Place</th>
-													<th ng-click="sortLossesBy='player';reverseLosses=!reverseLosses">Against</th>
-													<th ng-click="sortLossesBy='score';reverseLosses=!reverseLosses">Score</th>
-													<!-- <th>Comment</th> -->
-												</tr>
-												<tr ng-repeat="game in GamesCtrl.lostGames | orderBy:sortLossesBy:reverseLosses">
-													<td>{{game.date}}</td>
-													<td>{{game.place}}</td>
-													<td>{{game.winner_name}}</td>
-													<td>{{game.score}}</td>
-													<!-- <td>{{game.comment}}</td> -->
-												</tr>
-											</table>
-										</div>
-										<!-- /.box-body -->
+									<label>Select city where you played:</label>
+									<input type="text" class="form-control" placeholder="Enter city..." ng-model="GamesCtrl.game.city">
+								</div>
+								<div class="form-group">
+									<label>Select opponent: </label>
+									<select name="opponent" class="form-control select2" ng-model="GamesCtrl.opponent"
+											ng-options="obj.name for obj in GamesCtrl.users" required>
+										<option value="">Select one</option>
+										<option ng-value="{{obj.id}}"></option>
+									</select>
+									<div class="sigunp-alert" ng-if="GamesCtrl.interacted(addGameForm.opponent)"
+										ng-messages="addGameForm.opponent.$error">
+										<div class="sigunp-alert" ng-message="required"> * Selecting opponent is required</div>
 									</div>
 								</div>
-							</div>
-							<!-- /.col -->
-						</div>
-						<!-- /.row -->
-					</div>
-					<!-- /.box-body -->
+								<div class="form-group">
+									<label>Select a winner: </label>
+									<select class="form-control select2" ng-model="GamesCtrl.game.winner_id">
+										<option value="">Select one</option>
+										<option value="{{GamesCtrl.currentUser.id}}">You</option>
+										<option value="{{GamesCtrl.opponent.id}}">Opponent</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Fill up score (your points come first):</label>
+									<div class="row">
+										<div class="col-sm-4">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-user"></i></span>
+												<input type="number" name="scoreOneLeft" class="form-control" ng-model="GamesCtrl.score.scoreOneLeft" min="0" max="10" required>
+											</div>
+											<div class="sigunp-alert" ng-if="GamesCtrl.interacted(addGameForm.scoreOneLeft)"
+												ng-messages="addGameForm.scoreOneLeft.$error" ng-messages-multiple>
+												<div class="sigunp-alert" ng-message="required"> * Date field is required</div>
+												<div class="sigunp-alert" ng-message="min"> * Score has to be positive number, representing your points</div>
+												<div class="sigunp-alert" ng-message="max"> * Score can not be more than 10. Did you play forever?</div>
+											</div>
+										</div>
+										<div class="col-sm-4">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-user"></i></span>
+												<input type="number" name="scoreOneRight" class="form-control" ng-model="GamesCtrl.score.scoreOneRight" min="0" max="10" required>
+											</div>
+											<div class="sigunp-alert" ng-if="GamesCtrl.interacted(addGameForm.scoreOneRight)"
+												ng-messages="addGameForm.scoreOneRight.$error" ng-messages-multiple>
+												<div class="sigunp-alert" ng-message="required"> * Date field is required</div>
+												<div class="sigunp-alert" ng-message="min"> * Score has to be positive number, representing your points</div>
+												<div class="sigunp-alert" ng-message="max"> * Score can not be more than 10. Did you play forever?</div>
+											</div>
+										</div>
+										<div class="col-sm-4">
+										</div>
+									</div>
+									</br>
+									<div class="row">
+										<div class="col-sm-4">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-user"></i></span>
+												<input type="number" name="scoreTwoLeft" class="form-control" ng-model="GamesCtrl.score.scoreTwoLeft" min="0" max="10" required>
+											</div>
+											<div class="sigunp-alert" ng-if="GamesCtrl.interacted(addGameForm.scoreTwoLeft)"
+												ng-messages="addGameForm.scoreTwoLeft.$error" ng-messages-multiple>
+												<div class="sigunp-alert" ng-message="required"> * Date field is required</div>
+												<div class="sigunp-alert" ng-message="min"> * Score has to be positive number, representing your points</div>
+												<div class="sigunp-alert" ng-message="max"> * Score can not be more than 10. Did you play forever?</div>
+											</div>
+										</div>
+										<div class="col-sm-4">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-user"></i></span>
+												<input type="number" name="scoreTwoRight" class="form-control" ng-model="GamesCtrl.score.scoreTwoRight" min="0" max="10" required>
+											</div>
+											<div class="sigunp-alert" ng-if="GamesCtrl.interacted(addGameForm.scoreTwoRight)"
+												ng-messages="addGameForm.scoreTwoRight.$error" ng-messages-multiple>
+												<div class="sigunp-alert" ng-message="required"> * Date field is required</div>
+												<div class="sigunp-alert" ng-message="min"> * Score has to be positive number, representing your points</div>
+												<div class="sigunp-alert" ng-message="max"> * Score can not be more than 10. Did you play forever?</div>
+											</div>
+										</div>
+										<div class="col-sm-4">
+										</div>
+									</div>
+									</br>
+									<div class="row">
+										<div class="col-sm-4">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-user"></i></span>
+												<input type="number" name="scoreThreeLeft" class="form-control" ng-model="GamesCtrl.score.scoreThreeLeft" min="0" max="10" required>
+											</div>
+											<div class="sigunp-alert" ng-if="GamesCtrl.interacted(addGameForm.scoreThreeLeft)"
+												ng-messages="addGameForm.scoreThreeLeft.$error" ng-messages-multiple>
+												<div class="sigunp-alert" ng-message="required"> * Date field is required</div>
+												<div class="sigunp-alert" ng-message="min"> * Score has to be positive number, representing your points</div>
+												<div class="sigunp-alert" ng-message="max"> * Score can not be more than 10. Did you play forever?</div>
+											</div>
+										</div>
+										<div class="col-sm-4">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-user"></i></span>
+												<input type="number" name="scoreThreeRight" class="form-control" ng-model="GamesCtrl.score.scoreThreeRight" min="0" max="10" required>
+											</div>
+											<div class="sigunp-alert" ng-if="GamesCtrl.interacted(addGameForm.scoreThreeRight)"
+												ng-messages="addGameForm.scoreThreeRight.$error" ng-messages-multiple>
+												<div class="sigunp-alert" ng-message="required"> * Date field is required</div>
+												<div class="sigunp-alert" ng-message="min"> * Score has to be positive number, representing your points</div>
+												<div class="sigunp-alert" ng-message="max"> * Score can not be more than 10. Did you play forever?</div>
+											</div>
+										</div>
+										<!-- <div class="col-sm-4">
+											<button type="submit" class="btn btn-success" ng-click="GamesCtrl.score.clearNewGame()">
+												<i class="fa fa-plus-square"></i>
+											</button>
+										</div> -->
+									</div>
+								</div>
+								<div class="form-group" >
+									<label>Write your thoughts about the game:</label>
+									<textarea class="form-control" rows="3" placeholder="Enter ..." ng-model="GamesCtrl.game.comment"></textarea>
+								</div>
+								<div ng-show="GamesCtrl.label">
+									</br>
+									<div class="alert alert-success alert-dismissible" >
+										<button type="button" class="close" data-dismiss="alert" aria-hidden="true"
+											ng-click="GamesCtrl.resetForm()">&times;</button>
+										<i class="icon fa fa-check"></i> Game created successfully!
+									</div>
+								</div>
+							</div><!-- /.box-body -->
+							<div class="box-footer">
+								<button class="btn btn-default" ng-click="GamesCtrl.resetForm()">Cancel</button>
+								<input type="submit" value="Create Game" class="btn btn-success pull-right">
+								<!-- In future add error alert
+								<div class="alert alert-danger alert-dismissible" ng-show="GamesCtrl.serverErrors">
+									<button type="button" class="close" data-dismiss="alert" aria-hidden="true" ng-click="AuthCtrl.resetForm()">&times;</button>
+									<h4><i class="icon fa fa-ban"></i> Information you entered is not correct!</h4>
+								</div> -->
+							</div><!-- /.box-footer -->
+						</form>
+					</div><!-- /.box -->
 				</div>
-				<!-- /.box -->
+
+				<div class="col-md-6">
+
+					<div class="box box-success">
+						<div class="box-header with-border">
+							<h3 class="box-title">Won Games</h3>
+							<div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+							</div>
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<div class="box">
+											<div class="box-header">
+												<h3 class="box-title">{{GamesCtrl.wonGames.length}} Total Won Games</h3>
+											</div>
+											<!-- /.box-header -->
+											<div class="box-body no-padding">
+												<table class="table table-striped">
+													<tr>
+														<th ng-click="sortWinsBy='datetime';reverseWins=!reverseWins">Date</th>
+														<th ng-click="sortWinsBy='city';reverseWins=!reverseWins">Place</th>
+														<th ng-click="sortWinsBy='player';reverseWins=!reverseWins">Against</th>
+														<th ng-click="sortWinsBy='score';reverseWins=!reverseWins">Score</th>
+														<!--   <th>Comment</th> -->
+													</tr>
+													<tr ng-repeat="game in GamesCtrl.wonGames | orderBy:sortWinsBy:reverseWins">
+														<td>{{game.date}}</td>
+														<td>{{game.place}}</td>
+														<td>{{game.loser_name}}</td>
+														<td>{{game.score}}</td>
+														<!--  <td>{{game.comment}}</td> -->
+													</tr>
+												</table>
+											</div>
+											<!-- /.box-body -->
+										</div>
+									</div>
+								</div>
+								<!-- /.col -->
+							</div>
+							<!-- /.row -->
+						</div>
+						<!-- /.box-body -->
+					</div>
+					<!-- /.box -->
+					<div class="box box-success">
+						<div class="box-header with-border">
+							<h3 class="box-title">Lost Games</h3>
+							<div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+							</div>
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<div class="box">
+											<div class="box-header">
+												<h3 class="box-title">{{GamesCtrl.lostGames.length}} Total Lost Games</h3>
+											</div>
+											<!-- /.box-header -->
+											<div class="box-body no-padding">
+												<table class="table table-striped" id="table-lost-games">
+													<tr>
+														<th ng-click="sortLossesBy='datetime';reverseLosses=!reverseLosses">Date</th>
+														<th ng-click="sortLossesBy='city';reverseLosses=!reverseLosses">Place</th>
+														<th ng-click="sortLossesBy='player';reverseLosses=!reverseLosses">Against</th>
+														<th ng-click="sortLossesBy='score';reverseLosses=!reverseLosses">Score</th>
+														<!-- <th>Comment</th> -->
+													</tr>
+													<tr ng-repeat="game in GamesCtrl.lostGames | orderBy:sortLossesBy:reverseLosses">
+														<td>{{game.date}}</td>
+														<td>{{game.place}}</td>
+														<td>{{game.winner_name}}</td>
+														<td>{{game.score}}</td>
+														<!-- <td>{{game.comment}}</td> -->
+													</tr>
+												</table>
+											</div>
+											<!-- /.box-body -->
+										</div>
+									</div>
+								</div>
+								<!-- /.col -->
+							</div>
+							<!-- /.row -->
+						</div>
+						<!-- /.box-body -->
+					</div>
+					<!-- /.box -->
+				</div>
 			</div>
-		</div>
 		</section>
 		<!-- <ng-footer></ng-footer> -->
 	</div>

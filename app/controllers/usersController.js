@@ -1,12 +1,11 @@
 'use strict';
 
 (function() {
-
 	angular.module('gameSetMatch').controller('UsersCtrl', UsersCtrl);
 
-	UsersCtrl.$inject = ['$routeParams','UserFactory', 'AuthFactory'];
+	UsersCtrl.$inject = ['$routeParams', '$location', 'UserFactory', 'AuthFactory'];
 
-	function UsersCtrl($routeParams, UserFactory, AuthFactory) {
+	function UsersCtrl($routeParams, $location, UserFactory, AuthFactory) {
 		var vm = this;
 		var userId = $routeParams.userId;
 		vm.users = UserFactory.users;
@@ -21,13 +20,16 @@
 
 		vm.createUser = function() {
 			UserFactory.createUser({
-					credentials: vm.user,
-					proficiency: vm.userProficiencyType,
-					userAddress: vm.userAddress
-				}).then(function(response) {
+				credentials: vm.user,
+				proficiency: vm.userProficiencyType,
+				userAddress: vm.userAddress
+			})
+			.then(function(response) {
 				vm.credentials = {};
 				$location.path('');
-			}, function(response) {
+				console.log('$location is:', $location);
+			},
+			function(response) {
 				vm.serverErrors = true;
 			});
 		};
@@ -46,10 +48,10 @@
 
 		vm.showAllUsers = function() {
 			UserFactory.getUsers();
-		}
+		};
 
 		vm.showProfile = function() {
-		  UserFactory.getProfile();
+			UserFactory.getProfile();
 		};
 
 		vm.followUser = function(id) {
@@ -67,7 +69,7 @@
 		};
 
 		vm.isCurrentUser = function(id) {
-			return (AuthFactory.currentUser.id === id);
+			return AuthFactory.currentUser.id === id;
 		};
 
 		vm.unfollowUser = function(id) {
@@ -75,7 +77,7 @@
 		};
 
 		vm.showUser = function() {
-		  UserFactory.getUser(userId);
+			UserFactory.getUser(userId);
 		};
 
 		vm.searchUsers = function() {
@@ -88,7 +90,7 @@
 
 		vm.findUsers = function() {
 			UserFactory.findUsers(vm.address);
-		}
+		};
 
 		function resetForm() {
 			vm.user = {};
@@ -106,5 +108,4 @@
 
 		init();
 	};
-
 })();

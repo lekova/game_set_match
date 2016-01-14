@@ -1,8 +1,8 @@
 'use strict';
 
 (function() {
-
 	angular.module('gameSetMatch').controller('SidebarController', SidebarController);
+
 	SidebarController.$inject = ['AuthFactory'];
 
 	function SidebarController(AuthFactory) {
@@ -11,7 +11,6 @@
 
 		vm.getCurrentUser = function() {
 			AuthFactory.getProfile();
-		}
+		};
 	}
-
 })();

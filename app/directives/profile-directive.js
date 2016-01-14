@@ -2,17 +2,17 @@
 
 (function() {
 
-  angular.module('gameSetMatch').directive('gsmProfile', gsmProfile);
+	angular.module('gameSetMatch').directive('gsmProfile', gsmProfile);
 
-  function gsmProfile() {
+	function gsmProfile() {
 
-    return {
-      restrict: 'E',
-      templateUrl: 'app/views/profile.html',
-      controller: 'UsersCtrl',
-      controllerAs: 'UsersCtrl',
-      bindToController: true
-    };
-  };
+		return {
+			restrict: 'E',
+			templateUrl: 'app/views/profile.html',
+			controller: 'UsersCtrl',
+			controllerAs: 'UsersCtrl',
+			bindToController: true
+		};
+	};
 
 })();

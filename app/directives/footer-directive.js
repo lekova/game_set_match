@@ -2,14 +2,14 @@
 
 (function() {
 
-  angular.module('gameSetMatch').directive('gsmFooter', gsmFooter);
+	angular.module('gameSetMatch').directive('gsmFooter', gsmFooter);
 
-  function gsmFooter() {
+	function gsmFooter() {
 
-    return {
-      restrict: 'E',
-      templateUrl: 'app/views/footer.html'
-    };
-  };
+		return {
+			restrict: 'E',
+			templateUrl: 'app/views/footer.html'
+		};
+	};
 
 })();
