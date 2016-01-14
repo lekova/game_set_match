@@ -113,7 +113,6 @@
 					simpleStorage.set('gsm-user-token', response.token, {TTL: 86400});
 					$http.defaults.headers.common.Authorization = 'Token token=' + response.token;
 					$location.path('/users/' + response.id);
-					location.reload();
 				});
 		};
 

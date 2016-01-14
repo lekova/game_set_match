@@ -20,10 +20,9 @@
 
 			// Array.prototype.push.apply(data.won_games, response.data.won_games_count);
 			// Array.prototype.push.apply(data.lost_games, response.data.lost_games_count);
-			//data.won_games = response.data.won_games_count;
-			//data.lost_games = response.data.lost_games_count;
+			// data.won_games = response.data.won_games_count;
+			// data.lost_games = response.data.lost_games_count;
 			// console.log('data.won_games in dataFilter function: ', data.won_games);
-
 		};
 
 		var getStatistics = function() {
