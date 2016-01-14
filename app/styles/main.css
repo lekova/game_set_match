@@ -9,3 +9,15 @@
 .sigunp-alert {
 	color: red;
 }
+
+.content-wrapper {
+	min-height: 100%;
+}
+
+.content-header {
+	min-height: 100%;
+}
+
+h4 {
+	color: green;
+}
