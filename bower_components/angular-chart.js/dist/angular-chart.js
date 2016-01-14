@@ -1,8 +1,10 @@
-(function(factory) {
+(function (factory) {
   'use strict';
   if (typeof exports === 'object') {
     // Node/CommonJS
-    module.exports = factory(require('angular'), require('chart.js'));
+    module.exports = factory(
+      typeof angular !== 'undefined' ? angular : require('angular'),
+      typeof Chart !== 'undefined' ? Chart : require('chart.js'));
   }  else if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
     define(['angular', 'chart'], factory);
@@ -10,7 +12,7 @@
     // Browser globals
     factory(angular, Chart);
   }
-}(function(angular, Chart) {
+}(function (angular, Chart) {
   'use strict';
 
   Chart.defaults.global.responsive = true;
