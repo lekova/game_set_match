@@ -2,17 +2,17 @@
 
 (function() {
 
-  angular.module('gameSetMatch').directive('gsmSideBar', gsmSideBar);
+	angular.module('gameSetMatch').directive('gsmSideBar', gsmSideBar);
 
-  function gsmSideBar() {
+	function gsmSideBar() {
 
-    return {
-      restrict: 'E',
-      templateUrl: 'app/views/sidebar.html',
-      controller: 'SidebarController',
-      controllerAs: 'SidebarCtrl',
-      bindToController: true
-    };
-  };
+		return {
+			restrict: 'E',
+			templateUrl: 'app/views/sidebar.html',
+			controller: 'SidebarController',
+			controllerAs: 'SidebarCtrl',
+			bindToController: true
+		};
+	};
 
 })();

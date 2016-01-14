@@ -10,5 +10,5 @@
 			templateUrl: 'app/views/add-address.html'
 		};
 	};
-
+	
 })();
