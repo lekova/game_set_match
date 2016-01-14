@@ -14,13 +14,13 @@
     var upcomingGames = [];
 
     function getWonPastGames() {
-      return $http.get(appSettings.apiUrl + '/games/?won=true&status=1').then(function(response) {
+      return $http.get(appSettings.apiUrl + '/games/?won=true&status=1&datetime=true').then(function(response) {
           angular.copy(response.data, wonGames);
         });
     }
 
     function getLostPastGames() {
-      return $http.get(appSettings.apiUrl + '/games/?lost=true&status=1').then(function(response) {
+      return $http.get(appSettings.apiUrl + '/games/?lost=true&status=1&datetime=true').then(function(response) {
           angular.copy(response.data, lostGames);
         });
     };
