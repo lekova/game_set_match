@@ -7,7 +7,7 @@
 						'UserFactory', '$filter'];
 
 	function GamesCtrl($scope, $location, GameFactory, AuthFactory, UserFactory) {
-		let vm = this;
+		var vm = this;
 		vm.currentUser = AuthFactory.currentUser;
 		vm.wonGames = GameFactory.wonGames;
 		vm.lostGames = GameFactory.lostGames;
@@ -35,7 +35,7 @@
 			vm.game.score = vm.getScore();
 			vm.game.status = 1;
 
-			let obj = {
+			var obj = {
 				datetime: vm.game.datetime,
 				durations: vm.game.duration,
 				place: vm.game.city,
@@ -47,14 +47,16 @@
 			};
 
 			GameFactory.createGame(obj).then(function(response) {
+				console.log('>>> object to send to backend:', obj);
 				console.log('create game response: ', response);
 				vm.label = true;
 				angular.copy(response.data, vm.game);
 				vm.resetForm();
 				vm.getWonPastGames();
 				vm.getLostPastGames();
-			}, function(response) {
-					vm.serverErrors = true;
+			},
+			function(response) {
+				vm.serverErrors = true;
 			});
 		};
 
@@ -70,8 +72,12 @@
 			GameFactory.getUpcomingGames();
 		};
 
+		vm.getUsers = function() {
+			UserFactory.getUsers();
+		};
+
 		vm.getScore = function() {
-			let score = vm.score.scoreOneLeft + ':' + vm.score.scoreOneRight + ', ' +
+			var score = vm.score.scoreOneLeft + ':' + vm.score.scoreOneRight + ', ' +
 						vm.score.scoreTwoLeft + ':' + vm.score.scoreTwoRight + ', ' +
 						vm.score.scoreThreeLeft + ':' + vm.score.scoreThreeRight;
 			return score;
@@ -101,5 +107,6 @@
 		vm.getWonPastGames();
 		vm.getLostPastGames();
 		vm.getUpcomingGames();
+		vm.getUsers();
 	}
 })();
