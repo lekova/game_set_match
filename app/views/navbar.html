@@ -36,29 +36,126 @@
     <!-- Navbar Not Logged In Menu -->
     <div ng-if="NavbarCtrl.isLoggedIn()" class="navbar-custom-menu">
       <ul class="nav navbar-nav">
-        <!-- Messages menu-->
         <li class="dropdown messages-menu">
-          <!-- Menu toggle button -->
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-envelope-o"></i>
-            <!-- <span class="label label-warning">4</span> -->
+            <span class="label label-danger">4</span>
           </a>
-        </li><!-- /.messages-menu -->
+					<ul class="dropdown-menu">
+            <li class="header"><span class='text-red'>Under Construction</span> You have 4 messages</li>
+            <li>
+              <ul class="menu">
+                <li>
+                  <a href="#">
+                    <div class="pull-left">
+                      <img src="app/image/no-image-user.png" class="img-circle" alt="User Image">
+                    </div>
+                    <h4>
+                      James Taylor
+                      <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                    </h4>
+                    <p>Hey, do you want to play next Wed, same place?</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <div class="pull-left">
+                      <img src="app/image/no-image-user.png" class="img-circle" alt="User Image">
+                    </div>
+                    <h4>
+                      Amelia Stevens
+                      <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                    </h4>
+                    <p>Still up for a game today?</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <div class="pull-left">
+                      <img src="app/image/no-image-user.png" class="img-circle" alt="User Image">
+                    </div>
+                    <h4>
+                      Kristen Lee
+                      <small><i class="fa fa-clock-o"></i> Today</small>
+                    </h4>
+                    <p>Sorry, can make it for tomorrow. Let's plan for another time.</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <div class="pull-left">
+                      <img src="app/image/no-image-user.png" class="img-circle" alt="User Image">
+                    </div>
+                    <h4>
+                      Chris Wilson
+                      <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                    </h4>
+                    <p>That was a great game, see you next week?</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <div class="pull-left">
+                      <img src="app/image/no-image-user.png" class="img-circle" alt="User Image">
+                    </div>
+                    <h4>
+                      Game Set Match Team
+                      <small><i class="fa fa-clock-o"></i> 2 days</small>
+                    </h4>
+                    <p>New updates are coming!!!</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="footer"><a href="#">See All Messages</a></li>
+          </ul>
+        </li>
 
         <!-- Notifications Menu -->
         <li class="dropdown notifications-menu">
           <!-- Menu toggle button -->
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-bell-o"></i>
-            <!-- <span class="label label-warning">10</span> -->
+            <span class="label label-danger">5</span>
           </a>
+					<ul class="dropdown-menu">
+            <li class="header">You have 5 notifications</li>
+            <li>
+              <!-- inner menu: contains the actual data -->
+              <ul class="menu">
+                <li>
+                  <a href="">
+                    <!-- <i class="fa fa-users text-aqua"></i> 5 new members joined today -->
+										<i class="fa fa-spinner text-red"></i>
+										<span class="text-red">Under Construction</span> 5 new members joined
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <i class="fa fa-spinner text-red"></i>
+										<span class="text-red">Under Construction</span> 1 tennis court added
+                  </a>
+                </li>
+								<li>
+									<a href="">
+										<i class="fa fa-spinner text-green"></i>
+										<span class="text-red">Under Construction</span> You added 1 new address
+									</a>
+								</li>
+                <li>
+                  <a href="">
+                    <i class="fa fa-spinner text-green"></i>
+										<span class="text-red">Under Construction</span> You changed your username
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="footer"><a href="">View all</a></li>
+          </ul>
         </li>
 
-        <!-- User Account Menu -->
         <li class="dropdown user user-menu">
-          <!-- Menu Toggle Button -->
           <a href="#/users/{{NavbarCtrl.currentUser.id}}" class="dropdown-toggle" data-toggle="dropdown">
-            <!-- The user image in the navbar-->
             <img src="app/image/no-image-user.png" class="user-image" alt="User Image">
             <!-- hidden-xs hides the username on small devices so only the image appears. -->
             <span class="hidden-xs">{{NavbarCtrl.currentUser.name}}</span>
