@@ -12,7 +12,6 @@
 		vm.wonGames = GameFactory.wonGames;
 		vm.lostGames = GameFactory.lostGames;
 		vm.upcomingGames = GameFactory.upcomingGames;
-		vm.users = UserFactory.users;
 		// for creating new game
 		vm.game = {};
 		vm.score = {};
@@ -70,10 +69,6 @@
 
 		vm.getUpcomingGames = function() {
 			GameFactory.getUpcomingGames();
-		};
-
-		vm.getUsers = function() {
-			UserFactory.getUsers();
 		};
 
 		vm.getScore = function() {

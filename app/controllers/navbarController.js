@@ -1,7 +1,6 @@
 'use strict';
 
 (function() {
-
 	angular.module('gameSetMatch').controller('NavbarCtrl', NavbarCtrl);
 
 	NavbarCtrl.$inject = ['$location', 'UserFactory', 'AuthFactory', '$scope'];
