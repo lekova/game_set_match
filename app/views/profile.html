@@ -1,7 +1,6 @@
 <div style="margin-left: 230px;">
-<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-  <!-- Content Header (Page header) -->
+
   <section class="content-header">
     <h1>
       User Profile
@@ -16,16 +15,16 @@
   <section class="content">
 
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3" >
         <!-- Profile Image -->
         <div class="box box-success">
           <div class="box-body box-profile">
             <img class="profile-user-img img-responsive img-circle" src="app/image/no-image-user.png" alt="User profile picture">
-            <h3 class="profile-username text-center">{{UsersCtrl.currentUser.name}}</h3>
-            <p class="text-muted text-center">{{UsersCtrl.currentUser.current_proficiency_type}}</p>
+            <h3 class="profile-username text-center">{{ProfileCtrl.currentUser.name}}</h3>
+            <p class="text-muted text-center">{{ProfileCtrl.currentUser.current_proficiency_type}}</p>
             <a class="btn btn-success btn-block"><b>Change Picture</b></a>
-          </div><!-- /.box-body -->
-        </div><!-- /.box -->
+          </div>
+        </div>
 
         <!-- About Me Box -->
         <div class="box box-success">
@@ -34,15 +33,15 @@
           </div><!-- /.box-header -->
           <div class="box-body">
             <strong><i class="fa fa-info margin-r-5"></i>About Me</strong>
-            <p class="text-muted">{{UsersCtrl.currentUser.about_me}}</p>
+            <p class="text-muted">{{ProfileCtrl.currentUser.about_me}}</p>
 
             <hr>
 
             <strong><i class="fa fa-map-marker margin-r-5"></i>Home Location</strong>
-            <p class="text-muted">{{UsersCtrl.currentUser.addresses[0].city}}, {{UsersCtrl.currentUser.addresses[0].state}}</p>
-          </div><!-- /.box-body -->
-        </div><!-- /.box -->
-      </div><!-- /.col -->
+            <p class="text-muted">{{ProfileCtrl.currentUser.addresses[0].city}}, {{UsersCtrl.currentUser.addresses[0].state}}</p>
+          </div>
+        </div>
+      </div>
 
       <div class="col-md-6">
 
@@ -50,180 +49,122 @@
         <div class="box box-success">
           <div class="box-header with-border">
             <h3 class="box-title">Credentials</h3>
-          </div><!-- /.box-header -->
-          <!-- form start -->
-          <form class="form-horizontal">
+          </div>
+          <form name="credentialsForm" class="form-horizontal" role="form" novalidate>
             <div class="box-body">
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
                 <div class="col-sm-8">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="{{UsersCtrl.currentUser.email}}" ng-model="UsersCtrl.user.email">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="{{ProfileCtrl.currentUser.email}}" ng-model="ProfileCtrl.credentials.email">
+                </div>
+              </div> -->
+              <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-8">
+                  <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password"
+                    ng-model="ProfileCtrl.credentials.password" required>
+                  <span class="sigunp-alert" ng-show="credentialsForm.password.$error.minlength"> * Password is too short.</span>
                 </div>
               </div>
               <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                <label for="inputPasswordConfirm" class="col-sm-2 control-label">Confirm</label>
                 <div class="col-sm-8">
-                  <input type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-model="UsersCtrl.user.password">
+                  <input type="password" name="validation" class="form-control" id="inputPasswordConfirm" placeholder="Confirm Password"
+                    ng-model="ProfileCtrl.credentials.password_confirmation" required ng-minlength="3">
+                  <span class="sigunp-alert" ng-show="ProfileCtrl.credentials.password_confirmation &&
+										ProfileCtrl.credentials.password !== ProfileCtrl.credentials.password_confirmation">
+										<i class="fa fa-times-circle-o"></i> Passwords do not match.</span>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Confirm</label>
-                <div class="col-sm-8">
-                  <input type="password" class="form-control" id="inputPassword3" placeholder="Confirm Password" ng-model="UsersCtrl.user.password_confirmation">
-                </div>
-              </div>
-            </div><!-- /.box-body -->
+            </div>
             <div class="box-footer">
               <button type="submit" class="btn btn-default">Cancel</button>
-              <button type="submit" class="btn btn-success pull-right" ng-click="UsersCtrl.updateUser(AuthCtrl.credentials)">Update</button>
-            </div><!-- /.box-footer -->
+              <button type="submit" class="btn btn-success pull-right" ng-click="ProfileCtrl.updateEmailOrPassword(credentialsForm.$valid)">Update</button>
+            </div>
           </form>
-        </div><!-- /credentials form -->
+        </div>
 
         <!-- personal info form -->
         <div class="box box-success">
           <div class="box-header with-border">
             <h3 class="box-title">Personal Info</h3>
-          </div><!-- /.box-header -->
-          <!-- form start -->
+          </div>
           <form class="form-horizontal">
             <div class="box-body">
               <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="inputEmail3" placeholder="{{UsersCtrl.currentUser.name}}" ng-model="UsersCtrl.user.name">
+                  <input type="text" class="form-control" id="inputEmail3" placeholder="{{ProfileCtrl.currentUser.name}}" ng-model="ProfileCtrl.user.name">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputAge" class="col-sm-2 control-label">Age</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="inputAge" placeholder="{{UsersCtrl.currentUser.age}}" ng-model="UsersCtrl.user.age">
+                  <input type="text" class="form-control" id="inputAge" placeholder="{{ProfileCtrl.currentUser.age}}" ng-model="ProfileCtrl.user.age">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputGender" class="col-sm-2 control-label">Gender</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="inputGender" placeholder="{{UsersCtrl.currentUser.gender}}" ng-model="UsersCtrl.user.gender">
+                  <input type="text" class="form-control" id="inputGender" placeholder="{{ProfileCtrl.currentUser.gender}}" ng-model="ProfileCtrl.user.gender">
                 </div>
               </div>
-              <!-- textarea -->
               <div class="form-group">
                 <label for="inputAboutMe" class="col-sm-2 control-label">About Me</label>
                 <div class="col-sm-8">
-                <textarea class="form-control" rows="3" id="inputAboutMe" placeholder="{{UsersCtrl.currentUser.about_me}}" ng-model="UsersCtrl.user.about_me"></textarea>
+                <textarea class="form-control" rows="3" id="inputAboutMe" placeholder="{{ProfileCtrl.currentUser.about_me}}" ng-model="ProfileCtrl.user.about_me"></textarea>
                 </div>
               </div>
-            </div><!-- /.box-body -->
+            </div>
             <div class="box-footer">
               <button type="submit" class="btn btn-default">Cancel</button>
-              <button type="submit" class="btn btn-success pull-right" ng-click="UsersCtrl.updateUser(AuthCtrl.credentials)">Update</button>
-            </div><!-- /.box-footer -->
+              <button type="submit" class="btn btn-success pull-right" ng-click="ProfileCtrl.updateUser(ProfileCtrl.user)">Update</button>
+            </div>
           </form>
-        </div><!-- /personal info form -->
+        </div>
 
         <!-- proficiency form -->
         <div class="box box-success">
           <div class="box-header with-border">
             <h3 class="box-title">Proficiency Level</h3>
-          </div><!-- /.box-header -->
-          <!-- form start -->
+          </div>
           <form class="form-horizontal">
             <div class="box-body">
-
-              <!-- radio -->
+              <h4 class="text-black">You are on level <span class="text-green">{{ProfileCtrl.currentUser.current_proficiency_type}}</span> out of 9 categories</h4>
               <div class="form-group">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-10">
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input ng-model="UsersCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="1" value="1" checked>
-                        <b>Newbie</b>&mdash;What's a tennis racquet?
-                      </label>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input ng-model="UsersCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="2" value="2">
-                        <b>Rookie</b>&mdash;There is always hope!
-                      </label>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input ng-model="UsersCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="3" value="3">
-                        <b>Beginner</b>&mdash;Enjoy when you can, endure when you must</label>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input ng-model="UsersCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="4" value="4">
-                        <b>Talented</b>&mdash;I'm getting there, all I need is practice, practice, practice</label>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input ng-model="UsersCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="5" value="5">
-                        <b>Intermediate</b>&mdash;The more I play the better I become</label>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input ng-model="UsersCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="6" value="6">
-                        <b>Seasoned</b>&mdash;I may not always win, but when I do, I do it with style</label>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input ng-model="UsersCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="7" value="7">
-                        <b>Advanced</b>&mdash;I have my own style</label>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input ng-model="UsersCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="8" value="8">
-                        <b>Proficient</b>&mdash;I'm just good at this!</label>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input ng-model="UsersCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="9" value="9">
-                        <b>Expert</b>&mdash;I'm Roger Federer's cousin</label>
+                  <div ng-repeat="level in ProfileCtrl.proficiencyTypes track by level.id">
+                    <div>
+                      <div class="radio">
+                        <label>
+                          <input ng-model="ProfileCtrl.proficiency.proficiency_type_id" type="radio" name="optionsRadios" id="{{level.id}}" value="{{level.id}}">
+                          <b>{{level.name}}</b>&ensp;&ensp;&mdash;&ensp;&ensp;&ensp;{{level.description}}
+                        </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <h3>You are on level {{UsersCtrl.currentUser.current_proficiency_type}} out of 9 categories</h3>
-            </div><!-- /.box-body -->
+            </div>
             <div class="box-footer">
-              <button type="submit" class="btn btn-success pull-right" ng-click="UsersCtrl.createUser()">Update</button>
-            </div><!-- /.box-footer -->
+              <button type="submit" class="btn btn-success pull-right" ng-click="ProfileCtrl.updateUserProficiency(ProfileCtrl.proficiency.proficiency_type_id)">Update</button>
+            </div>
           </form>
-        </div><!-- /proficiency form -->
+        </div>
 
         <!-- addresses form -->
         <div class="box box-success">
           <div class="box-header with-border">
             <h3 class="box-title">Addresses</h3>
             <div class="box-title-sm">Your addresses will not be visible to other users</div>
-          </div><!-- /.box-header -->
-          <!-- form start -->
+          </div>
           <form class="form-horizontal">
             <div class="box-body">
             <div class="row">
               <div class="form-group">
                 <label class="col-sm-2 control-label">Select by name</label>
                   <div class="col-sm-6">
-
                   <select class="form-control select2" id="addr-model" ng-model="UsersCtrl.addresses" ng-options="obj.name as obj.name for obj in UsersCtrl.currentUser.addresses">
                     <option value="">Choose an address name</option>
                   </select>
@@ -271,10 +212,10 @@
             <div class="box-footer">
               <button type="submit" class="btn btn-default">Cancel</button>
               <button type="submit" class="btn btn-success pull-right" ng-click="UsersCtrl.createUser()">Update</button>
-            </div><!-- /.box-footer -->
+            </div>
           </form>
-        </div><!-- /addresses form -->
-      </div>   <!-- /.row -->
+        </div>
+      </div>
     </div>
   </section>
 </div>
