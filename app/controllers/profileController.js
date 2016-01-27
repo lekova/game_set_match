@@ -3,11 +3,12 @@
 (function() {
 	angular.module('gameSetMatch').controller("ProfileCtrl", ProfileCtrl);
 
-	ProfileCtrl.$inject = ['$location', 'UserFactory', 'AuthFactory', 'ProficiencyFactory', '$scope'];
+	ProfileCtrl.$inject = ['$location', 'UserFactory', 'AuthFactory', 'ProficiencyFactory', 'AddressFactory'];
 
-	function ProfileCtrl($location, UserFactory, AuthFactory, ProficiencyFactory, $scope) {
+	function ProfileCtrl($location, UserFactory, AuthFactory, ProficiencyFactory, AddressFactory) {
 
 		this.user = {};
+		this.address = {};
 		this.currentUser = AuthFactory.currentUser;
 		this.proficiencyTypes = ProficiencyFactory.proficiencyTypes;
 		this.proficiency = UserFactory.proficiency;
@@ -37,8 +38,11 @@
 				return;
 			}
 
-			console.log('========= credentials now are', this.credentials);
 			UserFactory.updateEmailOrPassword(this.currentUser.id, this.credentials);
+		};
+
+		this.createAddress = function() {
+			AddressFactory.createAddress(this.address);
 		};
 
 		this.clickedButton = function() {
