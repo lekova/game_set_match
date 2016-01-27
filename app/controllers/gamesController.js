@@ -102,6 +102,5 @@
 		vm.getWonPastGames();
 		vm.getLostPastGames();
 		vm.getUpcomingGames();
-		vm.getUsers();
 	}
 })();
