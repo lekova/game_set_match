@@ -26,8 +26,6 @@
 		};
 
 		this.updateUserProficiency = function(proficiencyId) {
-			console.log('this.currentUser.id ', this.currentUser.id, ' proficiency_id ', proficiencyId);
-			debugger;
 			UserFactory.updateUserProficiency(this.currentUser.id, proficiencyId);
 		};
 

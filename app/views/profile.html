@@ -45,48 +45,47 @@
 						</div>
           </div>
         </div>
+				<!-- credentials form -->
+				<div class="box box-success">
+					<div class="box-header with-border">
+						<h3 class="box-title">Credentials</h3>
+					</div>
+					<form name="credentialsForm" class="form-horizontal" role="form" novalidate>
+						<div class="box-body">
+							<!-- <div class="form-group">
+								<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+								<div class="col-sm-8">
+										<input type="email" class="form-control" id="inputEmail3" placeholder="{{ProfileCtrl.currentUser.email}}" ng-model="ProfileCtrl.credentials.email">
+								</div>
+							</div> -->
+							<div class="form-group">
+								<label for="inputPassword" class="col-sm-2 control-label">Password</label>
+								<div class="col-sm-9">
+									<input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password"
+										ng-model="ProfileCtrl.credentials.password" required>
+									<span class="sigunp-alert" ng-show="credentialsForm.password.$error.minlength"> * Password is too short.</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputPasswordConfirm" class="col-sm-2 control-label">Confirm</label>
+								<div class="col-sm-9">
+									<input type="password" name="validation" class="form-control" id="inputPasswordConfirm" placeholder="Confirm Password"
+										ng-model="ProfileCtrl.credentials.password_confirmation" required ng-minlength="3">
+									<span class="sigunp-alert" ng-show="ProfileCtrl.credentials.password_confirmation &&
+										ProfileCtrl.credentials.password !== ProfileCtrl.credentials.password_confirmation">
+										<i class="fa fa-times-circle-o"></i> Passwords do not match.</span>
+								</div>
+							</div>
+						</div>
+						<div class="box-footer">
+							<button type="submit" class="btn btn-default">Cancel</button>
+							<button type="submit" class="btn btn-success pull-right" ng-click="ProfileCtrl.updateEmailOrPassword(credentialsForm.$valid)">Update</button>
+						</div>
+					</form>
+				</div>
       </div>
 
       <div class="col-md-6">
-
-        <!-- credentials form -->
-        <div class="box box-success">
-          <div class="box-header with-border">
-            <h3 class="box-title">Credentials</h3>
-          </div>
-          <form name="credentialsForm" class="form-horizontal" role="form" novalidate>
-            <div class="box-body">
-              <!-- <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                <div class="col-sm-8">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="{{ProfileCtrl.currentUser.email}}" ng-model="ProfileCtrl.credentials.email">
-                </div>
-              </div> -->
-              <div class="form-group">
-                <label for="inputPassword" class="col-sm-2 control-label">Password</label>
-                <div class="col-sm-8">
-                  <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password"
-                    ng-model="ProfileCtrl.credentials.password" required>
-                  <span class="sigunp-alert" ng-show="credentialsForm.password.$error.minlength"> * Password is too short.</span>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputPasswordConfirm" class="col-sm-2 control-label">Confirm</label>
-                <div class="col-sm-8">
-                  <input type="password" name="validation" class="form-control" id="inputPasswordConfirm" placeholder="Confirm Password"
-                    ng-model="ProfileCtrl.credentials.password_confirmation" required ng-minlength="3">
-                  <span class="sigunp-alert" ng-show="ProfileCtrl.credentials.password_confirmation &&
-										ProfileCtrl.credentials.password !== ProfileCtrl.credentials.password_confirmation">
-										<i class="fa fa-times-circle-o"></i> Passwords do not match.</span>
-                </div>
-              </div>
-            </div>
-            <div class="box-footer">
-              <button type="submit" class="btn btn-default">Cancel</button>
-              <button type="submit" class="btn btn-success pull-right" ng-click="ProfileCtrl.updateEmailOrPassword(credentialsForm.$valid)">Update</button>
-            </div>
-          </form>
-        </div>
 
         <!-- personal info form -->
         <div class="box box-success">
