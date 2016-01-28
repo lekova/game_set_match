@@ -9,7 +9,7 @@
       })
       .when('/', {
         templateUrl: 'app/views/dashboard.html',
-        controller: 'DashboardCtrl', 
+        controller: 'DashboardCtrl',
         controllerAs: 'DashCtrl'
       })
       .when('/login', {
@@ -19,17 +19,13 @@
         templateUrl: 'app/views/signup-page.html'
       })
       .when('/users', {
-        templateUrl: 'app/views/find-users-page.html',
-        controller: 'UsersCtrl',
-        controllerAs: 'UsersCtrl'
+        templateUrl: 'app/views/find-users-page.html'
       })
       .when('/users/:userId', {
         templateUrl: 'app/views/profile-page.html'
       })
       .when('/addresses', {
-        templateUrl: 'app/views/addresses-page.html',
-        controller: 'UsersCtrl',
-        controllerAs: 'UsersCtrl'
+        templateUrl: 'app/views/addresses-page.html'
       })
       .when('/addresses/:id', {
         templateUrl: 'app/views/address-view.html'
