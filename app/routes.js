@@ -25,7 +25,9 @@
         templateUrl: 'app/views/profile-page.html'
       })
       .when('/addresses', {
-        templateUrl: 'app/views/addresses-page.html'
+        templateUrl: 'app/views/addresses-page.html',
+				controller: 'AddressesCtrl',
+				controllerAs: 'AddressesCtrl'
       })
       .when('/addresses/:id', {
         templateUrl: 'app/views/address-view.html'
