@@ -10,7 +10,6 @@
 		var user = {};
 		var opponents = [];
 		var proficiency = {};
-		var search;
 
 		function setUser(newUser) {
 			angular.copy(newUser, user);
@@ -26,22 +25,21 @@
 		function getUsers() {
 			return $http.get(appSettings.apiUrl + '/users')
 				.then(function(response) {
-					console.log('get all users: ', response.data);
 					angular.copy(response.data, users);
 				});
 		};
 
-		function findUsers(city) {
+		function findPlayers(city) {
 			return $http.get(appSettings.apiUrl + '/users/?city=' + city)
 				.success(function(response) {
 					angular.copy(response, users);
 				});
+
 		};
 
 		function checkEmail(email) {
 			return $http.get(appSettings.apiUrl + '/users/?email=' + email)
 				.success(function(response) {
-					console.log('check email response: ', response);
 					angular.copy(response, users);
 				});
 		};
@@ -67,7 +65,6 @@
 			debugger;
 			return $http.patch(appSettings.apiUrl + '/users/' + id + "/proficiency/", params)
 				.then(function(response) {
-					console.log("Proficiency as response is ====", response.data);
 					angular.copy(response.data.proficiency, proficiency);
 					location.reload();
 				});
@@ -90,7 +87,6 @@
 				}};
 			return $http.patch(appSettings.apiUrl + '/users/' + id, params)
 				.success(function(response) {
-					console.log("password or email changed successfully! and response is ", response);
 					location.reload();
 				});
 		}
@@ -100,20 +96,20 @@
 		};
 
 		return {
-			search: search,
 			user: user,
+			users: users,
 			opponents: opponents,
 			getUser: getUser,
 			setUser: setUser,
 			checkEmail: checkEmail,
 			getOpponents: getOpponents,
+			findPlayers: findPlayers,
 			getUsers: getUsers,
 			deleteUser: deleteUser,
 			updateUser: updateUser,
 			updateUserProficiency: updateUserProficiency,
 			createUser: createUser,
 			updateEmailOrPassword: updateEmailOrPassword,
-			findUsers: findUsers
 		};
 	};
 

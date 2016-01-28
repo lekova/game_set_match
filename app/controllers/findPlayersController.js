@@ -13,7 +13,7 @@
 		vm.showPlayers = false;
 
 		vm.findPlayers = function() {
-			UserFactory.findUsers(vm.city);
+			UserFactory.findPlayers(vm.city);
 			vm.showPlayers = true;
 		};
 	}
