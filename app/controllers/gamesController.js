@@ -12,6 +12,7 @@
 		vm.wonGames = GameFactory.wonGames;
 		vm.lostGames = GameFactory.lostGames;
 		vm.upcomingGames = GameFactory.upcomingGames;
+		vm.opponents = UserFactory.users;
 		// for creating new game
 		vm.game = {};
 		vm.score = {};
@@ -39,15 +40,13 @@
 				durations: vm.game.duration,
 				place: vm.game.city,
 				winner_id: Number(vm.game.winner_id),
-				loser_id: vm.getLoser(),
-				score: vm.getScore(),
+				loser_id: vm.game.loser_id,
+				score: vm.game.score,
 				comment: vm.game.comment,
 				status: 1
 			};
 
 			GameFactory.createGame(obj).then(function(response) {
-				console.log('>>> object to send to backend:', obj);
-				console.log('create game response: ', response);
 				vm.label = true;
 				angular.copy(response.data, vm.game);
 				vm.resetForm();
@@ -57,6 +56,10 @@
 			function(response) {
 				vm.serverErrors = true;
 			});
+		};
+
+		vm.getOpponents = function() {
+			UserFactory.getUsers();
 		};
 
 		vm.getWonPastGames = function() {
@@ -102,5 +105,6 @@
 		vm.getWonPastGames();
 		vm.getLostPastGames();
 		vm.getUpcomingGames();
+		vm.getOpponents();
 	}
 })();
