@@ -18,14 +18,6 @@
 			AuthFactory.logOut();
 		};
 
-		vm.searchUsers = function(searchString) {
-			UserFactory.getUsers(searchString).then(function(response) {
-				$location.path('/users');
-				$location.search('username', searchString);
-				vm.searchString = '';
-			});
-		};
-
 		var getProfile = function() {
 			AuthFactory.getProfile();
 		};
