@@ -39,10 +39,6 @@
 			UserFactory.updateEmailOrPassword(this.currentUser.id, this.credentials);
 		};
 
-		this.createAddress = function() {
-			AddressFactory.createAddress(this.address);
-		};
-
 		this.clickedButton = function() {
 			console.log("========= the button has been clicked");
 		};
