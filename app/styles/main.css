@@ -28,3 +28,7 @@ h4 {
 	margin-bottom: 0px;
 	padding-left: 0px;
 }
+
+.nav-tabs-custom > .nav-tabs > li.active {
+  border-top-color: #00a65a;
+}

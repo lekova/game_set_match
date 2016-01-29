@@ -1,81 +1,164 @@
 <div style="margin-left: 230px;">
-  <div class="content-wrapper" style="height: 100vh;" >
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Addresses
-        <small>Your addresses on the map</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Addresses</li>
-      </ol>
-    </section>
+	<div class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<h1>
+			Addresses
+				<small>Your addresses on the map</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a href="#/dashboard.html"><i class="fa fa-dashboard"></i>Home</a></li>
+				<li class="active">Addresses</li>
+			</ol>
+		</section>
 
-    <section class="content">
+		<section class="content">
+			<div class="row">
+				<div class="col-md-4" >
+					<!-- About Me Box -->
+					<div class="box box-success">
+						<div class="box-header with-border">
+							<h3 class="box-title">My addresses</h3>
+						</div>
+						<div class="box-body">
+							<div ng-repeat="addr in AddressesCtrl.currentUser.addresses track by addr.id">
+								<ul class="addresses-ul">
+									<li ng-model="AddressesCtrl.currentUser.addresses.address_id" name="addressItem" id="{{addr.id}}" value="{{addr.id}}">
+										<span class="fa fa-map-marker text-green"></span>
+										<span class="text-green"><b> {{addr.name}}</b></span>
+										&ensp;&ensp;&mdash;&ensp;&ensp;&ensp;{{addr.street}}, {{addr.city}}, {{addr.state}} {{addr.zipcode}}, {{addr.country}}
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
 
-    <!-- addresses form
-    <div class="box box-success col-sm-6">
-      <div class="box-header with-border">
-        <h3 class="box-title">Addresses</h3>
-        <div class="box-title-sm">Your addresses will not be visible to other users</div>
-      </div>
-      <form class="form-horizontal">
-        <div class="box-body">
-        <div class="row">
-          <label class="col-sm-2 control-label">Address 1</label>
-          <br/>
-        </div>
-          <div class="form-group">
-            <label for="inputAddressName" class="col-sm-2 control-label">Name</label>
-            <div class="col-sm-6">
-                <input type="address-name" class="form-control input-sm" id="inputAddressName" placeholder="Tag name of this address, e.g. Home, Work, School...">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputStreet" class="col-sm-2 control-label">Street</label>
-            <div class="col-sm-8">
-                <input type="street" class="form-control input-sm" id="inputStreet" placeholder="Street">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputCity" class="col-sm-2 control-label">City</label>
-            <div class="col-sm-8">
-              <input type="city" class="form-control input-sm" id="inputCity" placeholder="City">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputState" class="col-sm-2 control-label">State</label>
-            <div class="col-sm-8">
-              <input type="state" class="form-control input-sm" id="inputState" placeholder="State">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputCountry" class="col-sm-2 control-label">Country</label>
-            <div class="col-sm-8">
-              <input type="country" class="form-control input-sm" id="inputCountry" placeholder="Country">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputZipcode" class="col-sm-2 control-label">Zipcode</label>
-            <div class="col-sm-8">
-              <input type="zipcode" class="form-control input-sm" id="inputZipcode" placeholder="Zipcode">
-            </div>
-          </div>
-        </div>
-        <div class="box-footer">
-            <button type="submit" class="btn btn-success pull-right" ng-click="AddressCtrl.create">Add Address</button>
-        </div>
-      </form>
-    </div> -->
+					<div class="nav-tabs-custom">
+						<ul class="nav nav-tabs pull-right">
+							<li class="active"><a href="" data-toggle="tab" ng-click="AddressesCtrl.toggleTab()">Add an address</a></li>
+							<li><a href="" data-toggle="tab" ng-click="AddressesCtrl.toggleTab()">Update an address</a></li>
+							<li class="pull-left header">Actions: </li>
+						</ul>
+						<div class="tab-content no-padding">
+							<!-- Add address tab -->
+							<div class="chart tab-pane" style="position: relative;" ng-show="AddressesCtrl.addressTab" ng-class="{active: AddressesCtrl.addressTab}">
 
+								<form class="form-horizontal">
+									<div class="box-body">
+									<div class="row">
+										<br/>
+									</div>
+										<div class="form-group">
+											<label for="inputAddressName" class="col-sm-2 control-label">Name</label>
+											<div class="col-sm-6">
+													<input type="address-name" class="form-control input-sm" id="inputAddressName" ng-model="AddressesCtrl.address.name" placeholder="Home, Work, etc.">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="inputStreet" class="col-sm-2 control-label">Street</label>
+											<div class="col-sm-8">
+													<input type="street" class="form-control input-sm" id="inputStreet" ng-model="AddressesCtrl.address.street" placeholder="Street">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="inputCity" class="col-sm-2 control-label">City</label>
+											<div class="col-sm-8">
+												<input type="city" class="form-control input-sm" id="inputCity" ng-model="AddressesCtrl.address.city" placeholder="City">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="inputState" class="col-sm-2 control-label">State</label>
+											<div class="col-sm-8">
+												<input type="state" class="form-control input-sm" id="inputState" ng-model="AddressesCtrl.address.state" placeholder="State">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="inputCountry" class="col-sm-2 control-label">Country</label>
+											<div class="col-sm-8">
+												<input type="country" class="form-control input-sm" id="inputCountry" ng-model="AddressesCtrl.address.country" placeholder="Country">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="inputZipcode" class="col-sm-2 control-label">ZIP code</label>
+											<div class="col-sm-8">
+												<input type="zipcode" class="form-control input-sm" id="inputZipcode" ng-model="AddressesCtrl.address.zipcode" placeholder="ZIP code">
+											</div>
+										</div>
+									</div>
+									<div class="box-footer">
+										<button type="submit" class="btn btn-default">Cancel</button>
+										<button type="submit" class="btn btn-success pull-right" ng-click="AddressesCtrl.createAddress()">Add Address</button>
+									</div>
+								</form>
+							</div>
+							<!-- Update address tab -->
+							<div class="chart tab-pane" style="position: relative;" ng-hide="AddressesCtrl.addressTab" ng-class="{active: !AddressesCtrl.addressTab}">
+									<form class="form-horizontal">
+										<div class="box-body">
+											<div class="form-group">
+												<label class="col-sm-2 control-label">Select:</label>
+												<div class="col-sm-8">
+												<select class="form-control select2" ng-model="AddressesCtrl.selected"
+													ng-options="obj as obj.name for obj in AddressesCtrl.currentUser.addresses">
+													<option value="">Choose an address name</option>
+												</select>
+												</div>
+											</div>
+											<br/>
+											<div class="form-group">
+												<label for="inputAddressName" class="col-sm-2 control-label">Name</label>
+												<div class="col-sm-6">
+														<input type="address-name" class="form-control input-sm" id="inputAddressName" ng-model="AddressesCtrl.selected.name" placeholder="{{AddressesCtrl.address.name || 'Name'}}">
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="inputStreet" class="col-sm-2 control-label">Street</label>
+												<div class="col-sm-8">
+														<input type="street" class="form-control input-sm" id="inputStreet" ng-model="AddressesCtrl.selected.street" placeholder="{{AddressesCtrl.address.street || 'Street'}}">
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="inputCity" class="col-sm-2 control-label">City</label>
+												<div class="col-sm-8">
+													<input type="city" class="form-control input-sm" id="inputCity" ng-model="AddressesCtrl.selected.city" placeholder="{{AddressCtrl.address.city || 'City'}}">
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="inputState" class="col-sm-2 control-label">State</label>
+												<div class="col-sm-8">
+													<input type="state" class="form-control input-sm" id="inputState" ng-model="AddressesCtrl.selected.state" placeholder="{{AddressCtrl.address.state || 'State'}}">
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="inputCountry" class="col-sm-2 control-label">Country</label>
+												<div class="col-sm-8">
+													<input type="country" class="form-control input-sm" id="inputCountry" ng-model="AddressesCtrl.selected.country" placeholder="{{AddressCtrl.address.country || 'Country'}}">
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="inputZipcode" class="col-sm-2 control-label">ZIP code</label>
+												<div class="col-sm-8">
+													<input type="zipcode" class="form-control input-sm" id="inputZipcode" ng-model="AddressesCtrl.selected.zipcode" placeholder="ZIP {{AddressCtrl.address.zipcode || 'ZIP code'}}">
+												</div>
+											</div>
+										</div>
+										<div class="box-footer">
+											<button type="submit" class="btn btn-default">Cancel</button>
+											<button type="submit" class="btn btn-success pull-right" ng-click="AddressesCtrl.createAddress()">Update</button>
+										</div>
+									</form>
+							</div>
+						</div>
+					</div>
+				</div>
 
-      <div style="height: 80%;">
-        <br/>
-        <map center="42.349299, -71.049965" zoom="10" style="height: 80vh;">
-            <marker position="42.349299, -71.049965" title="Hello World!"></marker>
-        </map>
-      </div>
-    </section>
-  </div>
+				<div class="col-sm-8" style="height: 100vh;">
+					<div map-lazy-load="https://maps.google.com/maps/api/js">
+						<ng-map center="42.349299, -71.049965" zoom="11" style="height: 600px;"></ng-map>
+					</div>
+				</div>
+			</div>
+
+		</section>
+	</div>
 </div>
