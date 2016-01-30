@@ -11,13 +11,21 @@
 		function createAddress(addressToCreate) {
 			console.log("addressToCreate is ", addressToCreate);
 			return $http.post(appSettings.apiUrl + '/addresses', addressToCreate).success(function(response) {
-				console.log("address factory response", response);
 				angular.copy(response, address);
 			});
 		};
 
+		function updateAddress(addressToUpdate) {
+			console.log("addressToUpdate.id is: ", addressToUpdate.id);
+			return $http.patch(appSettings.apiUrl + '/addresses/' + addressToUpdate.id, addressToUpdate)
+				.success(function(response) {
+					angular.copy(response, address);
+				});
+		}
+
 		return {
-			createAddress: createAddress
+			createAddress: createAddress,
+			updateAddress: updateAddress
 		};
 	}
 })();

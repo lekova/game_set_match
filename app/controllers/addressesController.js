@@ -15,9 +15,13 @@
 			AddressFactory.createAddress(this.address);
 		};
 
-		this.toggleTab = function() {
-			this.addressTab = (this.addressTab === false) ?  true : false;
-			console.log('this.addressTab', this.addressTab);
+		this.toggleTab = function(bool) {
+			// this.addressTab = (this.addressTab === false) ?  true : false;
+			this.addressTab = bool;
+		};
+
+		this.updateAddress = function() {
+			AddressFactory.updateAddress(this.selected);
 		};
 	};
 })();
