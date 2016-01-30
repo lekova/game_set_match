@@ -35,8 +35,8 @@
 
 					<div class="nav-tabs-custom">
 						<ul class="nav nav-tabs pull-right">
-							<li class="active"><a href="" data-toggle="tab" ng-click="AddressesCtrl.toggleTab()">Add an address</a></li>
-							<li><a href="" data-toggle="tab" ng-click="AddressesCtrl.toggleTab()">Update an address</a></li>
+							<li class="active"><a href="" data-toggle="tab" ng-click="AddressesCtrl.toggleTab(true)">Add an address</a></li>
+							<li><a href="" data-toggle="tab" ng-click="AddressesCtrl.toggleTab(false)">Update an address</a></li>
 							<li class="pull-left header">Actions: </li>
 						</ul>
 						<div class="tab-content no-padding">
@@ -144,7 +144,7 @@
 										</div>
 										<div class="box-footer">
 											<button type="submit" class="btn btn-default">Cancel</button>
-											<button type="submit" class="btn btn-success pull-right" ng-click="AddressesCtrl.createAddress()">Update</button>
+											<button type="submit" class="btn btn-success pull-right" ng-click="AddressesCtrl.updateAddress()">Update</button>
 										</div>
 									</form>
 							</div>
