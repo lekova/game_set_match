@@ -26,7 +26,6 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-										<h4>{{FindPlayersCtrl.city}}</h4>
 										<label>Your cities</label>
 										<select class="form-control select2" style="width: 100%;" id="city-model" ng-model="FindPlayersCtrl.city"
 											ng-options="obj.city as obj.city for obj in FindPlayersCtrl.currentUser.addresses">
@@ -60,7 +59,7 @@
 													</tr>
 													<tr ng-repeat="user in FindPlayersCtrl.players">
 														<td>{{user.name}}</td>
-														<td>{{user.level}}</td>
+														<td>{{user.proficiency_types[0].name}}</td>
 														<td><i class="fa fa-envelope-o"></i></td>
 													</tr>
 												</table>
@@ -71,6 +70,12 @@
 							</div><!-- /.row -->
 						</div><!-- /.box-body -->
 					</div><!-- /.box -->
+				</div>
+
+				<div class="col-sm-6">
+					<div map-lazy-load="https://maps.google.com/maps/api/js">
+						<div id="playersMap" style="height: 600px;"></div>
+					</div>
 				</div>
 			</div>
 		</section>
