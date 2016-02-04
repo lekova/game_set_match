@@ -31,10 +31,12 @@
 
 		function findPlayers(city) {
 			return $http.get(appSettings.apiUrl + '/users/?city=' + city)
-				.success(function(response) {
-					angular.copy(response, users);
-				});
-
+					.success(function(response) {
+						return new Promise(function(resolve, reject) {
+							angular.copy(response, users);
+							console.log("players", users);
+						});
+					});
 		};
 
 		function checkEmail(email) {
@@ -76,6 +78,7 @@
 					simpleStorage.set('gsm-user-token', response.token, {TTL: 86400});
 					$http.defaults.headers.common.Authorization = 'Token token=' + response.token;
 					$location.path('/users/' + response.id);
+					location.reload();
 				});
 		};
 

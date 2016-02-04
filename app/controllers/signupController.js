@@ -20,13 +20,15 @@
 			}
 
 			if (vm.isDuplicateEmail(vm.user.email)) {
+				// TODO
+				console.log("Email already exists");
 				vm.message = 'Email already exists';
 				return;
 			}
 
 			UserFactory.createUser({
 				credentials: vm.user,
-				proficiency: vm.userProficiencyType
+				proficiency_types: vm.userProficiencyType
 			}).then(function(response) {
 				vm.credentials = {};
 			}, function(response) {

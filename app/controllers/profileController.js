@@ -3,9 +3,9 @@
 (function() {
 	angular.module('gameSetMatch').controller("ProfileCtrl", ProfileCtrl);
 
-	ProfileCtrl.$inject = ['$location', 'UserFactory', 'AuthFactory', 'ProficiencyFactory', 'AddressFactory'];
+	ProfileCtrl.$inject = ['$location', 'UserFactory', 'AuthFactory', 'ProficiencyFactory'];
 
-	function ProfileCtrl($location, UserFactory, AuthFactory, ProficiencyFactory, AddressFactory) {
+	function ProfileCtrl($location, UserFactory, AuthFactory, ProficiencyFactory) {
 
 		this.user = {};
 		this.address = {};
