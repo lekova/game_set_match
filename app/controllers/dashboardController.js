@@ -12,6 +12,7 @@
 		vm.totals = ChartFactory.totals;
 		vm.labels = ChartFactory.labels;
 		vm.data = ChartFactory.data;
+		vm.nodata = false;
 
 		vm.series = ['Wins', 'Losses'];
 		vm.colours = [{
@@ -32,7 +33,11 @@
 		}];
 
 		vm.getStatistics = function() {
-			ChartFactory.getStatistics();
+			ChartFactory.getStatistics().then(function() {
+				if (vm.data[0].length === 0) {
+					vm.nodata = true;
+				}
+			});
 		};
 
 		vm.onClick = function(points, evt) {

@@ -4,7 +4,7 @@
 		<section class="content-header" style="min-heigth: 100%;">
 			<h1>
 				My games
-				<small>View of past an upcoming games</small>
+				<small>View of past games</small>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#/dashboard.html"><i class="fa fa-dashboard"></i>Home</a></li>
@@ -125,7 +125,7 @@
 								<div class="form-group">
 									<label>Select opponent: </label>
 									<select name="opponent" class="form-control select2" ng-model="GamesCtrl.opponent"
-											ng-options="obj.name for obj in GamesCtrl.users" required>
+											ng-options="obj.name for obj in GamesCtrl.opponents" required>
 										<option value="">Select one</option>
 										<option ng-value="{{obj.id}}"></option>
 									</select>

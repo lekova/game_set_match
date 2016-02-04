@@ -21,3 +21,21 @@
 h4 {
 	color: green;
 }
+
+.addresses-ul {
+	list-style-type:none;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	padding-left: 0px;
+}
+
+.nav-tabs-custom > .nav-tabs > li.active {
+  border-top-color: #00a65a;
+}
+
+.no-data {
+	position: relative;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 2em;
+}

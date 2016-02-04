@@ -1,7 +1,6 @@
 'use strict';
 
 (function() {
-
 	angular.module('gameSetMatch').controller('NavbarCtrl', NavbarCtrl);
 
 	NavbarCtrl.$inject = ['$location', 'UserFactory', 'AuthFactory', '$scope'];
@@ -17,14 +16,6 @@
 
 		vm.logOut = function() {
 			AuthFactory.logOut();
-		};
-
-		vm.searchUsers = function(searchString) {
-			UserFactory.getUsers(searchString).then(function(response) {
-				$location.path('/users');
-				$location.search('username', searchString);
-				vm.searchString = '';
-			});
 		};
 
 		var getProfile = function() {

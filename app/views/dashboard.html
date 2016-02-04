@@ -11,7 +11,6 @@
 		<section class="content" ng-controller="DashboardCtrl as DashCtrl">
 			<div class="row">
 				<div class="col-lg-4 col-xs-6">
-					<!-- small box -->
 					<div class="small-box bg-green">
 						<div class="inner" >
 							<h3>{{DashCtrl.totals.won_games_count}} Wins</h3>
@@ -23,7 +22,6 @@
 						<a href="#/games" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
-				<!-- ./col -->
 				<div class="col-lg-4 col-xs-6">
 					<div class="small-box bg-red">
 						<div class="inner">
@@ -36,9 +34,7 @@
 						<a href="#/games" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
-				<!-- ./col -->
 				<div class="col-lg-4 col-xs-6">
-					<!-- small box -->
 					<div class="small-box bg-aqua">
 						<div class="inner">
 							<h3>{{DashCtrl.totals.opponents_count}} Opponents</h3>
@@ -65,7 +61,6 @@
 				</div> -->
 				<!-- ./col -->
 			</div>
-			<!-- /.row -->
 			<div class="row">
 				<div class="col-md-8">
 					<!-- Line chart -->
@@ -78,27 +73,18 @@
 							</div>
 						</div>
 						<div class="box-body">
+							<div class="no-data text-green" ng-show="DashCtrl.nodata">You have no games yet.<br>You can create a new game in the games page.</div>
 							<canvas id="line" class="chart chart-line" chart-data="DashCtrl.data"
 								chart-labels="DashCtrl.labels" chart-legend="true" chart-series="DashCtrl.series"
 								chart-click="onClick" colours="DashCtrl.colours">
 							</canvas>
 						</div>
-						<!-- /.box-body-->
 					</div>
-					<!-- /.box -->
 				</div>
-				<!-- /.col -->
-
-				<!-- <div class="col-sm-6">
-					<h3>Wonna play with some tennis balls? </h3>
-					<img src="app/image/tennis-dog.gif" />
-					<h3>There you go!</h3>
-				</div> -->
 			</div>
 
 		</section>
 	</div>
-	<!-- </div> -->
 
 	<!-- <gsm-footer></gsm-footer>
  -->

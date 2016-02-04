@@ -3,6 +3,7 @@
 (function() {
 
 	angular.module('gameSetMatch').config(['$routeProvider', function($routeProvider) {
+
 		$routeProvider
 			.when('/home', {
 				templateUrl: 'app/views/home.html'
@@ -19,17 +20,15 @@
 				templateUrl: 'app/views/signup-page.html'
 			})
 			.when('/users', {
-				templateUrl: 'app/views/find-users-page.html',
-				controller: 'UsersCtrl',
-				controllerAs: 'UsersCtrl'
+				templateUrl: 'app/views/find-users-page.html'
 			})
 			.when('/users/:userId', {
 				templateUrl: 'app/views/profile-page.html'
 			})
 			.when('/addresses', {
 				templateUrl: 'app/views/addresses-page.html',
-				controller: 'UsersCtrl',
-				controllerAs: 'UsersCtrl'
+				controller: 'AddressesCtrl',
+				controllerAs: 'AddressesCtrl'
 			})
 			.when('/addresses/:id', {
 				templateUrl: 'app/views/address-view.html'
@@ -56,5 +55,4 @@
 				redirectTo: '/'
 			});
 	}]);
-
 })();

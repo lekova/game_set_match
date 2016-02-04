@@ -18,6 +18,6 @@
 		return {
 			proficiencyTypes: proficiencyTypes,
 			getProficiencyLevels: getProficiencyLevels
-		}
+		};
 	};
 })();
