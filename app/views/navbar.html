@@ -1,5 +1,5 @@
-<header class="main-header">
-<nav class="navbar navbar-default" ng-constroller="NavbarCtrl as NavbarCtrl">
+<header class="main-header" ng-if="NavbarCtrl.isLoggedIn()">
+<nav class="navbar navbar-default" >
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button"
