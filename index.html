@@ -31,11 +31,9 @@
 <body ng-app="gameSetMatch" class="hold-transition skin-green sidebar-mini">
 
 	<gsm-nav-bar></gsm-nav-bar>
-	<div class="wrapper">
 		<ng-view></ng-view>
 		<div ng-if="NavbarCtrl.isLoggedIn()">
 			<gsm-side-bar></gsm-side-bar>
-		</div>
 		<!-- <ng-footer></ng-footer> -->
 	</div>
 
