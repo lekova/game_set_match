@@ -5,7 +5,9 @@
   angular.module('gameSetMatch').config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/home', {
-        templateUrl: 'app/views/home.html'
+        templateUrl: 'app/views/home.html',
+        controller: 'HomeController',
+        controllerAs: 'HomeCtrl'
       })
       .when('/', {
         templateUrl: 'app/views/dashboard.html',
@@ -26,8 +28,8 @@
       })
       .when('/addresses', {
         templateUrl: 'app/views/addresses-page.html',
-				controller: 'AddressesCtrl',
-				controllerAs: 'AddressesCtrl'
+        controller: 'AddressesCtrl',
+        controllerAs: 'AddressesCtrl'
       })
       .when('/addresses/:id', {
         templateUrl: 'app/views/address-view.html'

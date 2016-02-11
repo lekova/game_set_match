@@ -1,3 +1,77 @@
+body {
+	background: url('../image/woman-playing-tennis.jpg') no-repeat fixed;
+	/*background: url('../image/zepp-swing.jpg') no-repeat fixed;*/
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	color: #00a65a;
+	text-align: left;
+}
+
+.transparent {
+	background-color: rgba(0, 0, 0, 0);
+	border-color: #00a65a;
+}
+
+.hide-navbar-menus {
+	display: none!important
+}
+
+.show-navbar-menus {
+	display: block!important;
+}
+
+@media only screen and (max-width: 767px) {
+
+	.hide-navbar-menus {
+		display: block!important
+	}
+
+	.show-navbar-menus {
+		display: none!important
+	}
+}
+
+.main-header .logo {
+	float: none;
+}
+
+@media only screen and (max-width: 991px) {
+	.transparent {
+		background-color: #fff;
+		border-color: #00a65a;
+	}
+}
+
+.navbar-toggle {
+	background-color: #fff;
+}
+.navbar-toggle .icon-bar {
+	background-color: #00a65a;
+}
+
+.cont {
+  display: block;
+  vertical-align: middle;
+  text-align: center;
+	margin-top: 10%;
+}
+
+.absolute-center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+h3 {
+	font-size: 45px;
+}
+
+.btn-lg {
+	font-size: 25px;
+}
+
 .ng-invalid.ng-dirty {
 	border-color: red;
 }
