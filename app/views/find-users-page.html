@@ -1,83 +1,80 @@
-<div style="margin-left: 230px;">
-	<div class="content-wrapper">
-		<!-- Content Header (Page header) -->
-		<section class="content-header">
-			<h1>
-			Find a player
-				<small>Find players in a city</small>
-			</h1>
-			<ol class="breadcrumb">
-				<li><a href="#/dashboard.html"><i class="fa fa-dashboard"></i>Home</a></li>
-				<li class="active">Find a player</li>
-			</ol>
-		</section>
+<div class="content-wrapper">
+	<section class="content-header">
+		<h1>
+		Find a player
+			<small>Find players in a city</small>
+		</h1>
+		<ol class="breadcrumb">
+			<li><a href="#/dashboard.html"><i class="fa fa-dashboard"></i>Home</a></li>
+			<li class="active">Find a player</li>
+		</ol>
+	</section>
 
-		<section class="content" ng-controller="FindPlayersCtrl as FindPlayersCtrl">
-			<div class="row">
-				<div class="col-sm-6">
-					<div class="box box-success">
-						<div class="box-header with-border">
-							<h3 class="box-title">You can find players in your city</h3>
-							<div class="box-tools pull-right">
-								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-							</div>
-						</div><!-- /.box-header -->
-						<div class="box-body">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="form-group">
-										<label>Your cities</label>
-										<select class="form-control select2" style="width: 100%;" id="city-model" ng-model="FindPlayersCtrl.city"
-											ng-options="obj.city as obj.city for obj in FindPlayersCtrl.currentUser.addresses">
-											<option value="">Choose a City</option>
-											<option value="All">All cities</option>
-										</select>
-									</div>
-									<!-- <div class="form-group">
-										<h4>{{proficiency_id}}</h4>
-										<label>Proficiency Level</label>
-										<select class="form-control select2" style="width: 100%;" ng-model="proficiency_id"
-											ng-options="obj.id as (obj.id + ' - ' + obj.name) for obj in FindPlayersCtrl.proficiencyTypes track by obj.id">
-											<option value="">Choose a Proficiency Level</option>
-										</select>
-									</div> -->
-									<div class="form-group">
-										<button type="submit" class="btn btn-success" ng-click="FindPlayersCtrl.findPlayers()">Find Players</button>
-									</div>
+	<section class="content" ng-controller="FindPlayersCtrl as FindPlayersCtrl">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="box box-success">
+					<div class="box-header with-border">
+						<h3 class="box-title">You can find players in your city</h3>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label>Your cities</label>
+									<select class="form-control select2" style="width: 100%;" id="city-model" ng-model="FindPlayersCtrl.city"
+										ng-options="obj.city as obj.city for obj in FindPlayersCtrl.currentUser.addresses">
+										<option value="">Choose a City</option>
+										<option value="All">All cities</option>
+									</select>
+								</div>
+								<!-- <div class="form-group">
+									<h4>{{proficiency_id}}</h4>
+									<label>Proficiency Level</label>
+									<select class="form-control select2" style="width: 100%;" ng-model="proficiency_id"
+										ng-options="obj.id as (obj.id + ' - ' + obj.name) for obj in FindPlayersCtrl.proficiencyTypes track by obj.id">
+										<option value="">Choose a Proficiency Level</option>
+									</select>
+								</div> -->
+								<div class="form-group">
+									<button type="submit" class="btn btn-success" ng-click="FindPlayersCtrl.findPlayers()">Find Players</button>
+								</div>
 
-									<div class="form-group" ng-show="FindPlayersCtrl.showPlayers">
-										<div class="box">
-											<div class="box-header">
-												<h3 class="box-title">Players in your area</h3>
-											</div><!-- /.box-header -->
-											<div class="box-body no-padding">
-												<table class="table table-striped">
-													<tr>
-														<th>Player Name</th>
-														<th>Level</th>
-														<th style="width:40px">Message</th>
-													</tr>
-													<tr ng-repeat="user in FindPlayersCtrl.players">
-														<td>{{user.name}}</td>
-														<td>{{user.proficiency_types[0].name}}</td>
-														<td><i class="fa fa-envelope-o"></i></td>
-													</tr>
-												</table>
-											</div><!-- /.box-body no-padding-->
+								<div class="form-group" ng-show="FindPlayersCtrl.showPlayers">
+									<div class="box">
+										<div class="box-header">
+											<h3 class="box-title">Players in your area</h3>
+										</div><!-- /.box-header -->
+										<div class="box-body no-padding">
+											<table class="table table-striped">
+												<tr>
+													<th>Player Name</th>
+													<th>Level</th>
+													<th style="width:40px">Message</th>
+												</tr>
+												<tr ng-repeat="user in FindPlayersCtrl.players">
+													<td>{{user.name}}</td>
+													<td>{{user.proficiency_types[0].name}}</td>
+													<td><i class="fa fa-envelope-o"></i></td>
+												</tr>
+											</table>
 										</div>
 									</div>
-								</div><!-- /.col -->
-							</div><!-- /.row -->
-						</div><!-- /.box-body -->
-					</div><!-- /.box -->
-				</div>
-
-				<div class="col-sm-6">
-					<div map-lazy-load="https://maps.google.com/maps/api/js">
-						<div id="playersMap" style="height: 600px;"></div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-	</div>
+
+			<div class="col-sm-6">
+				<div map-lazy-load="https://maps.google.com/maps/api/js">
+					<div id="playersMap" style="height: 600px;"></div>
+				</div>
+			</div>
+		</div>
+	</section>
 </div>

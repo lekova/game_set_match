@@ -1,6 +1,5 @@
-<div style="margin-left: 230px; min-heigth: 100%;">
+<div style="min-heigth: 100%;">
 	<div class="content-wrapper">
-		<!-- Content Header (Page header) -->
 		<section class="content-header" style="min-heigth: 100%;">
 			<h1>
 				My games
@@ -15,14 +14,13 @@
 		<section class="content" ng-controller="GamesCtrl as GamesCtrl" style="min-heigth: 100%;">
 			<div class="row">
 				<div class="col-md-6">
-					<!-- Games Box -->
 					<div class="box box-success">
 						<div class="box-header with-border">
 							<h3 class="box-title">Your Games</h3>
 							<div class="box-tools pull-right">
 								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
 							</div>
-						</div><!-- /.box-header -->
+						</div>
 						<div class="box-body">
 							<div class="row">
 								<div class="col-sm-8">
@@ -55,8 +53,8 @@
 								</div>
 							</div>
 							<hr>
-						</div><!-- /.box-body -->
-					</div><!-- /.box -->
+						</div>
+					</div>
 
 					<!-- Add New Game Box -->
 					<div class="box box-success">
@@ -246,7 +244,7 @@
 										<i class="icon fa fa-check"></i> Game created successfully!
 									</div>
 								</div>
-							</div><!-- /.box-body -->
+							</div>
 							<div class="box-footer">
 								<button class="btn btn-default" ng-click="GamesCtrl.resetForm()">Cancel</button>
 								<input type="submit" value="Create Game" class="btn btn-success pull-right">
@@ -255,9 +253,9 @@
 									<button type="button" class="close" data-dismiss="alert" aria-hidden="true" ng-click="AuthCtrl.resetForm()">&times;</button>
 									<h4><i class="icon fa fa-ban"></i> Information you entered is not correct!</h4>
 								</div> -->
-							</div><!-- /.box-footer -->
+							</div>
 						</form>
-					</div><!-- /.box -->
+					</div>
 				</div>
 
 				<div class="col-md-6">
@@ -269,7 +267,6 @@
 								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
 							</div>
 						</div>
-						<!-- /.box-header -->
 						<div class="box-body">
 							<div class="row">
 								<div class="col-md-12">
@@ -278,7 +275,6 @@
 											<div class="box-header">
 												<h3 class="box-title">{{GamesCtrl.wonGames.length}} Total Won Games</h3>
 											</div>
-											<!-- /.box-header -->
 											<div class="box-body no-padding">
 												<table class="table table-striped">
 													<tr>
@@ -297,17 +293,12 @@
 													</tr>
 												</table>
 											</div>
-											<!-- /.box-body -->
 										</div>
 									</div>
 								</div>
-								<!-- /.col -->
 							</div>
-							<!-- /.row -->
 						</div>
-						<!-- /.box-body -->
 					</div>
-					<!-- /.box -->
 					<div class="box box-success">
 						<div class="box-header with-border">
 							<h3 class="box-title">Lost Games</h3>
@@ -315,7 +306,6 @@
 								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
 							</div>
 						</div>
-						<!-- /.box-header -->
 						<div class="box-body">
 							<div class="row">
 								<div class="col-md-12">
@@ -324,7 +314,6 @@
 											<div class="box-header">
 												<h3 class="box-title">{{GamesCtrl.lostGames.length}} Total Lost Games</h3>
 											</div>
-											<!-- /.box-header -->
 											<div class="box-body no-padding">
 												<table class="table table-striped" id="table-lost-games">
 													<tr>
@@ -343,17 +332,12 @@
 													</tr>
 												</table>
 											</div>
-											<!-- /.box-body -->
 										</div>
 									</div>
 								</div>
-								<!-- /.col -->
 							</div>
-							<!-- /.row -->
 						</div>
-						<!-- /.box-body -->
 					</div>
-					<!-- /.box -->
 				</div>
 			</div>
 		</section>

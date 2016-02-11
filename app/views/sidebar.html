@@ -1,9 +1,6 @@
-<!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
 
   <section class="sidebar">
-
-    <!-- Sidebar user panel (optional) -->
     <div class="user-panel">
       <div class="pull-left image">
         <img src="app/image/no-image-user.png" class="img-circle" alt="User Image">
@@ -13,7 +10,7 @@
         <p>{{SidebarCtrl.user.current_proficiency_type}}</p>
       </div>
     </div>
-    <!-- Sidebar Menu -->
+
     <ul class="sidebar-menu" ng-model="SidebarCtrl.user">
       <li><a href="#/dashboard/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
       <li><a href="#/users/{{SidebarCtrl.user.id}}"><i class="fa fa-user"></i> <span>Profile</span></a></li>
@@ -24,19 +21,14 @@
       <li><a href="#/users/"><i class="fa fa-search"></i> <span>Find a player</span></a></li>
     </ul>
   </section>
-  <!-- /.sidebar -->
 </aside>
 
-<!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
-  <!-- Create the tabs -->
   <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
     <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
     <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
   </ul>
-  <!-- Tab panes -->
   <div class="tab-content">
-    <!-- Home tab content -->
     <div class="tab-pane active" id="control-sidebar-home-tab">
       <h3 class="control-sidebar-heading">Recent Activity</h3>
       <ul class="control-sidebar-menu">
@@ -49,7 +41,7 @@
             </div>
           </a>
         </li>
-      </ul><!-- /.control-sidebar-menu -->
+      </ul>
 
       <h3 class="control-sidebar-heading">Tasks Progress</h3>
       <ul class="control-sidebar-menu">
@@ -64,12 +56,10 @@
             </div>
           </a>
         </li>
-      </ul><!-- /.control-sidebar-menu -->
+      </ul>
 
-    </div><!-- /.tab-pane -->
-    <!-- Stats tab content -->
-    <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
-    <!-- Settings tab content -->
+    </div>
+    <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
     <div class="tab-pane" id="control-sidebar-settings-tab">
       <form method="post">
         <h3 class="control-sidebar-heading">General Settings</h3>
@@ -81,8 +71,8 @@
           <p>
             Some information about this general settings option
           </p>
-        </div><!-- /.form-group -->
+        </div>
       </form>
-    </div><!-- /.tab-pane -->
+    </div>
   </div>
-</aside><!-- /.control-sidebar -->
+</aside>

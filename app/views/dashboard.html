@@ -1,91 +1,86 @@
-<div style="margin-left: 230px;">
-	<div class="content-wrapper">
-		<!-- Content Header (Page header) -->
-		<section class="content-header">
-			<h1>
-				Dashboard
-				<small>Shows your tennis experience</small>
-			</h1>
-		</section>
+<div class="content-wrapper">
+	<section class="content-header">
+		<h1>
+			Dashboard
+			<small>Shows your tennis experience</small>
+		</h1>
+	</section>
 
-		<section class="content" ng-controller="DashboardCtrl as DashCtrl">
-			<div class="row">
-				<div class="col-lg-4 col-xs-6">
-					<div class="small-box bg-green">
-						<div class="inner" >
-							<h3>{{DashCtrl.totals.won_games_count}} Wins</h3>
-							<p>Over Time</p>
-						</div>
-						<div class="icon">
-							<i class="ion ion-stats-bars"></i>
-						</div>
-						<a href="#/games" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+	<section class="content" ng-controller="DashboardCtrl as DashCtrl">
+		<div class="row">
+			<div class="col-lg-4 col-xs-6">
+				<div class="small-box bg-green">
+					<div class="inner" >
+						<h3>{{DashCtrl.totals.won_games_count}} Wins</h3>
+						<p>Over Time</p>
 					</div>
+					<div class="icon">
+						<i class="ion ion-stats-bars"></i>
+					</div>
+					<a href="#/games" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 				</div>
-				<div class="col-lg-4 col-xs-6">
-					<div class="small-box bg-red">
-						<div class="inner">
-							<h3>{{DashCtrl.totals.lost_games_count}} Losses</h3>
-							<p>Over time</p>
-						</div>
-						<div class="icon">
-							<i class="ion ion-stats-bars"></i>
-						</div>
-						<a href="#/games" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-xs-6">
-					<div class="small-box bg-aqua">
-						<div class="inner">
-							<h3>{{DashCtrl.totals.opponents_count}} Opponents</h3>
-							<p>People you played against</p>
-						</div>
-						<div class="icon">
-							<i class="ion ion-person"></i>
-						</div>
-						<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-					</div>
-				</div>
-				<!-- ./col -->
-				<!-- <div class="col-lg-3 col-xs-6">
-					<div class="small-box bg-yellow">
-						<div class="inner">
-							<h3>5 {{MapsCtrl.getCourts.length}} Courts</h3>
-							<p>Tennis courts you played at</p>
-						</div>
-						<div class="icon">
-							<i class="ion ion-pie-graph"></i>
-						</div>
-						<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-					</div>
-				</div> -->
-				<!-- ./col -->
 			</div>
-			<div class="row">
-				<div class="col-md-8">
-					<!-- Line chart -->
-					<div class="box box-success">
-						<div class="box-header with-border">
-							<i class="fa fa-bar-chart-o"></i>
-							<h3 class="box-title">Your progress over time {{DashCtrl.statistics}}</h3>
-							<div class="box-tools pull-right">
-								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-							</div>
+			<div class="col-lg-4 col-xs-6">
+				<div class="small-box bg-red">
+					<div class="inner">
+						<h3>{{DashCtrl.totals.lost_games_count}} Losses</h3>
+						<p>Over time</p>
+					</div>
+					<div class="icon">
+						<i class="ion ion-stats-bars"></i>
+					</div>
+					<a href="#/games" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-xs-6">
+				<div class="small-box bg-aqua">
+					<div class="inner">
+						<h3>{{DashCtrl.totals.opponents_count}} Opponents</h3>
+						<p>People you played against</p>
+					</div>
+					<div class="icon">
+						<i class="ion ion-person"></i>
+					</div>
+					<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+			</div>
+			<!-- ./col -->
+			<!-- <div class="col-lg-3 col-xs-6">
+				<div class="small-box bg-yellow">
+					<div class="inner">
+						<h3>5 {{MapsCtrl.getCourts.length}} Courts</h3>
+						<p>Tennis courts you played at</p>
+					</div>
+					<div class="icon">
+						<i class="ion ion-pie-graph"></i>
+					</div>
+					<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+			</div> -->
+			<!-- ./col -->
+		</div>
+		<div class="row">
+			<div class="col-md-8">
+				<div class="box box-success">
+					<div class="box-header with-border">
+						<i class="fa fa-bar-chart-o"></i>
+						<h3 class="box-title">Your progress over time {{DashCtrl.statistics}}</h3>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
 						</div>
-						<div class="box-body">
-							<div class="no-data text-green" ng-show="DashCtrl.nodata">You have no games yet.<br>You can create a new game in the games page.</div>
-							<canvas id="line" class="chart chart-line" chart-data="DashCtrl.data"
-								chart-labels="DashCtrl.labels" chart-legend="true" chart-series="DashCtrl.series"
-								chart-click="onClick" chart-colours="DashCtrl.colours">
-							</canvas>
-						</div>
+					</div>
+					<div class="box-body">
+						<div class="no-data text-green" ng-show="DashCtrl.nodata">You have no games yet.<br>You can create a new game in the games page.</div>
+						<canvas id="line" class="chart chart-line" chart-data="DashCtrl.data"
+							chart-labels="DashCtrl.labels" chart-legend="true" chart-series="DashCtrl.series"
+							chart-click="onClick" chart-colours="DashCtrl.colours">
+						</canvas>
 					</div>
 				</div>
 			</div>
+		</div>
 
-		</section>
-	</div>
+	</section>
 </div>
 
-	<!-- <gsm-footer></gsm-footer>
- -->
+<!-- <gsm-footer></gsm-footer> -->
