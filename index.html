@@ -29,15 +29,15 @@
 </head>
 
 <body ng-app="gameSetMatch" class="hold-transition skin-green sidebar-mini">
-	<gsm-nav-bar></gsm-nav-bar>
-	<ng-view></ng-view>
 
-	<!-- <div class="wrapper"> -->
+	<gsm-nav-bar></gsm-nav-bar>
+	<div class="wrapper">
+		<ng-view></ng-view>
 		<div ng-if="NavbarCtrl.isLoggedIn()">
 			<gsm-side-bar></gsm-side-bar>
 		</div>
-	<!-- <ng-footer></ng-footer> -->
-	<!-- </div>--><!-- ./wrapper -->
+		<!-- <ng-footer></ng-footer> -->
+	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
