@@ -72,7 +72,7 @@
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" class="btn btn-default">Cancel</button>
+							<button type="submit" class="btn btn-default" ng-click="ProfileCtrl.resetCredentials()">Clear</button>
 							<button type="submit" class="btn btn-success pull-right" ng-click="ProfileCtrl.updateEmailOrPassword(credentialsForm.$valid)">Update</button>
 						</div>
 					</form>
@@ -112,7 +112,7 @@
               </div>
             </div>
             <div class="box-footer">
-              <button type="submit" class="btn btn-default">Cancel</button>
+              <button type="submit" class="btn btn-default" ng-click="ProfileCtrl.resetInfo()">Clear</button>
               <button type="submit" class="btn btn-success pull-right" ng-click="ProfileCtrl.updateUser(ProfileCtrl.user)">Update</button>
             </div>
           </form>

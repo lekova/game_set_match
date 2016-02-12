@@ -38,6 +38,14 @@
 			UserFactory.updateEmailOrPassword(this.currentUser.id, this.credentials);
 		};
 
+		this.resetCredentials = function() {
+			this.credentials = {};
+		};
+
+		this.resetInfo = function() {
+			this.user = {};
+		}
+
 		this.getProficiencyTypes();
 	};
 })();
