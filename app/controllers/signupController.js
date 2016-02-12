@@ -3,9 +3,9 @@
 (function() {
 	angular.module('gameSetMatch').controller('SignupController', SignupController);
 
-	SignupController.$inject = ['UserFactory'];
+	SignupController.$inject = ['$location', 'UserFactory'];
 
-	function SignupController(UserFactory) {
+	function SignupController($location, UserFactory) {
 		var vm = this;
 
 		vm.user = {};
@@ -26,7 +26,7 @@
 
 			UserFactory.createUser({
 				credentials: vm.user,
-				proficiency: vm.userProficiencyType
+				proficiency_types: vm.userProficiencyType
 			}).then(function(response) {
 				vm.credentials = {};
 			}, function(response) {
@@ -43,5 +43,9 @@
 		vm.isDuplicateEmail = function(email) {
 			UserFactory.checkEmail(email);
 		};
+
+		vm.goHome = function() {
+			$location.path('/home');
+		}
 	};
 })();

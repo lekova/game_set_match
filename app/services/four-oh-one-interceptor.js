@@ -6,7 +6,7 @@
         responseError: function(response) {
           if (response.status === 401) {
             simpleStorage.flush();
-            $location.path('/try-glitchly');
+            $location.path('/home');
             return $q.reject(response);
           } else {
             return $q.reject(response);

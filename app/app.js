@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('gameSetMatch', ['ngRoute', 'ngMap', 'chart.js', 'ngMessages'])
+angular.module('gameSetMatch', ['ngRoute', 'chart.js', 'ngMessages'])
   // .config(function ($httpProvider) {
   //   $httpProvider.interceptors.push('fourOhOneInterceptor');
   // })
-  .run(function($rootScope, $http, $window, $location, $routeParams, AuthFactory, UserFactory, GameFactory) {
+  .run(function($rootScope, $http, $location, AuthFactory) {
 
     if(AuthFactory.isLoggedIn()) {
       var data = simpleStorage.get('gsm-user-token');

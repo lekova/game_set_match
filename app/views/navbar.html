@@ -1,73 +1,155 @@
-<header class="main-header">
-  <nav class="navbar navbar-static-top" role="navigation">
-    <!-- Logo -->
-    <a href="#/profile" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>G</b>SM</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg">GameSet<b>Match</b></span>
-    </a>
-    <!-- Sidebar toggle button-->
-    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </a>
-    <!-- <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
-    </div> -->
-    <!-- Navbar Not Logged In Menu -->
-    <div ng-if="!NavbarCtrl.isLoggedIn()" class="navbar-custom-menu">
-      <ul class="nav navbar-nav">
-        <!-- User Account Menu -->
-        <li class="dropdown user user-menu">
-          <a href="#/login">
-            <span class="hidden-xs">Login </span>
-          </a>
-        </li>
-        <li class="dropdown user user-menu">
-          <a href="#/signup">
-            <span class="hidden-xs">Sign-up</span>
-          </a>
-        </li>
-      </ul>
-    </div><!-- Navbar Not Logged In -->
+<header class="main-header" ng-if="NavbarCtrl.isLoggedIn()">
+	<nav class="navbar navbar-default" >
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand logo" href="#/profile">
+					<span class="logo-lg">GameSet<b>Match</b></span>
+				</a>
+			</div>
 
-    <!-- Navbar Not Logged In Menu -->
-    <div ng-if="NavbarCtrl.isLoggedIn()" class="navbar-custom-menu">
-      <ul class="nav navbar-nav">
-        <!-- Messages menu-->
-        <li class="dropdown messages-menu">
-          <!-- Menu toggle button -->
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-envelope-o"></i>
-            <!-- <span class="label label-warning">4</span> -->
-          </a>
-        </li><!-- /.messages-menu -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav hide-navbar-menus" >
+					<li gsm-collapse><a href="#/dashboard/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+					<li gsm-collapse><a href="#/users/{{NavbarCtrl.currentUser.id}}"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+					<li gsm-collapse><a href="#/addresses"><i class="fa fa-home"></i> <span>Addresses</span></a></li>
+					<li gsm-collapse><a href="#/messages"><i class="fa fa-envelope"></i> <span>Messages</span></a></li>
+					<li gsm-collapse><a href="#/games"><i class="fa fa-gamepad"></i> <span>Games</span></a></li>
+					<li gsm-collapse><a href="#/calendar"><i class="fa fa-calendar"></i> <span>Calendar</span></a></li>
+					<li gsm-collapse><a href="#/users"><i class="fa fa-search"></i> <span>Find a player</span></a></li>
+				</ul>
 
-        <!-- Notifications Menu -->
-        <li class="dropdown notifications-menu">
-          <!-- Menu toggle button -->
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-bell-o"></i>
-            <!-- <span class="label label-warning">10</span> -->
-          </a>
-        </li>
+				<ul class="nav navbar-nav navbar-right">
+					<!-- TODO <li class="dropdown messages-menu show-navbar-menus">
+						<a href="" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="fa fa-envelope-o"></i>
+							<span class="label label-danger">4</span>
+						</a>
+						<ul class="dropdown-menu">
+							<li class="header"><span class='text-red'>Under Construction</span> You have 4 messages</li>
+							<li>
+								<ul class="menu">
+									<li>
+										<a href="#">
+											<div class="pull-left">
+												<img src="app/image/no-image-user.png" class="img-circle" alt="User Image">
+											</div>
+											<h4>
+												James Taylor
+												<small><i class="fa fa-clock-o"></i> 5 mins</small>
+											</h4>
+											<p>Hey, do you want to play next Wed, same place?</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<div class="pull-left">
+												<img src="app/image/no-image-user.png" class="img-circle" alt="User Image">
+											</div>
+											<h4>
+												Amelia Stevens
+												<small><i class="fa fa-clock-o"></i> 2 hours</small>
+											</h4>
+											<p>Still up for a game today?</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<div class="pull-left">
+												<img src="app/image/no-image-user.png" class="img-circle" alt="User Image">
+											</div>
+											<h4>
+												Kristen Lee
+												<small><i class="fa fa-clock-o"></i> Today</small>
+											</h4>
+											<p>Sorry, can make it for tomorrow. Let's plan for another time.</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<div class="pull-left">
+												<img src="app/image/no-image-user.png" class="img-circle" alt="User Image">
+											</div>
+											<h4>
+												Chris Wilson
+												<small><i class="fa fa-clock-o"></i> Yesterday</small>
+											</h4>
+											<p>That was a great game, see you next week?</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<div class="pull-left">
+												<img src="app/image/no-image-user.png" class="img-circle" alt="User Image">
+											</div>
+											<h4>
+												Game Set Match Team
+												<small><i class="fa fa-clock-o"></i> 2 days</small>
+											</h4>
+											<p>New updates are coming!!!</p>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="footer"><a href="#/messages">See All Messages</a></li>
+						</ul>
+					</li> -->
 
-        <!-- User Account Menu -->
-        <li class="dropdown user user-menu">
-          <!-- Menu Toggle Button -->
-          <a href="#/users/{{NavbarCtrl.currentUser.id}}" class="dropdown-toggle" data-toggle="dropdown">
-            <!-- The user image in the navbar-->
-            <img src="app/image/no-image-user.png" class="user-image" alt="User Image">
-            <!-- hidden-xs hides the username on small devices so only the image appears. -->
-            <span class="hidden-xs">{{NavbarCtrl.currentUser.name}}</span>
-          </a>
-        </li>
-        <li>
-          <a href="#/home" data-toggle="control-sidebar" ng-click="NavbarCtrl.logOut()">Sign out<i class="fa sign-out"></i></a>
-        </li>
-      </ul>
-    </div><!-- Navbar Not Logged In -->
-  </nav>
+					<!-- TODO <li class="dropdown notifications-menu show-navbar-menus">
+						<a href="" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="fa fa-bell-o"></i>
+							<span class="label label-danger">5</span>
+						</a>
+						<ul class="dropdown-menu">
+							<li class="header">You have 5 notifications</li>
+							<li>
+								<ul class="menu">
+									<li>
+										<a href="">
+											<i class="fa fa-spinner text-red"></i>
+											<span class="text-red">Under Construction</span> 5 new members joined
+										</a>
+									</li>
+									<li>
+										<a href="">
+											<i class="fa fa-spinner text-red"></i>
+											<span class="text-red">Under Construction</span> 1 tennis court added
+										</a>
+									</li>
+									<li>
+										<a href="">
+											<i class="fa fa-spinner text-green"></i>
+											<span class="text-red">Under Construction</span> You added 1 new address
+										</a>
+									</li>
+									<li>
+										<a href="">
+											<i class="fa fa-spinner text-green"></i>
+											<span class="text-red">Under Construction</span> You changed your username
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="footer"><a href="">View all</a></li>
+						</ul>
+					</li> -->
+
+					<li class="dropdown user user-menu show-navbar-menus">
+						<a href="#/users/{{NavbarCtrl.currentUser.id}}" class="dropdown-toggle" data-toggle="dropdown">
+							<img src="app/image/no-image-user.png" class="user-image" alt="User Image">
+							<span class="hidden-xs">{{NavbarCtrl.currentUser.name}}</span>
+						</a>
+					</li>
+					<li>
+						<a href="#/home" data-toggle="control-sidebar" ng-click="NavbarCtrl.logOut()">Sign out<i class="fa sign-out"></i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 </header>

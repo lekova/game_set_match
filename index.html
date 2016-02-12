@@ -7,13 +7,12 @@
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<link rel="icon" href="app/image/tennis-ball.ico">
 
-	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-	<!-- Font Awesome -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<!-- Ionicons -->
 	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	<!-- Theme style -->
-	<link rel="stylesheet" href="app/styles/app.min.css">
+	<!-- <link rel="stylesheet" href="app/styles/app.min.css"> -->
+	<link rel="stylesheet" href="app/styles/app.css">
 	<link rel="stylesheet" href="app/styles/skin-green.min.css">
 
 	<link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.min.css">
@@ -21,37 +20,36 @@
 	<link rel="stylesheet" href="bower_components/select2/select2-bootstrap.css">
 	<link rel="stylesheet" href="app/styles/bootstrap-timepicker.css">
 	<link rel="stylesheet" href="app/styles/main.css">
+	<!-- AngularJS-->
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
+	<script src="bower_components/angular-messages/angular-messages.min.js"></script>
 
 	<link src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker.min.css">
-
 </head>
 
-<body ng-app="gameSetMatch" class="hold-transition skin-green layout-top-nav">
+<body ng-app="gameSetMatch" class="hold-transition skin-green sidebar-mini">
 
-	<div class="wrapper">
-		<gsm-nav-bar></gsm-nav-bar>
+	<gsm-nav-bar></gsm-nav-bar>
+		<ng-view></ng-view>
 		<div ng-if="NavbarCtrl.isLoggedIn()">
 			<gsm-side-bar></gsm-side-bar>
-		</div>
-		<ng-view></ng-view>
-	<!--     <ng-footer></ng-footer> -->
-	</div><!-- ./wrapper -->
+		<!-- <ng-footer></ng-footer> -->
+	</div>
 
-	<script src="bower_components/jquery/dist/jquery.min.js"></script>
-	<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="app/scripts/app.js"></script>
 	<script src="app/scripts/bootstrap-timepicker.js"></script>
 
 	<!-- bower components -->
-	<script src="bower_components/angular/angular.min.js"></script>
-	<script src="bower_components/angular-route/angular-route.min.js"></script>
-	<script src="bower_components/angular-messages/angular-messages.min.js"></script>
+
 	<script src="bower_components/Chart.js/Chart.min.js"></script>
 	<script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
 	<script src="bower_components/simpleStorage/simpleStorage.min.js"></script>
-	<script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
+	<script src="bower_components/ngmap/build/scripts/ng-map.min.js"></script>
 
-	<script src="//maps.google.com/maps/api/js"></script>
+	<script src="http://maps.google.com/maps/api/js"></script>
 
 	<!-- root js scripts -->
 	<script src="app/app.js"></script>
@@ -64,15 +62,18 @@
 	<!-- factories -->
 	<script src="app/factories/authFactory.js"></script>
 	<script src="app/factories/userFactory.js"></script>
+	<script src="app/factories/addressFactory.js"></script>
 	<script src="app/factories/gameFactory.js"></script>
 	<script src="app/factories/chartFactory.js"></script>
 	<script src="app/factories/proficiencyFactory.js"></script>
 
 	<!--controllers -->
-	<script src="app/controllers/usersController.js"></script>
+	<script src="app/controllers/homeController.js"></script>
+	<script src="app/controllers/authController.js"></script>
+	<script src="app/controllers/addressesController.js"></script>
+	<script src="app/controllers/profileController.js"></script>
 	<script src="app/controllers/navbarController.js"></script>
 	<script src="app/controllers/sidebarController.js"></script>
-	<script src="app/controllers/authController.js"></script>
 	<script src="app/controllers/dashboardController.js"></script>
 	<script src="app/controllers/gamesController.js"></script>
 	<script src="app/controllers/signupController.js"></script>
@@ -82,12 +83,12 @@
 	<script src="app/directives/footer-directive.js"></script>
 	<script src="app/directives/login-directive.js"></script>
 	<script src="app/directives/nav-bar-directive.js"></script>
+	<script src="app/directives/collapse-directive.js"></script>
 	<script src="app/directives/side-bar-directive.js"></script>
 	<script src="app/directives/profile-directive.js"></script>
 	<script src="app/directives/signup-directive.js"></script>
 	<script src="app/directives/find-users-directive.js"></script>
 	<script src="app/directives/timepicker-directive.js"></script>
-	<script src="app/directives/add-address-directive.js"></script>
 
 	<!-- others -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>

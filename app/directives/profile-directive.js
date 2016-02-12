@@ -9,8 +9,8 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'app/views/profile.html',
-			controller: 'UsersCtrl',
-			controllerAs: 'UsersCtrl',
+			controller: 'ProfileCtrl',
+			controllerAs: 'ProfileCtrl',
 			bindToController: true
 		};
 	};

@@ -31,5 +31,13 @@
 		vm.isLoggedIn = function() {
 			return AuthFactory.isLoggedIn();
 		};
+
+		vm.resetForm = function() {
+			vm.credentials = {};
+		}
+
+		vm.goHome = function() {
+			$location.path('/home');
+		}
 	};
 })();
