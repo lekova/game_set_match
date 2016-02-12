@@ -35,5 +35,9 @@
 		vm.resetForm = function() {
 			vm.credentials = {};
 		}
+
+		vm.goHome = function() {
+			$location.path('/home');
+		}
 	};
 })();

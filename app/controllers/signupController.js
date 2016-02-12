@@ -3,9 +3,9 @@
 (function() {
 	angular.module('gameSetMatch').controller('SignupController', SignupController);
 
-	SignupController.$inject = ['UserFactory'];
+	SignupController.$inject = ['$location', 'UserFactory'];
 
-	function SignupController(UserFactory) {
+	function SignupController($location, UserFactory) {
 		var vm = this;
 
 		vm.user = {};
@@ -44,5 +44,9 @@
 		vm.isDuplicateEmail = function(email) {
 			UserFactory.checkEmail(email);
 		};
+
+		vm.goHome = function() {
+			$location.path('/home');
+		}
 	};
 })();
