@@ -1,15 +1,14 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper" style="margin-left:0px; height: 100vh;">
-  <section class="content">
+	<section class="content">
 	<div class="row">
 		<div class="col-md-3"></div>
-
+		<div class="col-md-6">
 			<div class="box box-success">
 				<div class="box-header with-border">
 					<h3 class="box-title">Credentials</h3>
 				</div>
-				<form name="credentialsForm" class="form-horizontal" role="form"
-					ng-submit="SignupCtrl.createUser(credentialsForm.$valid)" novalidate>
+				<form name="credentialsForm" class="form-horizontal" role="form" ng-submit="SignupCtrl.createUser(credentialsForm.$valid)" novalidate>
 					<div class="box-body">
 						<div class="form-group">
 							<label for="name" class="col-sm-2 control-label">Name</label>
@@ -57,81 +56,79 @@
 							</div>
 						</div> -->
 
-					<!-- radio -->
-					<div class="form-group">
-						<label for="name" class="col-sm-2 control-label">Proficiency</label>
-						<div class="col-sm-8">
-							<div class="radio">
-								<label>
-									<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="1" value="1">
-									<b>Newbie</b>&mdash;What's a tennis racquet?
-								</label>
-							</div>
-							<div class="radio">
-								<label>
-									<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="2" value="2">
-									<b>Rookie</b>&mdash;There is always hope!
-								</label>
-							</div>
-							<div class="radio">
-								<label>
-									<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="3" value="3">
-									<b>Beginner</b>&mdash;Enjoy when you can, endure when you must
-								</label>
-							</div>
-							<div class="radio">
-								<label>
-									<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="4" value="4">
-									<b>Talented</b>&mdash;I'm getting there, all I need is practice, practice, practice
-								</label>
-							</div>
-							<div class="radio">
-								<label>
-									<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="5" value="5">
-									<b>Intermediate</b>&mdash;The more I play the better I become
-								</label>
-							</div>
-							<div class="radio">
-								<label>
-									<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="6" value="6">
-									<b>Seasoned</b>&mdash;I may not always win, but when I do, I do it with style</label>
-							</div>
-							<div class="radio">
-								<label>
-									<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="7" value="7">
-									<b>Advanced</b>&mdash;I have my own style
-								</label>
-							</div>
-							<div class="radio">
-								<label>
-									<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="8" value="8">
-									<b>Proficient</b>&mdash;I'm just good at this!
-								</label>
-							</div>
-							<div class="radio">
-								<label>
-									<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="9" value="9">
-									<b>Expert</b>&mdash;I'm Roger Federer's cousin
-								</label>
+						<!-- radio -->
+						<div class="form-group">
+							<label for="name" class="col-sm-2 control-label">Proficiency</label>
+							<div class="col-sm-8">
+								<div class="radio">
+									<label>
+										<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="1" value="1">
+										<b>Newbie</b>&mdash;What's a tennis racquet?
+									</label>
+								</div>
+								<div class="radio">
+									<label>
+										<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="2" value="2">
+										<b>Rookie</b>&mdash;There is always hope!
+									</label>
+								</div>
+								<div class="radio">
+									<label>
+										<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="3" value="3">
+										<b>Beginner</b>&mdash;Enjoy when you can, endure when you must
+									</label>
+								</div>
+								<div class="radio">
+									<label>
+										<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="4" value="4">
+										<b>Talented</b>&mdash;I'm getting there, all I need is practice, practice, practice
+									</label>
+								</div>
+								<div class="radio">
+									<label>
+										<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="5" value="5">
+										<b>Intermediate</b>&mdash;The more I play the better I become
+									</label>
+								</div>
+								<div class="radio">
+									<label>
+										<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="6" value="6">
+										<b>Seasoned</b>&mdash;I may not always win, but when I do, I do it with style</label>
+								</div>
+								<div class="radio">
+									<label>
+										<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="7" value="7">
+										<b>Advanced</b>&mdash;I have my own style
+									</label>
+								</div>
+								<div class="radio">
+									<label>
+										<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="8" value="8">
+										<b>Proficient</b>&mdash;I'm just good at this!
+									</label>
+								</div>
+								<div class="radio">
+									<label>
+										<input ng-model="SignupCtrl.userProficiencyType.proficiency_type_id" type="radio" name="optionsRadios" id="9" value="9">
+										<b>Expert</b>&mdash;I'm Roger Federer's cousin
+									</label>
+								</div>
 							</div>
 						</div>
-					</div>
 					<!-- TODO ng-messages -->
 					<div ng-messages="credentialsForm.myField.$error" role="alert">
 						<div ng-message="required">You did not enter a field</div>
-						<div ng-message="minlength, maxlength">
-							Your email must be between 5 and 100 characters long
-						</div>
+						<div ng-message="minlength, maxlength">Your email must be between 5 and 100 characters long</div>
 					</div>
 				</div>
 				<div class="box-footer">
-					<button type="submit" class="btn btn-default" ng-click="SignupCtrl.resetForm()">Cancel</button>
+					<button type="submit" class="btn btn-default" ng-click="SignupCtrl.resetForm()">Clear</button>
 					<button type="submit" class="btn btn-success pull-right">Register</button>
 				</div>
 				</form>
 			</div>
 		</div>
-	<div class="col-md-3"></div>
+		<div class="col-md-3"></div>
 	</div>
 	</section>
 </div>
