@@ -11,6 +11,7 @@
 		function createAddress(addressToCreate) {
 			return $http.post(appSettings.apiUrl + '/addresses', addressToCreate).success(function(response) {
 				angular.copy(response, address);
+				location.reload();
 			});
 		};
 
@@ -18,6 +19,7 @@
 			return $http.patch(appSettings.apiUrl + '/addresses/' + addressToUpdate.id, addressToUpdate)
 				.success(function(response) {
 					angular.copy(response, address);
+					location.reload();
 				});
 		}
 
