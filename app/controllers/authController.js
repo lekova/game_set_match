@@ -31,5 +31,9 @@
 		vm.isLoggedIn = function() {
 			return AuthFactory.isLoggedIn();
 		};
+
+		vm.resetForm = function() {
+			vm.credentials = {};
+		}
 	};
 })();
