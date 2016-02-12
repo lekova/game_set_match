@@ -1,6 +1,6 @@
 {
   "name": "frontend-project-template",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple template for frontend code",
   "main": "app.js",
   "scripts": {},
