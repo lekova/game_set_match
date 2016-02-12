@@ -298,6 +298,12 @@ a:focus {
 .main-header .navbar-brand {
   color: #fff;
 }
+
+.main-header .navbar-brand:hover {
+  color: #fff;
+  background-color: #008d4c;
+}
+
 .content-header {
   position: relative;
   padding: 15px 15px 0 15px;
@@ -377,7 +383,7 @@ a:focus {
   }
   .main-header .logo,
   .main-header .navbar {
-    width: 100%;
+    /*width: 100%;*/
     float: none;
   }
   .main-header .navbar {
