@@ -9,7 +9,6 @@
 		var data = [[]];
 
 		var dataFilter = function(response) {
-			console.log('dataFilter response:', response);
 			labels.length = 0;
 
 			Array.prototype.push.apply(totals, response.totals);

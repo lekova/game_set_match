@@ -21,7 +21,6 @@
 
 			if (vm.isDuplicateEmail(vm.user.email)) {
 				// TODO
-				console.log("Email already exists");
 				vm.message = 'Email already exists';
 				return;
 			}

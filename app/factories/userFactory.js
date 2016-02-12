@@ -34,7 +34,6 @@
 					.success(function(response) {
 						return new Promise(function(resolve, reject) {
 							angular.copy(response, users);
-							console.log("players", users);
 						});
 					});
 		};

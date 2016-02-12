@@ -30,17 +30,12 @@
 		};
 
 		this.updateEmailOrPassword = function(isValid) {
-			console.log('isValid', isValid);
 			if (!isValid) {
 				console.log('credentials.password or password_confirmation are empty strings');
 				return;
 			}
 
 			UserFactory.updateEmailOrPassword(this.currentUser.id, this.credentials);
-		};
-
-		this.clickedButton = function() {
-			console.log("========= the button has been clicked");
 		};
 
 		this.getProficiencyTypes();

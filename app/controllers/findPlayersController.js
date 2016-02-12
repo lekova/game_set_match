@@ -15,7 +15,6 @@
 
 		vm.findPlayers = function() {
 			UserFactory.findPlayers(vm.city).then(function(response) {
-				console.log("hello players");
 				vm.players = response.data;
 				vm.showPlayers = true;
 				vm.setMapBounds();

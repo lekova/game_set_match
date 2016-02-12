@@ -28,7 +28,6 @@
 		function getUpcomingGames() {
 			return $http.get(appSettings.apiUrl + '/games/?status=0').then(function(response) {
 				angular.copy(response.data, upcomingGames);
-				console.log('===== Upcoming Games response.data:', response.data);
 			});
 		};
 
