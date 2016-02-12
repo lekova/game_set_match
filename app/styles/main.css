@@ -1,12 +1,15 @@
 body {
+
+	color: #00a65a;
+	text-align: left;
+}
+
+.body-bg-image {
 	background: url('../image/woman-playing-tennis.jpg') no-repeat fixed;
-	/*background: url('../image/zepp-swing.jpg') no-repeat fixed;*/
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	color: #00a65a;
-	text-align: left;
 }
 
 .transparent {

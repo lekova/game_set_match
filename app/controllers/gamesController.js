@@ -3,8 +3,7 @@
 (function() {
 	angular.module('gameSetMatch').controller('GamesCtrl', GamesCtrl);
 
-	GamesCtrl.$inject = ['$scope', '$location', 'GameFactory', 'AuthFactory',
-						'UserFactory', '$filter'];
+	GamesCtrl.$inject = ['$scope', '$location', 'GameFactory', 'AuthFactory', 'UserFactory'];
 
 	function GamesCtrl($scope, $location, GameFactory, AuthFactory, UserFactory) {
 		var vm = this;
