@@ -20,7 +20,6 @@
 			}
 
 			if (vm.isDuplicateEmail(vm.user.email)) {
-				// TODO
 				vm.message = 'Email already exists';
 				return;
 			}

@@ -17,7 +17,6 @@
 			result.then(function(value) {
 				AddressFactory.createAddress(value);
 			}).catch(function(error) {
-				// TODO create error message for the user
 				console.log("promise error is ", error);
 			});
 		};
@@ -32,7 +31,6 @@
 		};
 
 		vm.initialize = function() {
-			// TODO get users current location
 			var myLatlng = new google.maps.LatLng(42.355, -71.067857);
 			var myOptions = {
 				zoom: 11,

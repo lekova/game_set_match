@@ -22,7 +22,7 @@
 		vm.sortLossesBy = 'datetime';
 		vm.reverseWins = false;
 		vm.reverseLosses = false;
-		vm.label = false; // TODO check if this is needed considering "vm.submitted"
+		vm.label = false;
 		vm.submitted = false;
 
 		vm.interacted = function(field) {
