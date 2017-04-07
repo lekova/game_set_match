@@ -8,15 +8,16 @@ Like a personal diary for tennis, Game Set Match lets you record your match resu
 
 You can view stats based on your games such as your win/loss record and total opponents.
 
-### Front-end repository for the app
 
-##Technologies Used
+
+## Technologies Used
 - AngularJS
 - Bootstrap
 - CSS
-- [Google Maps API] (https://developers.google.com/maps/documentation/javascript/)
-- To be used: [Google Calendar API] (https://developers.google.com/google-apps/calendar/)
+- [Google Maps API](https://developers.google.com/maps/documentation/javascript/)
+- To be used: [Google Calendar API](https://developers.google.com/google-apps/calendar/)
 
-###Links
-- Link to ["Game Set Match" front-end] (https://github.com/lekova/game_set_match) source code on GihUb
-- Link to ["Game Set Match" back-end] (https://github.com/lekova/game_set_match_api) source code on GihUb
+## Links
+- Link to ["Game Set Match" front-end](https://github.com/lekova/game_set_match) source code on GihUb
+- Link to ["Game Set Match" back-end](https://github.com/lekova/game_set_match_api) source code on GihUb
+- Link to ["Game Set Match"](http://linalekova.com/game_set_match) hosted app
